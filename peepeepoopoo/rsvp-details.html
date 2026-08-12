@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><!-- draft option — the chosen design will move to the site root -->
+<link rel="canonical" href="https://lilyandkremer.com/">
+<title>Lily &amp; Kremer — RSVP</title>
+<script src="../rsvp-config.js"></script>
+<style>
+  /* step 2 of the RSVP — same loud look as the main page, same dry voice. */
+  :root{
+    --poo:#7a4a25;
+    --poo-dark:#4f2e13;
+    --pee:#ffe11a;
+    --pee-deep:#c9a800;
+    --cyan:#22c1e0;
+    --pink:#ff5bb0;
+    --lime:#8ede2a;
+    --cream:#fff7db;
+    --ink:#2e2113;
+  }
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  /* the hidden attribute has to beat every display rule below it */
+  [hidden]{ display:none !important; }
+  html{ scroll-padding-top:84px; -webkit-text-size-adjust:100%; }
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.55;
+    overflow-x:clip;
+    font-size:18px;
+  }
+  a{ color:#0a63c9; }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background-image:radial-gradient(circle at 20% 30%, rgba(255,225,26,.18), transparent 40%),
+                     radial-gradient(circle at 80% 70%, rgba(34,193,224,.16), transparent 40%);
+    pointer-events:none;
+  }
+
+  /* ===== NAV ===== */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--poo);
+    border-bottom:6px solid var(--pee);
+    display:flex; align-items:center; justify-content:space-between;
+    gap:10px; padding:10px 16px; flex-wrap:wrap;
+  }
+  .nav .logo{
+    font-weight:800; font-size:1.25rem; color:#fff; letter-spacing:.02em;
+    display:flex; align-items:center; gap:8px;
+    text-decoration:none;
+  }
+  .nav .backlink{
+    display:inline-block;
+    background:var(--pee);
+    color:var(--poo-dark);
+    text-decoration:none;
+    font-weight:700;
+    border:3px solid var(--poo-dark);
+    border-radius:10px;
+    padding:6px 12px;
+    font-size:.85rem;
+  }
+  .nav .backlink:hover,.nav .backlink:focus-visible{ background:var(--lime); }
+  :focus-visible{ outline:4px solid var(--cyan); outline-offset:2px; }
+
+  /* ===== marquee ===== */
+  .poo-strip{
+    background:var(--poo-dark);
+    color:var(--pee);
+    font-weight:700;
+    white-space:nowrap;
+    overflow:hidden;
+    padding:9px 0;
+    font-size:1rem;
+    letter-spacing:.08em;
+    border-top:4px solid var(--pee);
+    border-bottom:4px solid var(--pee);
+  }
+  .poo-strip span{ display:inline-block; padding-left:100%; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 18px; }
+  section{ padding:46px 0; }
+  .card{
+    background:#fff;
+    border:5px solid var(--poo);
+    border-radius:20px;
+    padding:24px;
+    box-shadow:8px 8px 0 var(--pee-deep);
+  }
+  h1,h2,h3{ line-height:1.12; }
+  .sect-title{
+    font-size:clamp(1.7rem,5.5vw,2.5rem);
+    font-weight:800;
+    color:var(--poo-dark);
+    margin-bottom:18px;
+    letter-spacing:-.01em;
+    word-break:break-word;
+  }
+  .sticker{
+    display:inline-block;
+    background:var(--pink); color:#fff; font-weight:700;
+    border:3px solid #fff; border-radius:999px;
+    padding:5px 15px; transform:rotate(-2deg);
+    box-shadow:3px 3px 0 rgba(0,0,0,.2);
+  }
+  p{ margin:0 0 12px; }
+
+  /* ===== RSVP FORM ===== */
+  .rsvp-card{ background:var(--lime); border-color:var(--poo-dark); }
+  .rsvp-form{ display:grid; gap:18px; }
+  .field label,.field legend{ font-weight:700; display:block; margin-bottom:6px; font-size:1.02rem; }
+  .field input[type=text],.field input[type=email],.field input[type=number],.field select,.field textarea{
+    width:100%;
+    font-family:inherit; font-size:1rem;
+    padding:11px 13px;
+    border:3px solid var(--poo-dark); border-radius:12px;
+    background:#fff; color:var(--ink);
+  }
+  .field textarea{ min-height:84px; resize:vertical; }
+  .field .hint{ font-weight:400; font-size:.85rem; margin:0 0 6px; }
+  fieldset{ border:0; }
+  .go-btn{
+    font-family:inherit; font-weight:800; font-size:1.15rem;
+    background:var(--pink); color:#fff;
+    border:5px solid var(--poo-dark); border-radius:16px;
+    padding:13px 22px; cursor:pointer;
+    box-shadow:6px 6px 0 var(--poo-dark);
+  }
+  .go-btn:hover:not(:disabled){ transform:translate(-2px,-2px); background:#ff3aa0; }
+  .go-btn:disabled{ opacity:.7; cursor:progress; }
+  .note-line{ font-size:.88rem; margin-top:10px; }
+  .miss-line{ font-weight:700; font-size:1.08rem; }
+  .form-error,.form-notice{
+    background:#fff; color:var(--poo-dark);
+    border:3px solid #c0392b; border-radius:12px; padding:10px 12px; margin-top:10px; font-weight:700;
+  }
+  .form-notice{ border-color:var(--poo-dark); }
+  .rsvp-success{
+    background:#fff; border:5px dashed var(--pink); border-radius:20px;
+    padding:26px; text-align:center;
+  }
+  .rsvp-success h3{ font-size:1.8rem; color:var(--pink); }
+  .rsvp-success .big{ font-size:2.6rem; }
+
+  /* the "arrived with no info" notice */
+  .no-data{ text-align:center; }
+  .no-data .big{ font-size:2.6rem; }
+  .no-data .start-btn{
+    display:inline-block; margin-top:12px;
+    font-family:inherit; font-weight:800; font-size:1.05rem;
+    background:var(--pink); color:#fff; text-decoration:none;
+    border:5px solid var(--poo-dark); border-radius:16px;
+    padding:12px 20px; box-shadow:6px 6px 0 var(--poo-dark);
+  }
+  .no-data .start-btn:hover,.no-data .start-btn:focus-visible{ transform:translate(-2px,-2px); background:#ff3aa0; }
+
+  /* honeypot */
+  .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+  /* ===== footer ===== */
+  footer{
+    background:var(--poo); color:#fff; text-align:center;
+    padding:30px 18px; border-top:8px solid var(--pee);
+  }
+  footer a{ color:var(--pee); }
+  .by-line{ font-size:.92rem; margin-top:10px; opacity:.9; }
+
+  @media (prefers-reduced-motion:no-preference){
+    .poo-strip span{ animation:scrollpoo 22s linear infinite; }
+    @keyframes scrollpoo{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-100%); } }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="index.html">L &amp; K 💩</a>
+  <a class="backlink" href="index.html">&larr; Back</a>
+</header>
+
+<div class="poo-strip" aria-hidden="true"><span>ALMOST DONE · A FEW MORE QUESTIONS · LILY &amp; KREMER · SEPTEMBER 18, 2027 · FART LAUDERDALE · 💩 · ALMOST DONE · A FEW MORE QUESTIONS · LILY &amp; KREMER · SEPTEMBER 18, 2027 · FART LAUDERDALE · 💩 · </span></div>
+
+<section>
+  <div class="wrap">
+    <h2 class="sect-title" id="rd-title">Almost done</h2>
+    <div class="card rsvp-card">
+
+      <!-- shown when we have no info from step 1 -->
+      <div class="no-data" id="rd-nodata" hidden>
+        <div class="big">💩</div>
+        <p style="font-weight:700;">We didn&rsquo;t catch your name. Let&rsquo;s start at the beginning.</p>
+        <a class="start-btn" href="index.html#rsvp">Start your RSVP</a>
+      </div>
+
+      <!-- the details form -->
+      <form class="rsvp-form" id="rsvp-details-form" hidden novalidate="">
+        <p class="rsvp-intro" id="rd-greeting" style="font-weight:700;"></p>
+
+        <div class="field">
+          <label for="rd-email">Your email <span style="font-weight:400;">(so Lily &amp; Kremer can reply)</span></label>
+          <input type="email" id="rd-email" name="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+
+        <!-- only for people who are coming -->
+        <div id="rd-attending-block" hidden>
+          <div class="field">
+            <label for="rd-guests">How many of you are coming (including yourself)?</label>
+            <input type="number" id="rd-guests" name="guests" min="1" max="10" step="1" value="1" required inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="rd-meal">Meal preference</label>
+            <p class="hint" id="rd-meal-hint">A sample menu for now; the real one comes later.</p>
+            <select id="rd-meal" name="meal" aria-describedby="rd-meal-hint">
+              <option value="" selected>Select one</option>
+              <option value="Beef">Beef</option>
+              <option value="Fish">Fish</option>
+              <option value="Vegetarian">Vegetarian</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="rd-dietary">Dietary restrictions or allergies</label>
+            <input type="text" id="rd-dietary" name="dietary" placeholder="Anything we should know about">
+          </div>
+        </div>
+
+        <!-- only for people who can't come -->
+        <p class="miss-line" id="rd-miss" hidden>We&rsquo;ll miss you. There will, at least, be a bathroom.</p>
+
+        <div class="field">
+          <label for="rd-note">A note for the couple <span style="font-weight:400;">(optional)</span></label>
+          <textarea id="rd-note" name="note" placeholder="Say something. Anything."></textarea>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="rd-website">Leave this field empty</label>
+          <input type="text" id="rd-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div>
+          <button class="go-btn" type="submit" id="rd-submit">Send RSVP</button>
+          <p class="note-line">This sends your RSVP straight to Lily &amp; Kremer.</p>
+          <p class="form-error" id="rd-error" role="status" hidden>Something went wrong &mdash; please email us at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
+          <p class="form-notice" id="rd-notice" role="status" hidden>Our RSVP system is still being set up. Please check back soon to send yours.</p>
+        </div>
+      </form>
+
+      <!-- the confirmation panel -->
+      <div class="rsvp-success" id="rd-success" role="status" hidden>
+        <div class="big">💩</div>
+        <h3>You&rsquo;re in.</h3>
+        <p style="font-weight:700;">Your RSVP is recorded. See you in Fart Lauderdale.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Questions: <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></div>
+  <div style="margin-top:8px;font-weight:700;">Lily &amp; Kremer &middot; September 18, 2027 &middot; Fart Lauderdale, Florida</div>
+  <div class="by-line">This website was made by Chester, brother of the bride. He would like that on the record.</div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var form = document.getElementById("rsvp-details-form");
+  var noData = document.getElementById("rd-nodata");
+  var titleEl = document.getElementById("rd-title");
+  var greeting = document.getElementById("rd-greeting");
+  var attendingBlock = document.getElementById("rd-attending-block");
+  var missLine = document.getElementById("rd-miss");
+  var guestsInput = document.getElementById("rd-guests");
+  var mealSelect = document.getElementById("rd-meal");
+  var honeypotInput = document.getElementById("rd-website");
+  var submitBtn = document.getElementById("rd-submit");
+  var errorLine = document.getElementById("rd-error");
+  var noticeLine = document.getElementById("rd-notice");
+  var successPanel = document.getElementById("rd-success");
+
+  /* ---------- read what step 1 saved ---------- */
+  var stored = null;
+  try {
+    stored = JSON.parse(sessionStorage.getItem("lk_rsvp"));
+  } catch (err) {
+    stored = null;
+  }
+
+  var name = (stored && typeof stored.name === "string") ? stored.name.trim() : "";
+  var attending = (stored && typeof stored.attending === "string") ? stored.attending : "";
+  var step1Website = (stored && typeof stored.website === "string") ? stored.website : "";
+
+  /* no name means they skipped step 1 — show the friendly notice, no errors */
+  if (!name){
+    if (form) form.hidden = true;
+    if (noData) noData.hidden = false;
+    if (titleEl) titleEl.textContent = "Let's start with the basics";
+    return;
+  }
+
+  var isAttending = (attending === "Joyfully accepts");
+
+  /* greet by name — set as TEXT so an unusual name can't inject markup */
+  if (greeting){ greeting.textContent = "Thanks, " + name + "."; }
+
+  /* carry the step 1 honeypot value forward */
+  if (honeypotInput){ honeypotInput.value = step1Website; }
+
+  /* show the right fields for coming vs not coming */
+  if (isAttending){
+    if (attendingBlock) attendingBlock.hidden = false;
+    if (missLine) missLine.hidden = true;
+  } else {
+    if (attendingBlock) attendingBlock.hidden = true;
+    if (missLine) missLine.hidden = false;
+    /* not coming — don't validate the hidden guests field */
+    if (guestsInput) guestsInput.required = false;
+  }
+
+  if (form) form.hidden = false;
+  form.removeAttribute("novalidate"); /* keep native validation now that JS runs */
+
+  var sending = false;
+
+  function showSuccess(){
+    form.hidden = true;
+    if (errorLine) errorLine.hidden = true;
+    if (noticeLine) noticeLine.hidden = true;
+    if (successPanel) successPanel.hidden = false;
+    try { sessionStorage.removeItem("lk_rsvp"); } catch (err){}
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (sending) return;
+    if (!form.reportValidity()) return;
+
+    var data = new FormData(form);
+    var email = String(data.get("email") || "").trim();
+    var guests = isAttending ? String(data.get("guests") || "") : "0";
+    var meal = isAttending ? String(data.get("meal") || "").trim() : "";
+    var dietary = isAttending ? String(data.get("dietary") || "").trim() : "";
+    var note = String(data.get("note") || "").trim();
+    var honeypot = String(data.get("website") || "");
+
+    /* bots fill the hidden field — pretend it worked, send nothing */
+    if (honeypot.trim() !== ""){ showSuccess(); return; }
+
+    var endpoint = (typeof window.RSVP_ENDPOINT === "string") ? window.RSVP_ENDPOINT.trim() : "";
+
+    /* no backend yet — be honest, keep their answers, NEVER open an email app */
+    if (endpoint === ""){
+      if (errorLine) errorLine.hidden = true;
+      if (noticeLine) noticeLine.hidden = false;
+      return;
+    }
+
+    sending = true;
+    if (errorLine) errorLine.hidden = true;
+    if (noticeLine) noticeLine.hidden = true;
+    var restingLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+
+    fetch(endpoint, {
+      method: "POST",
+      body: new URLSearchParams({
+        name: name,
+        email: email,
+        attending: attending,
+        guests: guests,
+        meal: meal,
+        dietary: dietary,
+        note: note,
+        website: honeypot
+      })
+    }).then(
+      function(res){ return !!(res.ok || res.type === "opaque"); },
+      function(){ return false; }
+    ).then(function(okay){
+      sending = false;
+      if (okay){
+        showSuccess();
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = restingLabel;
+        if (errorLine) errorLine.hidden = false;
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

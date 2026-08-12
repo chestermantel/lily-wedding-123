@@ -1128,11 +1128,6 @@
           <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
         </div>
 
-        <div class="form-row">
-          <label for="rsvp-email">Email</label>
-          <input type="email" id="rsvp-email" name="email" autocomplete="email" required>
-        </div>
-
         <fieldset class="radio-fieldset form-row">
           <legend>Will you be attending?</legend>
           <label class="radio-option" for="rsvp-yes">
@@ -1145,47 +1140,9 @@
           </label>
         </fieldset>
 
-        <div class="form-row">
-          <label for="rsvp-guests">Number of guests</label>
-          <input type="number" id="rsvp-guests" name="guests" min="1" max="10" value="1" required>
-        </div>
-
-        <div class="form-row">
-          <label for="rsvp-meal">Meal preference
-            <span class="label-hint">A sample menu — the final menu is still to come.</span>
-          </label>
-          <div class="select-wrap">
-            <select id="rsvp-meal" name="meal" required>
-              <option value="" selected disabled>Choose one…</option>
-              <option value="Beef">Beef</option>
-              <option value="Fish">Fish</option>
-              <option value="Vegetarian">Vegetarian</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <label for="rsvp-dietary">Dietary restrictions or allergies</label>
-          <input type="text" id="rsvp-dietary" name="dietary" autocomplete="off">
-        </div>
-
-        <div class="form-row">
-          <label for="rsvp-note">A note for the couple
-            <span class="label-hint">Optional — but we do love mail.</span>
-          </label>
-          <textarea id="rsvp-note" name="note"></textarea>
-        </div>
-
-        <button class="rsvp-submit" type="submit">Send our RSVP</button>
-        <p class="rsvp-error" id="rsvp-error" role="status" hidden>Something went wrong — please email us at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
-        <p class="rsvp-caption">Your reply goes straight to Lily &amp; Kremer — no stamps required.</p>
+        <button class="rsvp-submit" type="submit">Continue →</button>
+        <p class="rsvp-caption">Just two quick questions to start.</p>
       </form>
-
-      <div class="rsvp-success" id="rsvp-success" role="status" hidden>
-        <p class="pill pill--butter">RSVP received</p>
-        <h3 class="rsvp-success-title">Thank you!</h3>
-        <p class="rsvp-success-line">Your RSVP is in — we can’t wait to celebrate with you.</p>
-      </div>
     </div>
   </section>
 
@@ -1331,111 +1288,31 @@
       }
     });
 
-    /* ---------- RSVP submit ---------- */
+    /* ---------- RSVP step 1 — name + attending, then hand off to step 2 ---------- */
     var rsvpForm = document.getElementById("rsvp-form");
-    var rsvpSubmit = rsvpForm.querySelector(".rsvp-submit");
-    var rsvpIntro = document.getElementById("rsvp-intro");
-    var rsvpSuccess = document.getElementById("rsvp-success");
-    var rsvpError = document.getElementById("rsvp-error");
-    var rsvpSending = false;
-
-    function showRsvpSuccess() {
-      rsvpForm.hidden = true;
-      if (rsvpIntro) { rsvpIntro.hidden = true; }
-      rsvpSuccess.hidden = false;
-    }
-
-    rsvpForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (rsvpSending) { return; }
-
-      var data = new FormData(rsvpForm);
-      var honeypot = String(data.get("website") || "").trim();
-      var name = String(data.get("name") || "").trim();
-      var note = String(data.get("note") || "").trim();
-
-      /* Bots fill the hidden field — pretend it worked, send nothing. */
-      if (honeypot) {
-        showRsvpSuccess();
-        return;
-      }
-
-      var endpoint = (typeof window.RSVP_ENDPOINT === 'string') ? window.RSVP_ENDPOINT.trim() : '';
-
-      if (endpoint === '') {
-        /* No backend wired up yet — fall back to the pre-filled email. */
-        var lines = [
-          "Name(s): " + name,
-          "Email: " + String(data.get("email") || "").trim(),
-          "Attending: " + String(data.get("attending") || ""),
-          "Number of guests: " + String(data.get("guests") || ""),
-          "Meal preference: " + String(data.get("meal") || ""),
-          "Dietary restrictions or allergies: " + (String(data.get("dietary") || "").trim() || "None noted")
-        ];
-        if (note) {
-          lines.push("", "A note for the couple:", note);
+    if (rsvpForm) {
+      rsvpForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (typeof rsvpForm.reportValidity === "function" && !rsvpForm.reportValidity()) {
+          return;
         }
-        var mailto = "mailto:lilyandkremer@gmail.com" +
-          "?subject=" + encodeURIComponent("RSVP — " + name) +
-          "&body=" + encodeURIComponent(lines.join("\n"));
-        window.location.href = mailto;
-        return;
-      }
 
-      rsvpSending = true;
-      var originalLabel = rsvpSubmit.textContent;
-      rsvpSubmit.disabled = true;
-      rsvpSubmit.textContent = "Sending…";
-      rsvpError.hidden = true;
+        var data = new FormData(rsvpForm);
+        var name = String(data.get("name") || "").trim();
+        var attending = String(data.get("attending") || "");
+        var website = String(data.get("website") || "");
 
-      fetch(endpoint, {
-        method: 'POST',
-        body: new URLSearchParams({
-          name: name,
-          email: String(data.get("email") || "").trim(),
-          attending: String(data.get("attending") || ""),
-          guests: String(data.get("guests") || ""),
-          meal: String(data.get("meal") || ""),
-          dietary: String(data.get("dietary") || "").trim(),
-          note: note,
-          website: honeypot
-        })
-      }).then(function (res) {
-        if (res.ok || res.type === 'opaque') {
-          showRsvpSuccess();
-        } else {
-          throw new Error("RSVP request failed");
-        }
-      }).catch(function () {
-        rsvpSending = false;
-        rsvpSubmit.disabled = false;
-        rsvpSubmit.textContent = originalLabel;
-        rsvpError.hidden = false;
+        try {
+          sessionStorage.setItem("lk_rsvp", JSON.stringify({
+            name: name,
+            attending: attending,
+            website: website
+          }));
+        } catch (err) { /* storage unavailable — the details page will prompt to start over */ }
+
+        window.location.href = "rsvp-details.html";
       });
-    });
-
-    /* Guest count and meal only apply to guests who are coming. */
-    (function(){
-      var radios = rsvpForm.elements["attending"];
-      var guests = document.getElementById("rsvp-guests");
-      var meal = document.getElementById("rsvp-meal");
-      if (!radios || !guests || !meal) return;
-      function group(el){ return el.closest(".field, .form-row") || el.parentElement; }
-      var groups = [group(guests), group(meal)];
-      var required = { guests: guests.required, meal: meal.required };
-      function sync(){
-        var declining = false, i;
-        for (i = 0; i < radios.length; i++){
-          if (radios[i].checked && /decline|regret/i.test(radios[i].value)) declining = true;
-        }
-        for (i = 0; i < groups.length; i++){ if (groups[i]) groups[i].hidden = declining; }
-        guests.required = declining ? false : required.guests;
-        meal.required = declining ? false : required.meal;
-        if (declining) { meal.selectedIndex = 0; }
-      }
-      for (var i = 0; i < radios.length; i++){ radios[i].addEventListener("change", sync); }
-      sync();
-    })();
+    }
   })();
 </script>
 

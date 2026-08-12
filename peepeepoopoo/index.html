@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex"><!-- draft option — the chosen design will move to the site root -->
 <link rel="canonical" href="https://lilyandkremer.com/">
-<title>Lily &amp; Kremer — PEE PEE POO POO WEDEENG 💩🚽</title>
+<title>Lily &amp; Kremer — Fart Lauderdale, 2027</title>
 <script src="../rsvp-config.js"></script>
 <style>
-  /* made by chester (the best brother) — comic sans is a SYSTEM font so no
-     internet needed, it just looks like a little kid made it, which is the point */
+  /* The dry one. Loud on purpose; the writing plays it completely straight. */
   :root{
     --poo:#7a4a25;
     --poo-dark:#4f2e13;
@@ -19,23 +18,22 @@
     --pink:#ff5bb0;
     --lime:#8ede2a;
     --cream:#fff7db;
-    --ink:#3a2a17;
+    --ink:#2e2113;
   }
   *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
   /* the hidden attribute has to beat every display rule below it */
   [hidden]{ display:none !important; }
   html{ scroll-padding-top:84px; -webkit-text-size-adjust:100%; }
   body{
-    font-family:"Comic Sans MS","Comic Sans","Chalkboard SE","Comic Neue",cursive,sans-serif;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);
     background:var(--cream);
-    line-height:1.5;
+    line-height:1.55;
     overflow-x:clip;
     font-size:18px;
   }
   img{ max-width:100%; }
   a{ color:#0a63c9; }
-  /* poop emoji wallpaper made of pure text, super tacky on purpose */
   body::before{
     content:"";
     position:fixed;
@@ -50,20 +48,19 @@
   .nav{
     position:sticky; top:0; z-index:50;
     background:var(--poo);
-    border-bottom:6px dashed var(--pee);
+    border-bottom:6px solid var(--pee);
     display:flex; align-items:center; justify-content:space-between;
     gap:10px; padding:10px 16px;
   }
   .nav .logo{
-    font-weight:bold; font-size:1.3rem; color:#fff;
-    text-shadow:2px 2px 0 var(--poo-dark);
-    display:flex; align-items:center; gap:6px;
+    font-weight:800; font-size:1.25rem; color:#fff; letter-spacing:.02em;
+    display:flex; align-items:center; gap:8px;
   }
   .nav-toggle{
     display:none;
     background:var(--pee); color:var(--poo-dark);
     border:3px solid var(--poo-dark); border-radius:12px;
-    font-family:inherit; font-weight:bold; font-size:1rem;
+    font-family:inherit; font-weight:700; font-size:.95rem;
     padding:8px 12px; cursor:pointer;
   }
   .menu{ display:flex; flex-wrap:wrap; gap:6px; list-style:none; align-items:center; }
@@ -72,54 +69,57 @@
     background:var(--pee);
     color:var(--poo-dark);
     text-decoration:none;
-    font-weight:bold;
+    font-weight:700;
     border:3px solid var(--poo-dark);
     border-radius:10px;
     padding:6px 10px;
-    font-size:.86rem;
+    font-size:.82rem;
+    letter-spacing:.02em;
   }
-  .menu a:hover,.menu a:focus-visible{ background:var(--lime); transform:rotate(-2deg); }
+  .menu a:hover,.menu a:focus-visible{ background:var(--lime); }
   .menu a.rsvp-btn{ background:var(--pink); color:#fff; }
   :focus-visible{ outline:4px solid var(--cyan); outline-offset:2px; }
 
-  /* ===== marquee of poop ===== */
+  /* ===== marquee ===== */
   .poo-strip{
     background:var(--poo-dark);
     color:var(--pee);
-    font-weight:bold;
+    font-weight:700;
     white-space:nowrap;
     overflow:hidden;
-    padding:8px 0;
-    font-size:1.1rem;
+    padding:9px 0;
+    font-size:1rem;
+    letter-spacing:.08em;
     border-top:4px solid var(--pee);
     border-bottom:4px solid var(--pee);
   }
   .poo-strip span{ display:inline-block; padding-left:100%; }
 
   .wrap{ max-width:920px; margin:0 auto; padding:0 18px; }
-  section{ padding:44px 0; }
+  section{ padding:46px 0; }
   .card{
     background:#fff;
     border:5px solid var(--poo);
     border-radius:20px;
-    padding:22px;
+    padding:24px;
     box-shadow:8px 8px 0 var(--pee-deep);
   }
-  h1,h2,h3{ line-height:1.15; }
+  h1,h2,h3{ line-height:1.12; }
   .sect-title{
-    font-size:clamp(1.7rem,6vw,2.6rem);
+    font-size:clamp(1.7rem,5.5vw,2.5rem);
+    font-weight:800;
     color:var(--poo-dark);
-    text-align:center;
-    margin-bottom:16px;
-    text-shadow:2px 2px 0 var(--pee);
+    margin-bottom:18px;
+    letter-spacing:-.01em;
     word-break:break-word;
   }
   .sticker{
     display:inline-block;
-    background:var(--pink); color:#fff; font-weight:bold;
+    background:var(--pink); color:#fff; font-weight:700;
     border:3px solid #fff; border-radius:999px;
-    padding:4px 14px; transform:rotate(-3deg);
+    padding:5px 15px; transform:rotate(-2deg);
     box-shadow:3px 3px 0 rgba(0,0,0,.2);
+    font-size:.95rem;
   }
 
   /* ===== HERO ===== */
@@ -127,112 +127,106 @@
     text-align:center;
     background:repeating-linear-gradient(45deg,var(--pee) 0 26px,#fff59a 26px 52px);
     border-bottom:8px solid var(--poo);
-    padding:40px 18px 52px;
+    padding:48px 18px 54px;
+  }
+  .hero .kicker{
+    display:inline-block; font-weight:700; font-size:.8rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--poo-dark);
+    background:#fff; border:3px solid var(--poo-dark); border-radius:999px;
+    padding:5px 14px; transform:rotate(-1.5deg);
   }
   .hero h1{
-    font-size:clamp(2.2rem,10vw,4.6rem);
+    font-size:clamp(2.4rem,11vw,5rem);
+    font-weight:800;
     color:var(--poo-dark);
     text-shadow:3px 3px 0 #fff, 6px 6px 0 var(--pink);
-    margin:6px 0;
+    margin:14px 0 6px;
+    letter-spacing:-.02em;
   }
   .rainbow{
     background:linear-gradient(90deg,#ff2e2e,#ff8a00,#ffd500,#2ecc40,#22c1e0,#b10dc9);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .hero .sub{ font-size:1.25rem; font-weight:bold; color:var(--poo-dark); margin-top:8px; }
-  .hero .lil{ font-size:1rem; margin-top:6px; color:var(--ink); }
+  .hero .sub{ font-size:1.3rem; font-weight:700; color:var(--poo-dark); margin-top:4px; }
+  .hero .lil{ font-size:1rem; margin-top:8px; color:var(--ink); }
   .countbox{
-    display:inline-block; margin-top:20px;
+    display:inline-block; margin-top:24px;
     background:var(--poo); color:#fff;
     border:5px solid var(--poo-dark); border-radius:18px;
-    padding:14px 22px;
+    padding:16px 26px;
     box-shadow:6px 6px 0 var(--pee-deep);
   }
-  .countbox .num{ font-size:2.6rem; color:var(--pee); text-shadow:2px 2px 0 var(--poo-dark); }
-  .big-emoji{ font-size:2rem; vertical-align:middle; }
+  .countbox .num{ font-size:2.8rem; font-weight:800; color:var(--pee); line-height:1; }
+  .countbox .lbl{ font-size:.95rem; margin-top:4px; letter-spacing:.02em; }
 
   /* ===== generic bits ===== */
   p{ margin:0 0 12px; }
+  .card p:last-child{ margin-bottom:0; }
   .poo-list{ list-style:none; }
-  .poo-list li{ padding:6px 0 6px 34px; position:relative; }
-  .poo-list li::before{ content:"💩"; position:absolute; left:0; top:4px; }
+  .poo-list li{ padding:7px 0 7px 34px; position:relative; }
+  .poo-list li::before{ content:"💩"; position:absolute; left:0; top:5px; font-size:.9rem; }
 
-  .story p{ font-size:1.08rem; }
-  .doodle{ font-size:2.4rem; text-align:center; margin:6px 0; }
+  .story p{ font-size:1.06rem; }
 
-  /* ===== wedding party (poop crew) ===== */
-  .crew{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; }
+  /* ===== wedding party ===== */
+  .crew{ display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; }
   .crew .who{
     background:var(--cyan); color:var(--poo-dark);
     border:4px solid var(--poo-dark); border-radius:18px;
-    padding:16px; text-align:center; font-weight:bold;
+    padding:18px 16px; text-align:center; font-weight:800; font-size:1.1rem;
     box-shadow:5px 5px 0 var(--poo);
   }
-  .crew .who .emoji{ font-size:2.4rem; display:block; }
-  .crew .who .role{ font-weight:normal; font-size:.9rem; margin-top:4px; display:block; }
+  .crew .who .role{ font-weight:400; font-size:.9rem; margin-top:6px; display:block; line-height:1.4; }
 
   /* ===== RSVP ===== */
   .rsvp-card{ background:var(--lime); border-color:var(--poo-dark); }
-  .rsvp-form{ display:grid; gap:16px; }
-  .field label,.field legend{ font-weight:bold; display:block; margin-bottom:6px; font-size:1.05rem; }
-  .field input[type=text],.field input[type=email],.field input[type=number],.field select,.field textarea{
+  .rsvp-form{ display:grid; gap:18px; }
+  .field label,.field legend{ font-weight:700; display:block; margin-bottom:6px; font-size:1.02rem; }
+  .field input[type=text]{
     width:100%;
     font-family:inherit; font-size:1rem;
-    padding:10px 12px;
+    padding:11px 13px;
     border:3px solid var(--poo-dark); border-radius:12px;
     background:#fff; color:var(--ink);
   }
-  .field textarea{ min-height:84px; resize:vertical; }
-  .field .hint{ font-weight:normal; font-size:.85rem; margin:0 0 6px; }
   fieldset{ border:0; }
   .choice-row{ display:flex; flex-wrap:wrap; gap:10px; }
   .choice{
     display:inline-flex; align-items:center; gap:8px;
     background:#fff; border:3px solid var(--poo-dark); border-radius:12px;
-    padding:8px 14px; font-weight:bold; cursor:pointer; font-size:.95rem;
+    padding:9px 15px; font-weight:700; cursor:pointer; font-size:.98rem;
   }
   .choice input{ width:20px; height:20px; }
-  .row-2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .go-btn{
-    font-family:inherit; font-weight:bold; font-size:1.4rem;
+    font-family:inherit; font-weight:800; font-size:1.15rem;
     background:var(--pink); color:#fff;
     border:5px solid var(--poo-dark); border-radius:16px;
-    padding:14px 20px; cursor:pointer;
+    padding:13px 22px; cursor:pointer;
     box-shadow:6px 6px 0 var(--poo-dark);
   }
   .go-btn:hover:not(:disabled){ transform:translate(-2px,-2px); background:#ff3aa0; }
   .go-btn:disabled{ opacity:.7; cursor:progress; }
-  .mailto-note{ font-size:.85rem; margin-top:8px; }
-  .form-error{
-    background:#fff; color:var(--poo-dark);
-    border:3px solid #c0392b; border-radius:12px; padding:10px 12px; margin-top:10px; font-weight:bold;
-  }
-  .rsvp-success{
-    background:#fff; border:5px dashed var(--pink); border-radius:20px;
-    padding:24px; text-align:center;
-  }
-  .rsvp-success h3{ font-size:1.8rem; color:var(--pink); }
-  .rsvp-success .big{ font-size:3rem; }
+  .note-line{ font-size:.88rem; margin-top:10px; }
 
-  /* honeypot — hide it from humans + screen readers, bots still fill it */
+  /* honeypot */
   .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
   /* ===== FAQ ===== */
   details{
     background:#fff; border:4px solid var(--poo); border-radius:14px;
-    padding:8px 14px; margin-bottom:12px;
+    padding:10px 16px; margin-bottom:12px;
   }
-  summary{ font-weight:bold; cursor:pointer; font-size:1.05rem; }
+  summary{ font-weight:700; cursor:pointer; font-size:1.02rem; }
   details[open] summary{ color:var(--pink); }
   details p{ margin-top:8px; }
 
   /* ===== footer ===== */
   footer{
     background:var(--poo); color:#fff; text-align:center;
-    padding:28px 18px; border-top:8px dashed var(--pee);
+    padding:30px 18px; border-top:8px solid var(--pee);
   }
   footer a{ color:var(--pee); }
-  .by-line{ font-size:.95rem; margin-top:10px; opacity:.9; }
+  .by-line{ font-size:.92rem; margin-top:10px; opacity:.9; }
 
   @media (max-width:640px){
     .nav-toggle{ display:block; }
@@ -243,59 +237,53 @@
     .menu.open{ display:flex; }
     .nav{ flex-wrap:wrap; }
     .menu a{ font-size:1rem; }
-    .row-2{ grid-template-columns:1fr; }
   }
 
   @media (prefers-reduced-motion:no-preference){
-    .poo-strip span{ animation:scrollpoo 18s linear infinite; }
+    .poo-strip span{ animation:scrollpoo 22s linear infinite; }
     @keyframes scrollpoo{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-100%); } }
-    .sticker,.crew .who:hover{ animation:wobble 1.2s ease-in-out infinite; }
-    @keyframes wobble{ 0%,100%{ transform:rotate(-3deg); } 50%{ transform:rotate(3deg); } }
-    .big-emoji{ display:inline-block; animation:spin 4s linear infinite; }
-    @keyframes spin{ 100%{ transform:rotate(360deg); } }
   }
 </style>
 </head>
 <body>
 
 <header class="nav">
-  <span class="logo">💩 L &amp; K 🚽</span>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="menu">MENU 💩</button>
+  <span class="logo">L &amp; K 💩</span>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
   <nav>
     <ul class="menu" id="menu">
-      <li><a href="#story">THE STORY</a></li>
-      <li><a href="#details">POTTY INFO</a></li>
-      <li><a href="#travel">GET UR BUTT THERE</a></li>
-      <li><a href="#party">THE POOP CREW</a></li>
+      <li><a href="#story">The Story</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#travel">Travel</a></li>
+      <li><a href="#party">The Party</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#rsvp" class="rsvp-btn">RSVP 🚽</a></li>
+      <li><a href="#rsvp" class="rsvp-btn">RSVP</a></li>
     </ul>
   </nav>
 </header>
 
-<div class="poo-strip" aria-hidden="true"><span>💩 LILY &amp; KREMER R GETTING MARRYED 💛 SEPT 18 2027 💩 FORT LAUDERDALE 🚽 COME POOP WITH US 💦 💩 LILY &amp; KREMER R GETTING MARRYED 💛 SEPT 18 2027 💩 FORT LAUDERDALE 🚽 COME POOP WITH US 💦 </span></div>
+<div class="poo-strip" aria-hidden="true"><span>LILY &amp; KREMER · SEPTEMBER 18, 2027 · FART LAUDERDALE, FLORIDA · YOU ARE CORDIALLY INVITED · 💩 · LILY &amp; KREMER · SEPTEMBER 18, 2027 · FART LAUDERDALE, FLORIDA · YOU ARE CORDIALLY INVITED · 💩 · </span></div>
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="home">
-  <span class="sticker">a real wedeeng website 4 real</span>
-  <h1>LILY <span class="rainbow">&amp;</span> KREMER</h1>
-  <p class="sub">R GETTING MARRYED!!! 💩🚽💛</p>
-  <p class="lil">Saturday September 18 2027 &middot; Fort Lauderdale Florida &middot; its gonna be so cool</p>
+  <span class="kicker">An official wedding website</span>
+  <h1>Lily <span class="rainbow">&amp;</span> Kremer</h1>
+  <p class="sub">are getting married.</p>
+  <p class="lil">Saturday, September 18, 2027 &middot; Fart Lauderdale, Florida</p>
   <div class="countbox">
-    <div>ONLY <span class="num" id="count">???</span> SLEEPS</div>
-    <div>UNTIL THE BIG <span class="big-emoji">💩</span> POO POO PARTY <span class="big-emoji">🚽</span></div>
+    <div class="num" id="count">&mdash;</div>
+    <div class="lbl">days until the wedding.</div>
   </div>
 </section>
 
 <!-- ===== STORY ===== -->
 <section id="story" class="story">
   <div class="wrap">
-    <h2 class="sect-title">HOW THEY MET (it wasnt in a bathroom lol)</h2>
+    <h2 class="sect-title">How this happened</h2>
     <div class="card">
-      <p>OK so my sister LILY and this guy KREMER were best friends 4 like a BILLION years. they were friends 4 sooooo long that everybody was like "ok when r u 2 gonna get marryed" and they were like "noooo we r just friends" but then GUESS WHAT. they were NOT just friends. 😳💛</p>
-      <p>they liked all the same stuff and laughed at all the same dumb jokes (probably poop jokes because those r the funnyest jokes) and one day the friendship turned into the LOVE kind and now they r getting MARRYED. its actually kinda cute even tho im not supposed 2 say that. 🤮❤️</p>
-      <div class="doodle">💩 ➕ 💩 🟰 💕</div>
-      <p><span class="sticker">true luv (gross)</span></p>
+      <p>Lily and Kremer were friends for an extremely long time. Long enough that people started asking questions. The people were correct. They are now getting married.</p>
+      <p>That is genuinely the whole story. They like the same things, they laugh at the same things, and a concerning number of those things are bathroom-related. We have chosen not to fight it. You are currently looking at the results.</p>
+      <p><span class="sticker">True love, allegedly</span></p>
     </div>
   </div>
 </section>
@@ -303,12 +291,11 @@
 <!-- ===== DETAILS ===== -->
 <section id="details">
   <div class="wrap">
-    <h2 class="sect-title">WHERE 2 GO (potty info) 🚽</h2>
+    <h2 class="sect-title">The details</h2>
     <div class="card">
-      <p><strong>THE WEDEENG IS AT:</strong> Lago Mar Beach Resort &amp; Club, in Fort Lauderdale Florida. its a big fancy hotel right on the BEACH which means the ocean is basically a giant toilet ur welcome. 🌊🚽</p>
-      <p><strong>WHEN:</strong> Saturday, September 18, 2027. write it on ur calender or ur hand or wherever.</p>
-      <p>the ceremony AND the party r both there so u dont even have 2 walk far 2 find a bathroom. smart.</p>
-      <p><em>the whole entire schedule and the fancy details r coming with ur real invitation, this is just the cool website part.</em></p>
+      <p><strong>Where:</strong> Lago Mar Beach Resort &amp; Club, in Fart Lauderdale, Florida. It is a genuinely nice hotel, directly on the beach. The ocean is right there. We will not tell you how to use it.</p>
+      <p><strong>When:</strong> Saturday, September 18, 2027. The ceremony and the reception are both on-site, which minimizes walking and maximizes bathroom proximity.</p>
+      <p>The full schedule and the properly formal details arrive with your invitation. This website is the unofficial edition.</p>
     </div>
   </div>
 </section>
@@ -316,18 +303,18 @@
 <!-- ===== TRAVEL ===== -->
 <section id="travel">
   <div class="wrap">
-    <h2 class="sect-title">GET UR BUTT THERE ✈️</h2>
+    <h2 class="sect-title">Getting there</h2>
     <div class="card">
-      <p><strong>THE HOTEL:</strong> Lago Mar is right on Fort Lauderdale beach and its SUPER fancy. we r working on a room block deal so u can sleep there — booking info is coming soon so dont freak out yet.</p>
-      <p><strong>THE AIRPORT:</strong> fly into Fort Lauderdale–Hollywood airport (its called FLL) and its only like 15 minutes away. so close u could almost hold it that long. 😤</p>
-      <p><strong>STUFF 2 DO WHEN U ARNT POOPING:</strong></p>
+      <p><strong>The hotel:</strong> Lago Mar, on the beach in Fart Lauderdale. We are arranging a room block; booking details are forthcoming. Please remain calm.</p>
+      <p><strong>The airport:</strong> fly into Fart Lauderdale&ndash;Hollywood International (FLL). It is roughly fifteen minutes away. You will be fine.</p>
+      <p><strong>Things to do, should you find yourself with time:</strong></p>
       <ul class="poo-list">
-        <li>go 2 Fort Lauderdale Beach and pee in the ocean (jk. kinda.)</li>
-        <li>Las Olas Boulevard has shops and food and ICE CREAM</li>
-        <li>ride the Water Taxi up and down the water like a boss</li>
-        <li>Bonnet House Museum &amp; Gardens if u wanna be fancy</li>
-        <li>Hugh Taylor Birch State Park 4 trees and squirrels</li>
-        <li>Everglades airboat tour 2 see ALLIGATORS 🐊 (do NOT poke them)</li>
+        <li>Fart Lauderdale Beach. It is a beach. It performs the function admirably.</li>
+        <li>Las Olas Boulevard, for shopping and restaurants.</li>
+        <li>The Water Taxi, along the Intracoastal.</li>
+        <li>Bonnet House Museum &amp; Gardens, if you are feeling cultured.</li>
+        <li>Hugh Taylor Birch State Park.</li>
+        <li>An Everglades airboat tour. There are alligators. Maintain a professional distance.</li>
       </ul>
     </div>
   </div>
@@ -336,12 +323,12 @@
 <!-- ===== WEDDING PARTY ===== -->
 <section id="party">
   <div class="wrap">
-    <h2 class="sect-title">THE POOP CREW 💩👑</h2>
+    <h2 class="sect-title">The wedding party</h2>
     <div class="crew">
-      <div class="who"><span class="emoji">👸</span>Lucie<span class="role">Maid of Ho... i mean Maid of HONOR (the #1 girl)</span></div>
-      <div class="who"><span class="emoji">🤵</span>Kent<span class="role">Best Man (hes kremers BROTHER)</span></div>
-      <div class="who"><span class="emoji">😎</span>Alex<span class="role">also Best Man (kremers best bud)</span></div>
-      <div class="who"><span class="emoji">🦸</span>Chester<span class="role">brother of the bride AND the guy who made this AWESOME website ur welcome</span></div>
+      <div class="who">Lucie<span class="role">Maid of Honor.</span></div>
+      <div class="who">Kent<span class="role">Best Man. Kremer&rsquo;s brother.</span></div>
+      <div class="who">Alex<span class="role">Also Best Man. It is a long story.</span></div>
+      <div class="who">Chester<span class="role">Brother of the bride. Made this website. Considers it his finest work.</span></div>
     </div>
   </div>
 </section>
@@ -349,64 +336,30 @@
 <!-- ===== RSVP ===== -->
 <section id="rsvp">
   <div class="wrap">
-    <h2 class="sect-title">R U COMING?? TELL US!! 🚽📝</h2>
+    <h2 class="sect-title">RSVP</h2>
     <div class="card rsvp-card">
-      <p class="rsvp-intro" style="font-weight:bold;">fill this out so we know how much food 2 get and how many toilets we need (jk they have toilets already). your reply zooms straight 2 Lily &amp; Kremer.</p>
+      <p class="rsvp-intro" style="font-weight:700;">Two questions here. A few more on the next page. The whole thing takes under a minute &mdash; less time than you have already spent reading about bathrooms.</p>
       <form class="rsvp-form" id="rsvp-form" novalidate="">
         <div class="field">
-          <label for="rsvp-name">WATS UR NAME(S)</label>
-          <input type="text" id="rsvp-name" name="name" required autocomplete="name" placeholder="e.g. Rosie & Sam">
-        </div>
-        <div class="field">
-          <label for="rsvp-email">UR EMAIL (so we can email u stuff)</label>
-          <input type="email" id="rsvp-email" name="email" required autocomplete="email" placeholder="you@example.com">
+          <label for="rsvp-name">Your name(s)</label>
+          <input type="text" id="rsvp-name" name="name" required autocomplete="name" placeholder="e.g. Rosie &amp; Sam">
         </div>
         <fieldset class="field">
-          <legend>R U COMING 2 THE POO POO PARTY??</legend>
+          <legend>Will you be attending?</legend>
           <div class="choice-row">
-            <label class="choice"><input type="radio" name="attending" value="Joyfully accepts" required> HECK YEAH 🎉💩</label>
-            <label class="choice"><input type="radio" name="attending" value="Regretfully declines"> aww no i cant 😭</label>
+            <label class="choice"><input type="radio" name="attending" value="Joyfully accepts" required> Yes.</label>
+            <label class="choice"><input type="radio" name="attending" value="Regretfully declines"> Regrettably, no.</label>
           </div>
         </fieldset>
-        <div class="row-2">
-          <div class="field">
-            <label for="rsvp-guests">HOW MANY BUTTS R U BRINGING</label>
-            <input type="number" id="rsvp-guests" name="guests" min="1" max="10" step="1" value="1" required inputmode="numeric">
-          </div>
-          <div class="field">
-            <label for="rsvp-meal">WAT DO U WANNA EAT</label>
-            <p class="hint" id="meal-hint">its a pretend menu 4 now, real food coming later</p>
-            <select id="rsvp-meal" name="meal" aria-describedby="meal-hint">
-              <option value="" selected>pick ur yummy food</option>
-              <option value="Beef">🐄 BEEF (moo)</option>
-              <option value="Fish">🐟 FISH (glub glub)</option>
-              <option value="Vegetarian">🥦 VEGGIES (healthy poop)</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <label for="rsvp-diet">ANY ALLERGYS OR FOOD STUFF?</label>
-          <input type="text" id="rsvp-diet" name="diet" placeholder="tell us so u dont get a tummy ache">
-        </div>
-        <div class="field">
-          <label for="rsvp-note">SAY SOMETHING NICE (or gross) <span style="font-weight:normal;">(optional)</span></label>
-          <textarea id="rsvp-note" name="note" placeholder="write anything here!!!"></textarea>
-        </div>
         <div class="hp" aria-hidden="true">
           <label for="rsvp-website">Leave this field empty</label>
           <input type="text" id="rsvp-website" name="website" tabindex="-1" autocomplete="off">
         </div>
         <div>
-          <button class="go-btn" type="submit">SEND IT!!! 🚽💨</button>
-          <p class="mailto-note">your reply goes straight 2 Lily &amp; Kremer.</p>
-          <p class="form-error" id="rsvp-error" role="status" hidden>UH OH IT BROKE 😭 email us at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
+          <button class="go-btn" type="submit">Continue</button>
+          <p class="note-line">Two quick questions to start.</p>
         </div>
       </form>
-      <div class="rsvp-success" id="rsvp-success" role="status" hidden>
-        <div class="big">🎉💩🚽🎉</div>
-        <h3>YAYYY!!!</h3>
-        <p style="font-weight:bold;">ur RSVP is IN!!! we cant wait 2 party with u!! 💛</p>
-      </div>
     </div>
   </div>
 </section>
@@ -414,10 +367,10 @@
 <!-- ===== REGISTRY ===== -->
 <section id="registry">
   <div class="wrap">
-    <h2 class="sect-title">PRESENTS 🎁 (they like presents)</h2>
+    <h2 class="sect-title">Gifts</h2>
     <div class="card">
-      <p>they r still making the present list (its called a "registry" which is a fancy grown up word). check back soon!! maybe get them toilet paper. everybody needs toilet paper. 🧻</p>
-      <p><span class="sticker">registry coming soon!!!</span></p>
+      <p>The registry is still being assembled. When it exists, it will appear here. Until then: they are becoming a household, and households require things. Use your judgment. Toilet paper is never wrong.</p>
+      <p><span class="sticker">Registry: forthcoming</span></p>
     </div>
   </div>
 </section>
@@ -425,55 +378,55 @@
 <!-- ===== FAQ ===== -->
 <section id="faq">
   <div class="wrap">
-    <h2 class="sect-title">QUESTIONS PEOPLE ASK 🤔</h2>
+    <h2 class="sect-title">Questions</h2>
     <details>
-      <summary>will there be a bathroom??</summary>
-      <p>YES obviously its a fancy hotel. u can poop in peace. 🚽</p>
+      <summary>Will there be a bathroom?</summary>
+      <p>Yes. We confirmed this personally.</p>
     </details>
     <details>
-      <summary>wat do i wear??</summary>
-      <p>dress code is coming soon but probably wear something nice that u can also sit down in comfortably (4 pooping reasons).</p>
+      <summary>What should I wear?</summary>
+      <p>Something you can comfortably sit down in. A dress code will follow with the invitation.</p>
     </details>
     <details>
-      <summary>can i bring a date / a plus one??</summary>
-      <p>ur real invitation will say exactly who is invited. dont sneak extra ppl in ur backpack.</p>
+      <summary>Can I bring a plus-one?</summary>
+      <p>Your invitation will specify exactly who is included. Please do not improvise.</p>
     </details>
     <details>
-      <summary>r kids invited??</summary>
-      <p>TBA!! (that means "to be announced" its a grown up word again)</p>
+      <summary>Are kids invited?</summary>
+      <p>To be announced.</p>
     </details>
     <details>
-      <summary>whats the weather gonna be like??</summary>
-      <p>warm and tropical, like mid 80s, might rain a lil in the afternoon. Florida is sweaty. 🥵</p>
+      <summary>What&rsquo;s the weather like?</summary>
+      <p>Warm, humid, mid-80s, with a chance of an afternoon shower. It is Florida. It is committed to the bit.</p>
     </details>
     <details>
-      <summary>i have a diffrent question</summary>
-      <p>email them at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a> and they will answer u.</p>
+      <summary>I have another question.</summary>
+      <p>Email <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a>. A human will reply.</p>
     </details>
   </div>
 </section>
 
 <footer>
-  <div>💩 questions? email <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a> 💩</div>
-  <div style="margin-top:8px;font-weight:bold;">Lily &amp; Kremer &middot; September 18, 2027 &middot; Fort Lauderdale Florida</div>
-  <div class="by-line">this website was made by Chester the best brother ever 🦸💩 (ur welcome)</div>
+  <div>Questions: <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></div>
+  <div style="margin-top:8px;font-weight:700;">Lily &amp; Kremer &middot; September 18, 2027 &middot; Fart Lauderdale, Florida</div>
+  <div class="by-line">This website was made by Chester, brother of the bride. He would like that on the record.</div>
 </footer>
 
 <script>
 (function(){
   "use strict";
 
-  /* ---------- countdown (in SLEEPS because that is funnier) ---------- */
+  /* ---------- countdown ---------- */
   var countEl = document.getElementById("count");
   if (countEl){
     var target = new Date(2027, 8, 18); /* month 8 = September */
     var now = new Date();
-    var ms = target - now;
-    var days = Math.ceil(ms / (1000 * 60 * 60 * 24));
+    var days = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+    var lbl = document.querySelector(".countbox .lbl");
     if (days > 1){ countEl.textContent = String(days); }
-    else if (days === 1){ countEl.textContent = "1"; }
-    else if (days === 0){ countEl.textContent = "0 — ITS TODAY!!! 🎉💩"; }
-    else { countEl.textContent = "0 — they r MARRYED now 💍💩"; }
+    else if (days === 1){ countEl.textContent = "1"; if (lbl) lbl.textContent = "day until the wedding."; }
+    else if (days === 0){ countEl.textContent = "0"; if (lbl) lbl.textContent = "the wedding is today."; }
+    else { countEl.textContent = "—"; if (lbl) lbl.textContent = "they are married now."; }
   }
 
   /* ---------- mobile menu ---------- */
@@ -489,119 +442,32 @@
     });
   }
 
-  /* ---------- RSVP (background submit, same as the grown up options) ---------- */
+  /* ---------- RSVP STEP 1 (short form -> details page) ---------- */
   var form = document.getElementById("rsvp-form");
   if (!form) return;
-  var submitBtn = form.querySelector('button[type="submit"]');
-  var successPanel = document.getElementById("rsvp-success");
-  var errorLine = document.getElementById("rsvp-error");
-  var rsvpIntro = document.querySelector(".rsvp-intro");
-  var sending = false;
 
   form.removeAttribute("novalidate"); /* keep native validation when JS runs */
 
-  function showSuccess(){
-    if (rsvpIntro) rsvpIntro.hidden = true;
-    form.hidden = true;
-    if (errorLine) errorLine.hidden = true;
-    if (successPanel) successPanel.hidden = false;
-  }
-
   form.addEventListener("submit", function(e){
     e.preventDefault();
-    if (sending) return;
     if (!form.reportValidity()) return;
 
     var data = new FormData(form);
     var name = String(data.get("name") || "").trim();
-    var email = String(data.get("email") || "").trim();
     var attending = String(data.get("attending") || "");
-    var guests = String(data.get("guests") || "");
-    var meal = String(data.get("meal") || "").trim();
-    var diet = String(data.get("diet") || "").trim();
-    var note = String(data.get("note") || "").trim();
-    var honeypot = String(data.get("website") || "");
+    var website = String(data.get("website") || "");
 
-    /* bots fill the hidden field — pretend it worked, send nothing */
-    if (honeypot.trim() !== ""){ showSuccess(); return; }
-
-    var endpoint = (typeof window.RSVP_ENDPOINT === "string") ? window.RSVP_ENDPOINT.trim() : "";
-
-    if (endpoint === ""){
-      /* no backend yet — fall back to a pre-filled email */
-      var lines = [
-        "Hello Lily & Kremer!",
-        "",
-        "Name(s): " + name,
-        "Email: " + email,
-        "Attending: " + attending,
-        "Number of guests: " + guests,
-        "Meal preference (sample menu): " + (meal || "No preference yet"),
-        "Dietary restrictions or allergies: " + (diet || "None listed")
-      ];
-      if (note) lines.push("", "A note for you both:", note);
-      var mailto = "mailto:lilyandkremer@gmail.com" +
-        "?subject=" + encodeURIComponent("RSVP — " + name) +
-        "&body=" + encodeURIComponent(lines.join("\r\n"));
-      window.location.href = mailto;
-      return;
-    }
-
-    sending = true;
-    if (errorLine) errorLine.hidden = true;
-    var restingLabel = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "SENDING… 💨";
-
-    fetch(endpoint, {
-      method: "POST",
-      body: new URLSearchParams({
+    try {
+      sessionStorage.setItem("lk_rsvp", JSON.stringify({
         name: name,
-        email: email,
         attending: attending,
-        guests: guests,
-        meal: meal,
-        dietary: diet,
-        note: note,
-        website: honeypot
-      })
-    }).then(
-      function(res){ return !!(res.ok || res.type === "opaque"); },
-      function(){ return false; }
-    ).then(function(okay){
-      sending = false;
-      if (okay){
-        showSuccess();
-      } else {
-        submitBtn.disabled = false;
-        submitBtn.textContent = restingLabel;
-        if (errorLine) errorLine.hidden = false;
-      }
-    });
-  });
+        website: website
+      }));
+    } catch (err) {}
 
-  /* guests + meal only matter if u r actually coming */
-  (function(){
-    var radios = form.elements["attending"];
-    var guests = document.getElementById("rsvp-guests");
-    var meal = document.getElementById("rsvp-meal");
-    if (!radios || !guests || !meal) return;
-    function group(el){ return el.closest(".field") || el.parentElement; }
-    var groups = [group(guests), group(meal)];
-    var required = { guests: guests.required, meal: meal.required };
-    function sync(){
-      var declining = false, i;
-      for (i = 0; i < radios.length; i++){
-        if (radios[i].checked && /decline|regret/i.test(radios[i].value)) declining = true;
-      }
-      for (i = 0; i < groups.length; i++){ if (groups[i]) groups[i].hidden = declining; }
-      guests.required = declining ? false : required.guests;
-      meal.required = declining ? false : required.meal;
-      if (declining){ meal.selectedIndex = 0; }
-    }
-    for (var j = 0; j < radios.length; j++){ radios[j].addEventListener("change", sync); }
-    sync();
-  })();
+    /* on to the second page — never open an email app here */
+    window.location.href = "rsvp-details.html";
+  });
 })();
 </script>
 </body>

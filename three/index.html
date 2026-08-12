@@ -1023,7 +1023,7 @@ input[type="radio"] {
         <p class="display">Kindly <em>reply</em>.</p>
         <p class="lead" id="rsvp-intro">Formal invitations are on their way — you'll be able to RSVP right here.</p>
       </header>
-      <form class="reply-card" id="rsvp-form">
+      <form class="reply-card" id="rsvp-form" novalidate>
         <p class="card-orn" aria-hidden="true">R · S · V · P</p>
         <p class="card-title">The favour of a reply</p>
         <div class="hp-wrap" aria-hidden="true">
@@ -1031,13 +1031,9 @@ input[type="radio"] {
           <input type="text" id="rsvp-website" name="website" tabindex="-1" autocomplete="off">
         </div>
         <div class="form-grid">
-          <div>
+          <div class="span-2">
             <label class="f-label" for="rsvp-name">Your name(s)</label>
             <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
-          </div>
-          <div>
-            <label class="f-label" for="rsvp-email">Email</label>
-            <input type="email" id="rsvp-email" name="email" autocomplete="email" required>
           </div>
           <fieldset class="span-2">
             <legend class="f-legend">Will you be attending?</legend>
@@ -1046,44 +1042,12 @@ input[type="radio"] {
               <label><input type="radio" name="attending" value="Regretfully declines">Regretfully declines</label>
             </div>
           </fieldset>
-          <div>
-            <label class="f-label" for="rsvp-guests">Number of guests</label>
-            <input type="number" id="rsvp-guests" name="guests" min="1" max="10" value="1" inputmode="numeric" required>
-          </div>
-          <div>
-            <label class="f-label" for="rsvp-meal">Meal preference
-              <span class="f-hint" id="meal-hint">a sample menu — the final menu is still to come</span>
-            </label>
-            <select id="rsvp-meal" name="meal" aria-describedby="meal-hint">
-              <option value="">Please choose…</option>
-              <option value="Beef">Beef</option>
-              <option value="Fish">Fish</option>
-              <option value="Vegetarian">Vegetarian</option>
-            </select>
-          </div>
-          <div class="span-2">
-            <label class="f-label" for="rsvp-diet">Dietary restrictions or allergies</label>
-            <input type="text" id="rsvp-diet" name="diet">
-          </div>
-          <div class="span-2">
-            <label class="f-label" for="rsvp-note">A note for the couple
-              <span class="f-hint">optional — we'd love to hear from you</span>
-            </label>
-            <textarea id="rsvp-note" name="note" rows="4"></textarea>
-          </div>
         </div>
         <div class="form-actions">
-          <button class="btn" type="submit">Send our reply</button>
-          <p class="form-error" id="rsvp-error" role="status" hidden>Something went wrong — please email us at <a class="text-link" href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
-          <p class="form-note">Your reply goes straight to Lily &amp; Kremer.</p>
+          <button class="btn" type="submit">Continue &rarr;</button>
+          <p class="form-note">Just two quick questions to start.</p>
         </div>
       </form>
-      <div class="reply-card rsvp-success" id="rsvp-success" role="status" hidden>
-        <p class="card-orn" aria-hidden="true">R · S · V · P</p>
-        <h3 class="card-title">Thank you!</h3>
-        <p class="success-line">Your RSVP is in — we can't wait to celebrate with you.</p>
-        <div class="success-rule" aria-hidden="true"></div>
-      </div>
     </div>
   </section>
 
@@ -1202,128 +1166,29 @@ input[type="radio"] {
     });
   }
 
-  /* ---- RSVP submit ---- */
+  /* ---- RSVP · Step 1 — collect name + attending, hand off to details page ---- */
   var form = document.getElementById("rsvp-form");
   if (form) {
-    var rsvpIntro = document.getElementById("rsvp-intro");
-    var successPanel = document.getElementById("rsvp-success");
-    var errorLine = document.getElementById("rsvp-error");
-    var submitBtn = form.querySelector('button[type="submit"]');
-    var submitLabel = submitBtn ? submitBtn.textContent : "";
-    var sending = false;
-
-    var showSuccess = function () {
-      form.hidden = true;
-      if (rsvpIntro) rsvpIntro.hidden = true;
-      if (successPanel) successPanel.hidden = false;
-    };
-
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (sending) return;
+      if (!form.reportValidity()) return;
 
       var val = function (id) {
         var el = document.getElementById(id);
         return el && el.value ? el.value.trim() : "";
       };
       var name = val("rsvp-name");
-      var email = val("rsvp-email");
       var attendingEl = form.querySelector('input[name="attending"]:checked');
       var attending = attendingEl ? attendingEl.value : "";
-      var guests = val("rsvp-guests");
-      var meal = val("rsvp-meal");
-      var diet = val("rsvp-diet");
-      var note = val("rsvp-note");
       var hpEl = form.querySelector('input[name="website"]');
-      var honeypot = hpEl && hpEl.value ? hpEl.value : "";
+      var website = hpEl && hpEl.value ? hpEl.value : "";
 
-      /* Honeypot filled — quietly pretend it worked, send nothing. */
-      if (honeypot) {
-        showSuccess();
-        return;
-      }
+      try {
+        sessionStorage.setItem("lk_rsvp", JSON.stringify({ name: name, attending: attending, website: website }));
+      } catch (err) {}
 
-      var endpoint = (typeof window.RSVP_ENDPOINT === "string") ? window.RSVP_ENDPOINT.trim() : "";
-
-      /* No endpoint configured — fall back to the pre-filled email. */
-      if (endpoint === "") {
-        var lines = [
-          "Name(s): " + name,
-          "Email: " + email,
-          "Attending: " + attending,
-          "Number of guests: " + guests,
-          "Meal preference: " + (meal || "No preference given"),
-          "Dietary restrictions or allergies: " + (diet || "None")
-        ];
-        if (note) {
-          lines.push("", "A note for the couple:", note);
-        }
-        var subject = "RSVP — " + name;
-        var body = lines.join("\r\n");
-        window.location.href =
-          "mailto:lilyandkremer@gmail.com" +
-          "?subject=" + encodeURIComponent(subject) +
-          "&body=" + encodeURIComponent(body);
-        return;
-      }
-
-      sending = true;
-      if (errorLine) errorLine.hidden = true;
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending…";
-      }
-
-      fetch(endpoint, {
-        method: "POST",
-        body: new URLSearchParams({
-          name: name,
-          email: email,
-          attending: attending,
-          guests: guests,
-          meal: meal,
-          dietary: diet,
-          note: note,
-          website: honeypot
-        })
-      }).then(function (res) {
-        if (res.ok || res.type === "opaque") {
-          showSuccess();
-        } else {
-          throw new Error("RSVP request failed");
-        }
-      }).catch(function () {
-        sending = false;
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = submitLabel;
-        }
-        if (errorLine) errorLine.hidden = false;
-      });
+      window.location.href = "rsvp-details.html";
     });
-
-    /* Guest count and meal only apply to guests who are coming. */
-    (function(){
-      var radios = form.elements["attending"];
-      var guests = document.getElementById("rsvp-guests");
-      var meal = document.getElementById("rsvp-meal");
-      if (!radios || !guests || !meal) return;
-      function group(el){ return el.closest(".field, .form-row") || el.parentElement; }
-      var groups = [group(guests), group(meal)];
-      var required = { guests: guests.required, meal: meal.required };
-      function sync(){
-        var declining = false, i;
-        for (i = 0; i < radios.length; i++){
-          if (radios[i].checked && /decline|regret/i.test(radios[i].value)) declining = true;
-        }
-        for (i = 0; i < groups.length; i++){ if (groups[i]) groups[i].hidden = declining; }
-        guests.required = declining ? false : required.guests;
-        meal.required = declining ? false : required.meal;
-        if (declining) { meal.selectedIndex = 0; }
-      }
-      for (var i = 0; i < radios.length; i++){ radios[i].addEventListener("change", sync); }
-      sync();
-    })();
   }
 })();
 </script>

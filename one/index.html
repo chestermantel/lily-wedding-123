@@ -815,22 +815,16 @@ details[open] .faq-icon{ transform:rotate(45deg); }
           <h2>RSVP</h2>
           <svg class="sprig" viewBox="0 0 220 44" aria-hidden="true" focusable="false"><use href="#sprig-shape"/></svg>
         </header>
-        <p class="rsvp-intro reveal">Formal invitations are on their way — you'll be able to RSVP right here. Can't wait? Your reply below goes straight to our inbox.</p>
+        <p class="rsvp-intro reveal">Formal invitations are on their way — you'll be able to RSVP right here. Can't wait? Start your reply below.</p>
         <div class="reply-card reveal d1">
           <div class="reply-head">
             <h3>The favor of a reply</h3>
             <p>is requested for Saturday, September 18, 2027</p>
           </div>
           <form class="rsvp-form" id="rsvp-form" novalidate="">
-            <div class="field-row">
-              <div class="field">
-                <label for="rsvp-name">Your name(s)</label>
-                <input type="text" id="rsvp-name" name="name" required autocomplete="name" placeholder="e.g. Rosie &amp; Sam">
-              </div>
-              <div class="field">
-                <label for="rsvp-email">Email</label>
-                <input type="email" id="rsvp-email" name="email" required autocomplete="email" placeholder="you@example.com">
-              </div>
+            <div class="field">
+              <label for="rsvp-name">Your name(s)</label>
+              <input type="text" id="rsvp-name" name="name" required autocomplete="name" placeholder="e.g. Rosie &amp; Sam">
             </div>
             <fieldset class="field">
               <legend>Will you be attending?</legend>
@@ -839,45 +833,15 @@ details[open] .faq-icon{ transform:rotate(45deg); }
                 <label class="choice"><input type="radio" name="attending" value="Regretfully declines"> Regretfully declines</label>
               </div>
             </fieldset>
-            <div class="field-row">
-              <div class="field">
-                <label for="rsvp-guests">Number of guests</label>
-                <input type="number" id="rsvp-guests" name="guests" min="1" max="10" step="1" value="1" required inputmode="numeric">
-              </div>
-              <div class="field">
-                <label for="rsvp-meal">Meal preference</label>
-                <p class="hint" id="meal-hint">A sample menu — the final menu is still to come.</p>
-                <select id="rsvp-meal" name="meal" aria-describedby="meal-hint">
-                  <option value="" selected>Choose from the sample menu</option>
-                  <option value="Beef">Beef</option>
-                  <option value="Fish">Fish</option>
-                  <option value="Vegetarian">Vegetarian</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label for="rsvp-diet">Dietary restrictions or allergies</label>
-              <input type="text" id="rsvp-diet" name="diet" placeholder="Anything we should know?">
-            </div>
-            <div class="field">
-              <label for="rsvp-note">A note for the couple <span class="optional-tag">(optional)</span></label>
-              <textarea id="rsvp-note" name="note" placeholder="We'd love to hear from you"></textarea>
-            </div>
             <div class="hp-field" aria-hidden="true">
               <label for="rsvp-website">Leave this field empty</label>
               <input type="text" id="rsvp-website" name="website" tabindex="-1" autocomplete="off">
             </div>
             <div class="rsvp-actions">
-              <button class="btn" type="submit">Send our reply</button>
-              <p class="mailto-note">Your reply goes straight to Lily &amp; Kremer.</p>
-              <p class="form-error" id="rsvp-error" role="status" hidden>Something went wrong &mdash; please email us at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
+              <button class="btn" type="submit">Continue &rarr;</button>
+              <p class="mailto-note">Just two quick questions to start.</p>
             </div>
           </form>
-          <div class="rsvp-success" id="rsvp-success" role="status" hidden>
-            <svg class="sprig" viewBox="0 0 220 44" aria-hidden="true" focusable="false"><use href="#sprig-shape"/></svg>
-            <h3>Thank you!</h3>
-            <p>Your RSVP is in &mdash; we can&rsquo;t wait to celebrate with you.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -1007,124 +971,27 @@ details[open] .faq-icon{ transform:rotate(45deg); }
     revealEls.forEach(function(el){ el.classList.add("is-visible"); });
   }
 
-  /* ---------- RSVP submission ---------- */
+  /* ---------- RSVP step 1: name + attending, then on to the details page ---------- */
   var form = document.getElementById("rsvp-form");
-  var submitBtn = form.querySelector('button[type="submit"]');
-  var successPanel = document.getElementById("rsvp-success");
-  var errorLine = document.getElementById("rsvp-error");
-  var rsvpIntro = document.querySelector(".rsvp-intro");
-  var replyHead = document.querySelector(".reply-head");
-  var sending = false;
+  if (form) {
+    form.removeAttribute("novalidate"); /* keep native validation when JS runs */
 
-  form.removeAttribute("novalidate"); /* keep native validation when JS runs */
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if (!form.reportValidity()) return;
 
-  function showSuccess() {
-    if (rsvpIntro) rsvpIntro.hidden = true;
-    if (replyHead) replyHead.hidden = true;
-    form.hidden = true;
-    if (errorLine) errorLine.hidden = true;
-    if (successPanel) successPanel.hidden = false;
-  }
+      var data = new FormData(form);
+      var name = String(data.get("name") || "").trim();
+      var attending = String(data.get("attending") || "");
+      var website = String(data.get("website") || "");
 
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    if (sending) return; /* a reply is already on its way */
-    if (!form.reportValidity()) return;
+      try {
+        sessionStorage.setItem("lk_rsvp", JSON.stringify({ name: name, attending: attending, website: website }));
+      } catch (err) { /* private mode or storage full — carry on regardless */ }
 
-    var data = new FormData(form);
-    var name = String(data.get("name") || "").trim();
-    var email = String(data.get("email") || "").trim();
-    var attending = String(data.get("attending") || "");
-    var guests = String(data.get("guests") || "");
-    var meal = String(data.get("meal") || "").trim();
-    var diet = String(data.get("diet") || "").trim();
-    var note = String(data.get("note") || "").trim();
-    var honeypot = String(data.get("website") || "");
-
-    /* bots fill the hidden field — pretend it worked, send nothing */
-    if (honeypot.trim() !== "") {
-      showSuccess();
-      return;
-    }
-
-    var endpoint = (typeof window.RSVP_ENDPOINT === 'string') ? window.RSVP_ENDPOINT.trim() : '';
-
-    if (endpoint === '') {
-      /* no backend configured yet — fall back to the pre-filled email */
-      var lines = [
-        "Hello Lily & Kremer!",
-        "",
-        "Name(s): " + name,
-        "Email: " + email,
-        "Attending: " + attending,
-        "Number of guests: " + guests,
-        "Meal preference (sample menu): " + (meal || "No preference yet"),
-        "Dietary restrictions or allergies: " + (diet || "None listed")
-      ];
-      if (note) lines.push("", "A note for you both:", note);
-
-      var mailto = "mailto:lilyandkremer@gmail.com" +
-        "?subject=" + encodeURIComponent("RSVP — " + name) +
-        "&body=" + encodeURIComponent(lines.join("\r\n"));
-      window.location.href = mailto;
-      return;
-    }
-
-    sending = true;
-    if (errorLine) errorLine.hidden = true;
-    var restingLabel = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
-
-    fetch(endpoint, {
-      method: "POST",
-      body: new URLSearchParams({
-        name: name,
-        email: email,
-        attending: attending,
-        guests: guests,
-        meal: meal,
-        dietary: diet,
-        note: note,
-        website: honeypot
-      })
-    }).then(
-      function(res){ return !!(res.ok || res.type === "opaque"); },
-      function(){ return false; }
-    ).then(function(okay){
-      sending = false;
-      if (okay) {
-        showSuccess();
-      } else {
-        submitBtn.disabled = false;
-        submitBtn.textContent = restingLabel;
-        if (errorLine) errorLine.hidden = false;
-      }
+      window.location.href = "rsvp-details.html";
     });
-  });
-
-  /* Guest count and meal only apply to guests who are coming. */
-  (function(){
-    var radios = form.elements["attending"];
-    var guests = document.getElementById("rsvp-guests");
-    var meal = document.getElementById("rsvp-meal");
-    if (!radios || !guests || !meal) return;
-    function group(el){ return el.closest(".field, .form-row") || el.parentElement; }
-    var groups = [group(guests), group(meal)];
-    var required = { guests: guests.required, meal: meal.required };
-    function sync(){
-      var declining = false, i;
-      for (i = 0; i < radios.length; i++){
-        if (radios[i].checked && /decline|regret/i.test(radios[i].value)) declining = true;
-      }
-      for (i = 0; i < groups.length; i++){ if (groups[i]) groups[i].hidden = declining; }
-      guests.required = declining ? false : required.guests;
-      meal.required = declining ? false : required.meal;
-      if (declining) { meal.selectedIndex = 0; }
-    }
-    for (var i = 0; i < radios.length; i++){ radios[i].addEventListener("change", sync); }
-    sync();
-  })();
+  }
 })();
 </script>
 </body>
