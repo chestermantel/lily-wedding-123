@@ -2,9 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "wedding-preview",
-      "url": "http://localhost:4173",
-      "port": 4173
+      "name": "lily-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/private/tmp/claude-504/-Users-Chester2-Downloads-Lily-wedding/0fe23bdf-1c93-4301-a8d8-5da8bb54af4e/scratchpad/serve.py"],
+      "port": 8123
     }
   ]
 }

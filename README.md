@@ -24,20 +24,16 @@ only Google Fonts loaded externally. To edit anything, open the file and change 
 - **Meal options** — Beef / Fish / Vegetarian are placeholders until the menu is real.
 - **Photos** — there are styled placeholder frames; swap in real photos when you have them.
 
-## How RSVP works right now
+## How RSVP works
 
-GitHub Pages is static hosting — it can't store form submissions. The RSVP form
-composes a pre-filled email (name, attending, guest count, meal, allergies, note) and
-opens it addressed to the wedding inbox. Every RSVP arrives as an email you can log.
+The form submits in the background (a POST to a small Google Apps Script) — each
+RSVP becomes a **row in a Google Sheet** plus a **notification email** to the wedding
+inbox, and the guest sees an instant on-page thank-you. Until the script's URL is
+pasted into `rsvp-config.js`, the form falls back to composing a pre-filled email
+addressed to the wedding inbox instead, so no RSVP is ever lost either way.
 
-**To upgrade to real tracking later** (recommended before invitations go out):
-1. Create a Google Form with the same fields → responses land in a Google Sheet
-   (guest count, meals, and allergies all tallied automatically), or use a service
-   like Formspree/Tally.
-2. Replace the `<form>` handler in the chosen option with the form's link or embed.
-
-The same approach works for the "pre-RSVP" with electronic save-the-dates: duplicate
-the form with just name + likely attending, and link it from the save-the-date email.
+Setting up the backend takes ~10 minutes of clicking, no coding — follow
+**[apps-script/SETUP.md](apps-script/SETUP.md)**.
 
 ## Local preview
 

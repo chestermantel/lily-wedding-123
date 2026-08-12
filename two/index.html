@@ -40,6 +40,8 @@
 
   /* ============ RESET ============ */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* The hidden attribute must win over any display rule set below. */
+  [hidden] { display: none !important; }
   html { overflow-x: clip; }
   body {
     overflow-x: clip;
@@ -692,11 +694,59 @@
     box-shadow: 5px 5px 0 var(--ink);
   }
   @media (prefers-reduced-motion: no-preference) {
-    .rsvp-submit { transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
-    .rsvp-submit:hover { transform: translate(-2px, -3px) rotate(-1deg); box-shadow: 8px 8px 0 var(--ink); background: var(--terra); }
-    .rsvp-submit:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+    .rsvp-submit { transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, opacity 0.18s ease; }
+    .rsvp-submit:hover:not(:disabled) { transform: translate(-2px, -3px) rotate(-1deg); box-shadow: 8px 8px 0 var(--ink); background: var(--terra); }
+    .rsvp-submit:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
   }
+  .rsvp-submit:disabled { opacity: 0.75; cursor: progress; box-shadow: 3px 3px 0 var(--ink); }
   .rsvp-caption { margin-top: var(--s1); font-size: 0.88rem; font-weight: 500; }
+  .hp-wrap {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .rsvp-error {
+    margin-top: var(--s1);
+    background: var(--cream);
+    color: var(--ink);
+    border: 2.5px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 0.7em 1.1em;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .rsvp-error a { color: var(--burg); font-weight: 700; text-decoration-thickness: 2.5px; text-underline-offset: 3px; }
+  .rsvp-error[hidden], .rsvp-success[hidden], .rsvp-intro-pill[hidden] { display: none; }
+  .rsvp-success {
+    background: var(--chart);
+    color: var(--ink);
+    --focus-color: var(--burg);
+    border: var(--border);
+    border-radius: 26px;
+    box-shadow: 10px 10px 0 var(--butter);
+    padding: clamp(var(--s3), 6vw, var(--s4));
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .rsvp-success .pill { margin-bottom: var(--s1); }
+  .rsvp-success-title {
+    font-size: clamp(2.2rem, 7vw, 3.6rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  .rsvp-success-line {
+    margin-top: var(--s1);
+    font-weight: 500;
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    max-width: 44ch;
+    margin-inline: auto;
+  }
   .rsvp-intro-pill {
     display: inline-block;
     background: var(--butter);
@@ -810,6 +860,8 @@
 </style>
 </head>
 <body>
+
+<script src="../rsvp-config.js"></script>
 
 <a class="skip-link" href="#home">Skip to content</a>
 
@@ -1061,9 +1113,14 @@
     <div class="wrap section-head--center">
       <p class="pill pill--terra">№ 05 · Say you’ll be there</p>
       <h2 id="rsvp-heading">RSVP</h2>
-      <p class="rsvp-intro-pill">Formal invitations are on their way — you’ll be able to RSVP right here.</p>
+      <p class="rsvp-intro-pill" id="rsvp-intro">Formal invitations are on their way — you’ll be able to RSVP right here.</p>
 
       <form class="rsvp-panel" id="rsvp-form" style="text-align: left">
+        <div class="hp-wrap" aria-hidden="true">
+          <label for="rsvp-website">Leave this field empty</label>
+          <input type="text" id="rsvp-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
         <div class="form-row">
           <label for="rsvp-name">Your name(s)</label>
           <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
@@ -1118,8 +1175,15 @@
         </div>
 
         <button class="rsvp-submit" type="submit">Send our RSVP</button>
-        <p class="rsvp-caption">Submitting opens a pre-filled email to the couple — just review it and hit send.</p>
+        <p class="rsvp-error" id="rsvp-error" role="status" hidden>Something went wrong — please email us at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
+        <p class="rsvp-caption">Your reply goes straight to Lily &amp; Kremer — no stamps required.</p>
       </form>
+
+      <div class="rsvp-success" id="rsvp-success" role="status" hidden>
+        <p class="pill pill--butter">RSVP received</p>
+        <h3 class="rsvp-success-title">Thank you!</h3>
+        <p class="rsvp-success-line">Your RSVP is in — we can’t wait to celebrate with you.</p>
+      </div>
     </div>
   </section>
 
@@ -1265,28 +1329,111 @@
       }
     });
 
-    /* ---------- RSVP mailto ---------- */
-    document.getElementById("rsvp-form").addEventListener("submit", function (e) {
+    /* ---------- RSVP submit ---------- */
+    var rsvpForm = document.getElementById("rsvp-form");
+    var rsvpSubmit = rsvpForm.querySelector(".rsvp-submit");
+    var rsvpIntro = document.getElementById("rsvp-intro");
+    var rsvpSuccess = document.getElementById("rsvp-success");
+    var rsvpError = document.getElementById("rsvp-error");
+    var rsvpSending = false;
+
+    function showRsvpSuccess() {
+      rsvpForm.hidden = true;
+      if (rsvpIntro) { rsvpIntro.hidden = true; }
+      rsvpSuccess.hidden = false;
+    }
+
+    rsvpForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      var data = new FormData(this);
+      if (rsvpSending) { return; }
+
+      var data = new FormData(rsvpForm);
+      var honeypot = String(data.get("website") || "").trim();
       var name = String(data.get("name") || "").trim();
       var note = String(data.get("note") || "").trim();
-      var lines = [
-        "Name(s): " + name,
-        "Email: " + String(data.get("email") || "").trim(),
-        "Attending: " + String(data.get("attending") || ""),
-        "Number of guests: " + String(data.get("guests") || ""),
-        "Meal preference: " + String(data.get("meal") || ""),
-        "Dietary restrictions or allergies: " + (String(data.get("dietary") || "").trim() || "None noted")
-      ];
-      if (note) {
-        lines.push("", "A note for the couple:", note);
+
+      /* Bots fill the hidden field — pretend it worked, send nothing. */
+      if (honeypot) {
+        showRsvpSuccess();
+        return;
       }
-      var mailto = "mailto:lilyandkremer@gmail.com" +
-        "?subject=" + encodeURIComponent("RSVP — " + name) +
-        "&body=" + encodeURIComponent(lines.join("\n"));
-      window.location.href = mailto;
+
+      var endpoint = (typeof window.RSVP_ENDPOINT === 'string') ? window.RSVP_ENDPOINT.trim() : '';
+
+      if (endpoint === '') {
+        /* No backend wired up yet — fall back to the pre-filled email. */
+        var lines = [
+          "Name(s): " + name,
+          "Email: " + String(data.get("email") || "").trim(),
+          "Attending: " + String(data.get("attending") || ""),
+          "Number of guests: " + String(data.get("guests") || ""),
+          "Meal preference: " + String(data.get("meal") || ""),
+          "Dietary restrictions or allergies: " + (String(data.get("dietary") || "").trim() || "None noted")
+        ];
+        if (note) {
+          lines.push("", "A note for the couple:", note);
+        }
+        var mailto = "mailto:lilyandkremer@gmail.com" +
+          "?subject=" + encodeURIComponent("RSVP — " + name) +
+          "&body=" + encodeURIComponent(lines.join("\n"));
+        window.location.href = mailto;
+        return;
+      }
+
+      rsvpSending = true;
+      var originalLabel = rsvpSubmit.textContent;
+      rsvpSubmit.disabled = true;
+      rsvpSubmit.textContent = "Sending…";
+      rsvpError.hidden = true;
+
+      fetch(endpoint, {
+        method: 'POST',
+        body: new URLSearchParams({
+          name: name,
+          email: String(data.get("email") || "").trim(),
+          attending: String(data.get("attending") || ""),
+          guests: String(data.get("guests") || ""),
+          meal: String(data.get("meal") || ""),
+          dietary: String(data.get("dietary") || "").trim(),
+          note: note,
+          website: honeypot
+        })
+      }).then(function (res) {
+        if (res.ok || res.type === 'opaque') {
+          showRsvpSuccess();
+        } else {
+          throw new Error("RSVP request failed");
+        }
+      }).catch(function () {
+        rsvpSending = false;
+        rsvpSubmit.disabled = false;
+        rsvpSubmit.textContent = originalLabel;
+        rsvpError.hidden = false;
+      });
     });
+
+    /* Guest count and meal only apply to guests who are coming. */
+    (function(){
+      var radios = rsvpForm.elements["attending"];
+      var guests = document.getElementById("rsvp-guests");
+      var meal = document.getElementById("rsvp-meal");
+      if (!radios || !guests || !meal) return;
+      function group(el){ return el.closest(".field, .form-row") || el.parentElement; }
+      var groups = [group(guests), group(meal)];
+      var required = { guests: guests.required, meal: meal.required };
+      function sync(){
+        var declining = false, i;
+        for (i = 0; i < radios.length; i++){
+          if (radios[i].checked && /decline|regret/i.test(radios[i].value)) declining = true;
+        }
+        for (i = 0; i < groups.length; i++){ if (groups[i]) groups[i].hidden = declining; }
+        guests.required = declining ? false : required.guests;
+        meal.required = declining ? false : required.meal;
+        if (declining) { meal.selectedIndex = 0; }
+      }
+      for (var i = 0; i < radios.length; i++){ radios[i].addEventListener("change", sync); }
+      sync();
+    })();
   })();
 </script>
 
