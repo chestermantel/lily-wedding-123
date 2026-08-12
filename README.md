@@ -47,3 +47,28 @@ Then open http://localhost:4173 — or just double-click any `index.html`.
 
 Hosted via GitHub Pages from the `main` branch of this repo. Push to `main` and the
 site updates in about a minute.
+
+### Custom domain: lilyandkremer.com
+
+The `CNAME` file in the repo root tells GitHub Pages to serve the site at
+**lilyandkremer.com**. The domain is registered at Cloudflare, so the DNS records
+below must be added in the Cloudflare dashboard (DNS → Records) for the domain to
+resolve. Set each record's proxy status to **DNS only** (grey cloud), not proxied —
+GitHub Pages issues its own HTTPS certificate and Cloudflare's orange-cloud proxy
+interferes with that.
+
+| Type  | Name  | Value                   | Proxy    |
+|-------|-------|-------------------------|----------|
+| A     | `@`   | `185.199.108.153`       | DNS only |
+| A     | `@`   | `185.199.109.153`       | DNS only |
+| A     | `@`   | `185.199.110.153`       | DNS only |
+| A     | `@`   | `185.199.111.153`       | DNS only |
+| AAAA  | `@`   | `2606:50c0:8000::153`   | DNS only |
+| AAAA  | `@`   | `2606:50c0:8001::153`   | DNS only |
+| AAAA  | `@`   | `2606:50c0:8002::153`   | DNS only |
+| AAAA  | `@`   | `2606:50c0:8003::153`   | DNS only |
+| CNAME | `www` | `chestermantel.github.io` | DNS only |
+
+After the records propagate (minutes to a couple of hours), GitHub provisions a TLS
+certificate automatically and the site is live at `https://lilyandkremer.com`. The
+`www.lilyandkremer.com` CNAME lets that variant redirect to the apex too.
