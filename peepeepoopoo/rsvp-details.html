@@ -8,7 +8,9 @@
 <title>Lily &amp; Kremer — RSVP</title>
 <script src="../rsvp-config.js"></script>
 <style>
-  /* step 2 of the RSVP — same loud look as the main page, same dry voice. */
+  /* step 2 of the poo poo RSVP — same silly comic sans look as the main page.
+     comic sans is a SYSTEM font so no internet needed, it just looks like a
+     little kid made it, which is the whole point 💩 */
   :root{
     --poo:#7a4a25;
     --poo-dark:#4f2e13;
@@ -18,17 +20,17 @@
     --pink:#ff5bb0;
     --lime:#8ede2a;
     --cream:#fff7db;
-    --ink:#2e2113;
+    --ink:#3a2a17;
   }
   *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
   /* the hidden attribute has to beat every display rule below it */
   [hidden]{ display:none !important; }
   html{ scroll-padding-top:84px; -webkit-text-size-adjust:100%; }
   body{
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:"Comic Sans MS","Comic Sans","Chalkboard SE","Comic Neue",cursive,sans-serif;
     color:var(--ink);
     background:var(--cream);
-    line-height:1.55;
+    line-height:1.5;
     overflow-x:clip;
     font-size:18px;
   }
@@ -47,13 +49,14 @@
   .nav{
     position:sticky; top:0; z-index:50;
     background:var(--poo);
-    border-bottom:6px solid var(--pee);
+    border-bottom:6px dashed var(--pee);
     display:flex; align-items:center; justify-content:space-between;
     gap:10px; padding:10px 16px; flex-wrap:wrap;
   }
   .nav .logo{
-    font-weight:800; font-size:1.25rem; color:#fff; letter-spacing:.02em;
-    display:flex; align-items:center; gap:8px;
+    font-weight:bold; font-size:1.3rem; color:#fff;
+    text-shadow:2px 2px 0 var(--poo-dark);
+    display:flex; align-items:center; gap:6px;
     text-decoration:none;
   }
   .nav .backlink{
@@ -61,181 +64,182 @@
     background:var(--pee);
     color:var(--poo-dark);
     text-decoration:none;
-    font-weight:700;
+    font-weight:bold;
     border:3px solid var(--poo-dark);
     border-radius:10px;
-    padding:6px 12px;
-    font-size:.85rem;
+    padding:6px 10px;
+    font-size:.86rem;
   }
-  .nav .backlink:hover,.nav .backlink:focus-visible{ background:var(--lime); }
+  .nav .backlink:hover,.nav .backlink:focus-visible{ background:var(--lime); transform:rotate(-2deg); }
   :focus-visible{ outline:4px solid var(--cyan); outline-offset:2px; }
 
-  /* ===== marquee ===== */
+  /* ===== marquee of poop ===== */
   .poo-strip{
     background:var(--poo-dark);
     color:var(--pee);
-    font-weight:700;
+    font-weight:bold;
     white-space:nowrap;
     overflow:hidden;
-    padding:9px 0;
-    font-size:1rem;
-    letter-spacing:.08em;
+    padding:8px 0;
+    font-size:1.1rem;
     border-top:4px solid var(--pee);
     border-bottom:4px solid var(--pee);
   }
   .poo-strip span{ display:inline-block; padding-left:100%; }
 
   .wrap{ max-width:920px; margin:0 auto; padding:0 18px; }
-  section{ padding:46px 0; }
+  section{ padding:44px 0; }
   .card{
     background:#fff;
     border:5px solid var(--poo);
     border-radius:20px;
-    padding:24px;
+    padding:22px;
     box-shadow:8px 8px 0 var(--pee-deep);
   }
-  h1,h2,h3{ line-height:1.12; }
+  h1,h2,h3{ line-height:1.15; }
   .sect-title{
-    font-size:clamp(1.7rem,5.5vw,2.5rem);
-    font-weight:800;
+    font-size:clamp(1.7rem,6vw,2.6rem);
     color:var(--poo-dark);
-    margin-bottom:18px;
-    letter-spacing:-.01em;
+    text-align:center;
+    margin-bottom:16px;
+    text-shadow:2px 2px 0 var(--pee);
     word-break:break-word;
   }
   .sticker{
     display:inline-block;
-    background:var(--pink); color:#fff; font-weight:700;
+    background:var(--pink); color:#fff; font-weight:bold;
     border:3px solid #fff; border-radius:999px;
-    padding:5px 15px; transform:rotate(-2deg);
+    padding:4px 14px; transform:rotate(-3deg);
     box-shadow:3px 3px 0 rgba(0,0,0,.2);
   }
   p{ margin:0 0 12px; }
 
   /* ===== RSVP FORM ===== */
   .rsvp-card{ background:var(--lime); border-color:var(--poo-dark); }
-  .rsvp-form{ display:grid; gap:18px; }
-  .field label,.field legend{ font-weight:700; display:block; margin-bottom:6px; font-size:1.02rem; }
+  .rsvp-form{ display:grid; gap:16px; }
+  .field label,.field legend{ font-weight:bold; display:block; margin-bottom:6px; font-size:1.05rem; }
   .field input[type=text],.field input[type=email],.field input[type=number],.field select,.field textarea{
     width:100%;
     font-family:inherit; font-size:1rem;
-    padding:11px 13px;
+    padding:10px 12px;
     border:3px solid var(--poo-dark); border-radius:12px;
     background:#fff; color:var(--ink);
   }
   .field textarea{ min-height:84px; resize:vertical; }
-  .field .hint{ font-weight:400; font-size:.85rem; margin:0 0 6px; }
+  .field .hint{ font-weight:normal; font-size:.85rem; margin:0 0 6px; }
   fieldset{ border:0; }
   .go-btn{
-    font-family:inherit; font-weight:800; font-size:1.15rem;
+    font-family:inherit; font-weight:bold; font-size:1.4rem;
     background:var(--pink); color:#fff;
     border:5px solid var(--poo-dark); border-radius:16px;
-    padding:13px 22px; cursor:pointer;
+    padding:14px 20px; cursor:pointer;
     box-shadow:6px 6px 0 var(--poo-dark);
   }
   .go-btn:hover:not(:disabled){ transform:translate(-2px,-2px); background:#ff3aa0; }
   .go-btn:disabled{ opacity:.7; cursor:progress; }
-  .note-line{ font-size:.88rem; margin-top:10px; }
-  .miss-line{ font-weight:700; font-size:1.08rem; }
+  .mailto-note{ font-size:.85rem; margin-top:8px; }
+  .miss-line{ font-weight:bold; font-size:1.1rem; }
   .form-error,.form-notice{
     background:#fff; color:var(--poo-dark);
-    border:3px solid #c0392b; border-radius:12px; padding:10px 12px; margin-top:10px; font-weight:700;
+    border:3px solid #c0392b; border-radius:12px; padding:10px 12px; margin-top:10px; font-weight:bold;
   }
   .form-notice{ border-color:var(--poo-dark); }
   .rsvp-success{
     background:#fff; border:5px dashed var(--pink); border-radius:20px;
-    padding:26px; text-align:center;
+    padding:24px; text-align:center;
   }
   .rsvp-success h3{ font-size:1.8rem; color:var(--pink); }
-  .rsvp-success .big{ font-size:2.6rem; }
+  .rsvp-success .big{ font-size:3rem; }
 
-  /* the "arrived with no info" notice */
+  /* the "u came here with no info" notice */
   .no-data{ text-align:center; }
-  .no-data .big{ font-size:2.6rem; }
+  .no-data .big{ font-size:3rem; }
   .no-data .start-btn{
-    display:inline-block; margin-top:12px;
-    font-family:inherit; font-weight:800; font-size:1.05rem;
+    display:inline-block; margin-top:10px;
+    font-family:inherit; font-weight:bold; font-size:1.2rem;
     background:var(--pink); color:#fff; text-decoration:none;
     border:5px solid var(--poo-dark); border-radius:16px;
-    padding:12px 20px; box-shadow:6px 6px 0 var(--poo-dark);
+    padding:12px 18px; box-shadow:6px 6px 0 var(--poo-dark);
   }
   .no-data .start-btn:hover,.no-data .start-btn:focus-visible{ transform:translate(-2px,-2px); background:#ff3aa0; }
 
-  /* honeypot */
+  /* honeypot — hide it from humans + screen readers, bots still fill it */
   .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 
   /* ===== footer ===== */
   footer{
     background:var(--poo); color:#fff; text-align:center;
-    padding:30px 18px; border-top:8px solid var(--pee);
+    padding:28px 18px; border-top:8px dashed var(--pee);
   }
   footer a{ color:var(--pee); }
-  .by-line{ font-size:.92rem; margin-top:10px; opacity:.9; }
+  .by-line{ font-size:.95rem; margin-top:10px; opacity:.9; }
 
   @media (prefers-reduced-motion:no-preference){
-    .poo-strip span{ animation:scrollpoo 22s linear infinite; }
+    .poo-strip span{ animation:scrollpoo 18s linear infinite; }
     @keyframes scrollpoo{ 0%{ transform:translateX(0); } 100%{ transform:translateX(-100%); } }
+    .sticker{ animation:wobble 1.2s ease-in-out infinite; }
+    @keyframes wobble{ 0%,100%{ transform:rotate(-3deg); } 50%{ transform:rotate(3deg); } }
   }
 </style>
 </head>
 <body>
 
 <header class="nav">
-  <a class="logo" href="index.html">L &amp; K 💩</a>
-  <a class="backlink" href="index.html">&larr; Back</a>
+  <a class="logo" href="index.html">💩 L &amp; K 🚽</a>
+  <a class="backlink" href="index.html">⬅️ BACK 2 THE MAIN POTTY</a>
 </header>
 
-<div class="poo-strip" aria-hidden="true"><span>ALMOST DONE · A FEW MORE QUESTIONS · LILY &amp; KREMER · SEPTEMBER 18, 2027 · FART LAUDERDALE · 💩 · ALMOST DONE · A FEW MORE QUESTIONS · LILY &amp; KREMER · SEPTEMBER 18, 2027 · FART LAUDERDALE · 💩 · </span></div>
+<div class="poo-strip" aria-hidden="true"><span>💩 ALMOST DONE!! JUS A FEW MORE POTTY QWESTIONS 🚽 LILY &amp; KREMER 💛 SEPT 18 2027 💩 FART LAUDERDALE 💦 💩 ALMOST DONE!! JUS A FEW MORE POTTY QWESTIONS 🚽 LILY &amp; KREMER 💛 SEPT 18 2027 💩 FART LAUDERDALE 💦 </span></div>
 
 <section>
   <div class="wrap">
-    <h2 class="sect-title" id="rd-title">Almost done</h2>
+    <h2 class="sect-title" id="rd-title">FINISH UR RSVP!! 🚽📝</h2>
     <div class="card rsvp-card">
 
       <!-- shown when we have no info from step 1 -->
       <div class="no-data" id="rd-nodata" hidden>
-        <div class="big">💩</div>
-        <p style="font-weight:700;">We didn&rsquo;t catch your name. Let&rsquo;s start at the beginning.</p>
-        <a class="start-btn" href="index.html#rsvp">Start your RSVP</a>
+        <div class="big">🤔💩</div>
+        <p style="font-weight:bold;">lets start with the basics first!! we didnt get ur name yet.</p>
+        <a class="start-btn" href="index.html#rsvp">START UR RSVP 💩🚽</a>
       </div>
 
       <!-- the details form -->
       <form class="rsvp-form" id="rsvp-details-form" hidden novalidate="">
-        <p class="rsvp-intro" id="rd-greeting" style="font-weight:700;"></p>
+        <p class="rsvp-intro" id="rd-greeting" style="font-weight:bold;"></p>
 
         <div class="field">
-          <label for="rd-email">Your email <span style="font-weight:400;">(so Lily &amp; Kremer can reply)</span></label>
+          <label for="rd-email">UR EMAIL (so Lily &amp; Kremer can email u back)</label>
           <input type="email" id="rd-email" name="email" required autocomplete="email" placeholder="you@example.com">
         </div>
 
-        <!-- only for people who are coming -->
+        <!-- ONLY 4 people who r coming -->
         <div id="rd-attending-block" hidden>
           <div class="field">
-            <label for="rd-guests">How many of you are coming (including yourself)?</label>
+            <label for="rd-guests">HOW MANY OF U R COMING (COUNTING URSELF)</label>
             <input type="number" id="rd-guests" name="guests" min="1" max="10" step="1" value="1" required inputmode="numeric">
           </div>
           <div class="field">
-            <label for="rd-meal">Meal preference</label>
-            <p class="hint" id="rd-meal-hint">A sample menu for now; the real one comes later.</p>
+            <label for="rd-meal">WAT DO U WANNA EAT</label>
+            <p class="hint" id="rd-meal-hint">its a pretend menu 4 now, the real yummy food is coming later</p>
             <select id="rd-meal" name="meal" aria-describedby="rd-meal-hint">
-              <option value="" selected>Select one</option>
-              <option value="Beef">Beef</option>
-              <option value="Fish">Fish</option>
-              <option value="Vegetarian">Vegetarian</option>
+              <option value="" selected>pick ur yummy food</option>
+              <option value="Beef">🐄 BEEF (moo)</option>
+              <option value="Fish">🐟 FISH (glub glub)</option>
+              <option value="Vegetarian">🥦 VEGGIES (healthy poop)</option>
             </select>
           </div>
           <div class="field">
-            <label for="rd-dietary">Dietary restrictions or allergies</label>
-            <input type="text" id="rd-dietary" name="dietary" placeholder="Anything we should know about">
+            <label for="rd-dietary">ANY ALLERGYS OR FOOD STUFF?</label>
+            <input type="text" id="rd-dietary" name="dietary" placeholder="tell us so u dont get a tummy ache">
           </div>
         </div>
 
-        <!-- only for people who can't come -->
-        <p class="miss-line" id="rd-miss" hidden>We&rsquo;ll miss you. There will, at least, be a bathroom.</p>
+        <!-- ONLY 4 people who cant come -->
+        <p class="miss-line" id="rd-miss" hidden>aww we r gonna MISS U so much!! 😭💛 no poop party 4 u this time.</p>
 
         <div class="field">
-          <label for="rd-note">A note for the couple <span style="font-weight:400;">(optional)</span></label>
-          <textarea id="rd-note" name="note" placeholder="Say something. Anything."></textarea>
+          <label for="rd-note">SAY SOMETHING NICE (or gross) <span style="font-weight:normal;">(optional)</span></label>
+          <textarea id="rd-note" name="note" placeholder="write anything here!!!"></textarea>
         </div>
 
         <div class="hp" aria-hidden="true">
@@ -244,18 +248,18 @@
         </div>
 
         <div>
-          <button class="go-btn" type="submit" id="rd-submit">Send RSVP</button>
-          <p class="note-line">This sends your RSVP straight to Lily &amp; Kremer.</p>
-          <p class="form-error" id="rd-error" role="status" hidden>Something went wrong &mdash; please email us at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
-          <p class="form-notice" id="rd-notice" role="status" hidden>Our RSVP system is still being set up. Please check back soon to send yours.</p>
+          <button class="go-btn" type="submit" id="rd-submit">SEND OUR RSVP 🚽💨</button>
+          <p class="mailto-note">this sends ur RSVP straight 2 Lily &amp; Kremer!! 💛</p>
+          <p class="form-error" id="rd-error" role="status" hidden>UH OH IT BROKE 😭 email us at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
+          <p class="form-notice" id="rd-notice" role="status" hidden>our RSVP potty system is still getting set up 🚽🔧 check back soon 2 send urs!!</p>
         </div>
       </form>
 
-      <!-- the confirmation panel -->
+      <!-- the yay panel -->
       <div class="rsvp-success" id="rd-success" role="status" hidden>
-        <div class="big">💩</div>
-        <h3>You&rsquo;re in.</h3>
-        <p style="font-weight:700;">Your RSVP is recorded. See you in Fart Lauderdale.</p>
+        <div class="big">🎉💩🚽🎉</div>
+        <h3>YAYYY!!!</h3>
+        <p style="font-weight:bold;">ur RSVP is IN!!! we cant wait 2 party with u!! 💛</p>
       </div>
 
     </div>
@@ -263,9 +267,9 @@
 </section>
 
 <footer>
-  <div>Questions: <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></div>
-  <div style="margin-top:8px;font-weight:700;">Lily &amp; Kremer &middot; September 18, 2027 &middot; Fart Lauderdale, Florida</div>
-  <div class="by-line">This website was made by Chester, brother of the bride. He would like that on the record.</div>
+  <div>💩 questions? email <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a> 💩</div>
+  <div style="margin-top:8px;font-weight:bold;">Lily &amp; Kremer &middot; September 18, 2027 &middot; Fart Lauderdale Florida</div>
+  <div class="by-line">this website was made by Chester the best brother ever 🦸💩 (ur welcome)</div>
 </footer>
 
 <script>
@@ -302,14 +306,14 @@
   if (!name){
     if (form) form.hidden = true;
     if (noData) noData.hidden = false;
-    if (titleEl) titleEl.textContent = "Let's start with the basics";
+    if (titleEl) titleEl.textContent = "LETS START WITH THE BASICS 💩";
     return;
   }
 
   var isAttending = (attending === "Joyfully accepts");
 
-  /* greet by name — set as TEXT so an unusual name can't inject markup */
-  if (greeting){ greeting.textContent = "Thanks, " + name + "."; }
+  /* greet by name — set as TEXT so a silly name cant inject markup */
+  if (greeting){ greeting.textContent = "THANKS, " + name + "!! 🎉💩"; }
 
   /* carry the step 1 honeypot value forward */
   if (honeypotInput){ honeypotInput.value = step1Website; }
@@ -321,7 +325,7 @@
   } else {
     if (attendingBlock) attendingBlock.hidden = true;
     if (missLine) missLine.hidden = false;
-    /* not coming — don't validate the hidden guests field */
+    /* not coming — dont validate the hidden guests field */
     if (guestsInput) guestsInput.required = false;
   }
 
@@ -368,7 +372,7 @@
     if (noticeLine) noticeLine.hidden = true;
     var restingLabel = submitBtn.textContent;
     submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
+    submitBtn.textContent = "SENDING… 💨";
 
     fetch(endpoint, {
       method: "POST",
