@@ -179,7 +179,7 @@
     (function(){
       var btn = document.getElementById('surprise-btn');
       if (!btn) return;
-      var pages = ['dino/', 'batman/', 'kissinger/', 'mercer/', 'nietzsche/', 'gaga/'];
+      var pages = ['dino/', 'batman/', 'kissinger/', 'mercer/', 'nietzsche/', 'gaga/', 'seinfeld/'];
       btn.addEventListener('click', function(){
         var pick = pages[Math.floor(Math.random() * pages.length)];
         window.location.href = pick;

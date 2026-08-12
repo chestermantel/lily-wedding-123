@@ -313,6 +313,10 @@
   .fern-row{display:flex; justify-content:center; gap:.4rem; margin:2.2rem 0 0; opacity:.9}
   .fern-row svg{width:40px; height:64px}
 
+  /* ---------- added illustration vignettes ---------- */
+  svg.vignette{display:block; width:100%; height:auto; margin:2.8rem auto 0; max-width:840px}
+  svg.vignette.narrow{max-width:540px}
+
   /* ---------- motion ---------- */
   .reveal{opacity:1}
   @media (prefers-reduced-motion: no-preference){
@@ -324,11 +328,17 @@
     .sway.s3{animation-duration:8.5s; animation-delay:-4s}
     .bob{animation:bob 5.5s ease-in-out infinite}
     .rec{animation:blink 1.6s steps(1) infinite}
+    .glide{animation:glide 7s ease-in-out infinite}
+    .glide.g2{animation-duration:9.5s; animation-delay:-2.5s}
+    .glide.g3{animation-duration:11s; animation-delay:-5s}
+    .twinkle{animation:twinkle 4.5s ease-in-out infinite}
   }
   @keyframes sway{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
   @keyframes spore{0%{transform:translateY(6px)}50%{transform:translateY(-10px)}100%{transform:translateY(6px)}}
   @keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.25}}
+  @keyframes glide{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes twinkle{0%,100%{opacity:.5}50%{opacity:.95}}
 </style>
 
 <a class="skip" href="#main">Skip to the fossil record</a>
@@ -355,7 +365,7 @@
 
 <section class="hero" aria-labelledby="hero-title">
   <!-- Prehistoric lagoon scene -->
-  <svg class="scene" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A prehistoric lagoon at dusk with a smoking volcano, tree ferns, and two long-necked dinosaurs by the water.">
+  <svg class="scene" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMax slice" role="img" aria-label="A prehistoric lagoon at dusk: a smoking volcano, tree ferns, pterosaurs gliding past a low sun, a small meteor far off in the sky, and a big friendly long-necked dinosaur wading in the water with its herd.">
     <defs>
       <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#22452a"/>
@@ -375,11 +385,42 @@
         <stop offset="0" stop-color="#ffb347"/>
         <stop offset="1" stop-color="#e8451f" stop-opacity="0"/>
       </radialGradient>
+      <linearGradient id="dino-body" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#5aa06b"/>
+        <stop offset="0.55" stop-color="#357044"/>
+        <stop offset="1" stop-color="#1f4630"/>
+      </linearGradient>
+      <linearGradient id="meteor-tail" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffe6a8" stop-opacity="0"/>
+        <stop offset="1" stop-color="#ffd67a"/>
+      </linearGradient>
     </defs>
 
     <rect width="1200" height="640" fill="url(#sky)"/>
     <circle cx="880" cy="230" r="150" fill="url(#sun)" opacity="0.9"/>
     <circle cx="880" cy="230" r="66" fill="#ffcf6b" opacity="0.85"/>
+
+    <!-- the distant meteor (we do not speak of it) -->
+    <g class="twinkle" transform="translate(300,74)">
+      <path d="M0 0 L88 -34 C94 -32 94 -24 88 -22 L6 6 Z" fill="url(#meteor-tail)" opacity="0.65"/>
+      <circle cx="4" cy="2" r="9" fill="#ffd67a" opacity="0.35"/>
+      <circle cx="4" cy="2" r="4.5" fill="#fff3d0"/>
+    </g>
+
+    <!-- pterosaurs gliding past the sun -->
+    <g transform="translate(556,150)"><g class="glide">
+      <path d="M-34 0 C-16 -11 -5 -8 0 0 C5 -8 16 -11 34 0 C15 3 5 8 0 16 C-5 8 -15 3 -34 0 Z" fill="#0a1810" opacity="0.85"/>
+      <path d="M0 0 L14 -2 L9 5 Z" fill="#0a1810" opacity="0.85"/>
+      <path d="M2 -2 L12 -7 L8 -1 Z" fill="#0a1810" opacity="0.55"/>
+    </g></g>
+    <g transform="translate(748,118) scale(0.72)"><g class="glide g2">
+      <path d="M-34 0 C-16 -11 -5 -8 0 0 C5 -8 16 -11 34 0 C15 3 5 8 0 16 C-5 8 -15 3 -34 0 Z" fill="#0a1810" opacity="0.8"/>
+      <path d="M0 0 L14 -2 L9 5 Z" fill="#0a1810" opacity="0.8"/>
+    </g></g>
+    <g transform="translate(470,198) scale(0.52)"><g class="glide g3">
+      <path d="M-34 0 C-16 -11 -5 -8 0 0 C5 -8 16 -11 34 0 C15 3 5 8 0 16 C-5 8 -15 3 -34 0 Z" fill="#0a1810" opacity="0.75"/>
+      <path d="M0 0 L14 -2 L9 5 Z" fill="#0a1810" opacity="0.75"/>
+    </g></g>
 
     <!-- distant volcano -->
     <path d="M60 360 L210 150 L250 150 L400 360 Z" fill="#0f2a1a"/>
@@ -389,9 +430,45 @@
     <!-- far ridgeline -->
     <path d="M0 360 C160 316 300 344 470 330 C660 314 820 348 1000 326 C1090 316 1160 330 1200 322 L1200 640 L0 640 Z" fill="#12301f"/>
 
+    <!-- distant cycads / palms on the ridge -->
+    <g fill="#0f2a1a">
+      <g transform="translate(150,336)">
+        <rect x="-3" y="-30" width="6" height="34" rx="3"/>
+        <path d="M0 -30 C-22 -42 -42 -36 -54 -20 C-32 -32 -12 -32 0 -30 Z"/>
+        <path d="M0 -30 C22 -42 42 -36 54 -20 C32 -32 12 -32 0 -30 Z"/>
+        <path d="M0 -30 C-10 -52 -6 -68 4 -80 C7 -60 4 -42 0 -30 Z"/>
+      </g>
+      <g transform="translate(1040,332) scale(0.85)">
+        <rect x="-3" y="-30" width="6" height="34" rx="3"/>
+        <path d="M0 -30 C-22 -42 -42 -36 -54 -20 C-32 -32 -12 -32 0 -30 Z"/>
+        <path d="M0 -30 C22 -42 42 -36 54 -20 C32 -32 12 -32 0 -30 Z"/>
+        <path d="M0 -30 C8 -52 4 -68 -6 -80 C-8 -60 -4 -42 0 -30 Z"/>
+      </g>
+      <g transform="translate(690,340) scale(0.7)">
+        <rect x="-3" y="-28" width="6" height="30" rx="3"/>
+        <path d="M0 -28 C-20 -38 -38 -32 -48 -18 C-28 -30 -10 -30 0 -28 Z"/>
+        <path d="M0 -28 C20 -38 38 -32 48 -18 C28 -30 10 -30 0 -28 Z"/>
+      </g>
+    </g>
+
     <!-- lagoon water -->
     <path d="M0 470 C220 452 420 486 640 476 C860 466 1020 492 1200 476 L1200 640 L0 640 Z" fill="url(#water)"/>
     <path d="M0 470 C220 452 420 486 640 476 C860 466 1020 492 1200 476" fill="none" stroke="#5f9c68" stroke-width="2" opacity="0.4"/>
+
+    <!-- lagoon lily pads, a bloom, and ripples -->
+    <g>
+      <ellipse cx="300" cy="502" rx="34" ry="9" fill="#245038"/>
+      <path d="M300 502 L288 495 L299 493 Z" fill="#0c1c14"/>
+      <ellipse cx="1086" cy="496" rx="30" ry="8" fill="#245038"/>
+      <path d="M1086 496 L1097 490 L1099 500 Z" fill="#0c1c14"/>
+      <circle cx="1064" cy="492" r="5.5" fill="#f0a532" opacity="0.8"/>
+      <circle cx="1064" cy="492" r="2.4" fill="#ffd67a"/>
+    </g>
+    <g fill="none" stroke="#5f9c68" stroke-width="1.6" opacity="0.28">
+      <path d="M150 520 q40 -8 80 0"/>
+      <path d="M170 536 q34 -7 68 0"/>
+      <path d="M980 512 q40 -8 80 0"/>
+    </g>
 
     <!-- big sauropod on the far shore -->
     <g class="bob" fill="#0b1a11">
@@ -415,6 +492,45 @@
       <rect x="34" y="70" width="14" height="34" rx="6"/>
       <rect x="70" y="72" width="14" height="32" rx="6"/>
     </g>
+
+    <!-- BIG friendly sauropod: the centerpiece of the herd -->
+    <g>
+      <ellipse cx="946" cy="514" rx="150" ry="26" fill="#5aa06b" opacity="0.12"/>
+      <rect x="1006" y="452" width="30" height="76" rx="14" fill="#16301f"/>
+      <rect x="898" y="462" width="26" height="66" rx="12" fill="#14301f"/>
+      <path d="M1074 416 C1128 426 1168 448 1200 470" fill="none" stroke="url(#dino-body)" stroke-width="30" stroke-linecap="round"/>
+      <ellipse cx="946" cy="404" rx="150" ry="74" fill="url(#dino-body)"/>
+      <rect x="842" y="452" width="32" height="76" rx="15" fill="#1f4630"/>
+      <rect x="946" y="456" width="30" height="72" rx="14" fill="#1c3a28"/>
+      <ellipse cx="946" cy="432" rx="118" ry="40" fill="#6bb072" opacity="0.26"/>
+      <path d="M812 372 q12 -18 24 -2 q12 -18 24 -2 q12 -18 24 -2 q12 -18 24 -2 q12 -18 24 -2 q12 -16 22 0" fill="#2b5a3a" opacity="0.85"/>
+      <path d="M868 392 C800 356 720 320 636 270 C616 258 604 252 596 248" fill="none" stroke="url(#dino-body)" stroke-width="46" stroke-linecap="round"/>
+      <path d="M888 372 C818 338 738 300 650 256 C630 246 614 242 602 240" fill="none" stroke="#f0a532" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
+      <path d="M598 250 C598 232 582 224 564 226 C544 228 530 240 530 256 C530 270 546 280 566 278 C586 276 598 266 598 250 Z" fill="url(#dino-body)"/>
+      <circle cx="590" cy="232" r="4" fill="#357044"/>
+      <circle cx="601" cy="240" r="3.5" fill="#357044"/>
+      <circle cx="566" cy="250" r="6.5" fill="#f3ead6"/>
+      <circle cx="563" cy="251" r="3.2" fill="#0c1c14"/>
+      <circle cx="561" cy="249" r="1" fill="#f3ead6"/>
+      <circle cx="536" cy="252" r="2" fill="#0c1c14"/>
+      <path d="M534 264 C544 271 558 271 570 265" fill="none" stroke="#123020" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+
+    <!-- foreground reeds and cattails -->
+    <g transform="translate(360,640)"><g class="sway s2" fill="#0a1810">
+      <rect x="-14" y="-128" width="4" height="128" rx="2"/>
+      <rect x="-2" y="-150" width="4" height="150" rx="2"/>
+      <rect x="12" y="-134" width="4" height="134" rx="2"/>
+      <rect x="-5" y="-172" width="6" height="26" rx="3"/>
+      <path d="M-14 -128 C-30 -150 -32 -172 -22 -190" fill="none" stroke="#0a1810" stroke-width="4" stroke-linecap="round"/>
+      <path d="M12 -134 C28 -156 30 -176 20 -194" fill="none" stroke="#0a1810" stroke-width="4" stroke-linecap="round"/>
+    </g></g>
+    <g transform="translate(858,640)"><g class="sway s3" fill="#091509">
+      <rect x="-10" y="-104" width="4" height="104" rx="2"/>
+      <rect x="2" y="-120" width="4" height="120" rx="2"/>
+      <rect x="-3" y="-138" width="6" height="22" rx="3"/>
+      <path d="M-10 -104 C-24 -124 -24 -142 -16 -158" fill="none" stroke="#091509" stroke-width="4" stroke-linecap="round"/>
+    </g></g>
 
     <!-- foreground tree ferns -->
     <g class="sway" fill="#0a1810" transform="translate(40,640)">
@@ -518,6 +634,72 @@
         <svg viewBox="0 0 60 96" class="sway s2"><g fill="none" stroke="#6bb072" stroke-width="3" stroke-linecap="round"><path d="M30 94 C30 60 32 36 20 18 C14 8 20 4 26 10"/><path d="M30 84 C42 80 48 72 50 62"/><path d="M28 74 C16 70 10 62 8 52"/><path d="M29 62 C40 58 45 52 47 44"/></g></svg>
         <svg viewBox="0 0 60 96" class="sway s3"><g fill="none" stroke="#3f7a4c" stroke-width="3" stroke-linecap="round"><path d="M30 94 C30 60 28 36 40 18 C46 8 40 4 34 10"/><path d="M30 84 C18 80 12 72 10 62"/><path d="M32 74 C44 70 50 62 52 52"/></g></svg>
       </div>
+
+      <svg class="vignette" viewBox="0 0 900 210" role="img" aria-label="A triceratops grazing among ferns, with a trail of three-toed footprints behind it.">
+        <path d="M0 168 C220 158 480 176 900 164 L900 210 L0 210 Z" fill="#0f2a1a" opacity="0.5"/>
+        <path d="M0 168 C220 158 480 176 900 164" fill="none" stroke="#3f7a4c" stroke-width="2" opacity="0.35"/>
+
+        <!-- ferns the triceratops noses toward -->
+        <g fill="none" stroke="#3f7a4c" stroke-width="4" stroke-linecap="round" opacity="0.9">
+          <path d="M70 166 C70 120 66 84 84 56 C92 44 82 38 72 48"/>
+          <path d="M70 150 C50 144 40 132 36 118"/>
+          <path d="M72 132 C92 126 102 114 106 100"/>
+          <path d="M70 112 C52 106 44 96 42 84"/>
+        </g>
+        <g fill="none" stroke="#6bb072" stroke-width="3.4" stroke-linecap="round" opacity="0.8">
+          <path d="M132 166 C132 128 136 98 120 74 C112 62 122 56 130 66"/>
+          <path d="M132 150 C150 144 158 134 162 122"/>
+          <path d="M130 132 C112 126 104 116 102 104"/>
+        </g>
+
+        <!-- three-toed footprints trailing behind -->
+        <g fill="#26502f" opacity="0.7">
+          <g transform="translate(556,150)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+          <g transform="translate(626,147) scale(0.9)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+          <g transform="translate(694,145) scale(0.8)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+          <g transform="translate(756,144) scale(0.7)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+        </g>
+
+        <!-- TRICERATOPS -->
+        <g transform="translate(300,46)">
+          <path d="M150 60 C176 56 198 62 216 76 C198 80 172 80 150 72 Z" fill="#357044"/>
+          <ellipse cx="116" cy="66" rx="54" ry="31" fill="#3f7a4c"/>
+          <path d="M70 80 C94 96 140 96 164 80 C150 96 84 96 70 80 Z" fill="#2c5638"/>
+          <rect x="150" y="88" width="16" height="34" rx="7" fill="#2c5638"/>
+          <rect x="128" y="90" width="15" height="32" rx="7" fill="#28502f"/>
+          <rect x="88" y="90" width="16" height="34" rx="7" fill="#357044"/>
+          <rect x="68" y="92" width="15" height="30" rx="7" fill="#2c5638"/>
+          <path d="M78 60 C74 30 56 18 34 22 C22 40 22 78 40 96 C58 100 74 86 78 66 Z" fill="#3f7a4c"/>
+          <g fill="#e9dcc0"><circle cx="40" cy="24" r="4"/><circle cx="28" cy="34" r="4.5"/><circle cx="24" cy="50" r="4.5"/><circle cx="28" cy="66" r="4.5"/><circle cx="40" cy="80" r="4"/></g>
+          <path d="M62 56 C46 50 26 54 14 66 C10 74 18 86 34 86 C50 86 62 72 66 62 Z" fill="#4a8a58"/>
+          <path d="M14 66 C6 68 6 80 16 79 C18 74 18 69 14 66 Z" fill="#e9dcc0"/>
+          <path d="M30 54 L25 38 L40 54 Z" fill="#f3ead6"/>
+          <path d="M48 50 C42 32 33 24 22 20 C35 25 46 36 53 54 Z" fill="#f3ead6"/>
+          <path d="M56 50 C52 30 45 22 36 18 C47 24 56 37 61 54 Z" fill="#efe0be"/>
+          <circle cx="46" cy="62" r="3.4" fill="#0c1c14"/>
+          <circle cx="44.6" cy="60.8" r="1.1" fill="#f3ead6"/>
+        </g>
+      </svg>
     </div>
   </section>
 
@@ -573,6 +755,65 @@
           <span class="amber-chip">Answer before the sky changes</span>
         </div>
       </div>
+
+      <svg class="vignette narrow" viewBox="0 0 520 260" role="img" aria-label="A cheerful Tyrannosaurus with very tiny arms, scratching notes onto a little stone tablet.">
+        <defs>
+          <linearGradient id="trex-body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#d08a34"/>
+            <stop offset="0.6" stop-color="#a5691f"/>
+            <stop offset="1" stop-color="#6e4718"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 224 C160 216 360 232 520 220 L520 260 L0 260 Z" fill="#0f2a1a" opacity="0.5"/>
+        <path d="M0 224 C160 216 360 232 520 220" fill="none" stroke="#3f7a4c" stroke-width="2" opacity="0.3"/>
+
+        <!-- footprints -->
+        <g fill="#26502f" opacity="0.65">
+          <g transform="translate(70,232) scale(0.9)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+          <g transform="translate(128,236) scale(0.8)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+        </g>
+
+        <!-- fern (right) -->
+        <g fill="none" stroke="#3f7a4c" stroke-width="4" stroke-linecap="round" opacity="0.85">
+          <path d="M470 222 C470 182 466 150 484 124 C492 112 482 106 472 116"/>
+          <path d="M470 206 C450 200 440 188 436 174"/>
+          <path d="M472 188 C492 182 502 170 506 156"/>
+        </g>
+
+        <!-- T-REX with very tiny arms -->
+        <g transform="translate(150,18)">
+          <path d="M118 120 C160 116 196 130 224 152 C198 148 162 146 122 150 Z" fill="url(#trex-body)"/>
+          <path d="M96 150 C98 176 96 190 88 204 L108 204 C112 190 114 172 112 150 Z" fill="#6e4718"/>
+          <path d="M60 70 C34 78 30 116 50 146 C72 172 116 172 132 140 C144 116 132 80 106 70 C92 63 74 64 60 70 Z" fill="url(#trex-body)"/>
+          <path d="M56 120 C70 150 108 150 120 124 C112 150 66 152 56 120 Z" fill="#e8c88a" opacity="0.5"/>
+          <path d="M70 150 C72 178 68 194 58 206 L84 206 C90 192 92 172 90 150 Z" fill="url(#trex-body)"/>
+          <g fill="#f3ead6"><path d="M58 206 l-9 6 l9 -1 Z"/><path d="M70 206 l-9 6 l9 -1 Z"/></g>
+          <path d="M64 74 C54 60 44 48 40 40" fill="none" stroke="url(#trex-body)" stroke-width="30" stroke-linecap="round"/>
+          <path d="M60 40 C44 26 18 26 8 42 C2 52 6 66 22 68 C30 76 52 74 62 62 C70 52 68 46 60 40 Z" fill="url(#trex-body)"/>
+          <path d="M12 58 C22 70 46 72 60 64 C48 72 24 74 12 66 Z" fill="#6e4718"/>
+          <path d="M14 56 l4 8 l3 -7 l4 8 l3 -7 l4 8 l3 -7 l4 7" fill="#f3ead6"/>
+          <path d="M33 39 C39 35 45 36 48 40" fill="none" stroke="#6e4718" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="40" cy="47" r="4.2" fill="#f3ead6"/>
+          <circle cx="38.4" cy="47.6" r="2.1" fill="#0c1c14"/>
+          <circle cx="16" cy="49" r="2" fill="#3a2a10"/>
+          <path d="M60 106 C50 108 44 114 46 122" fill="none" stroke="url(#trex-body)" stroke-width="7" stroke-linecap="round"/>
+          <g stroke="#6e4718" stroke-width="3" stroke-linecap="round"><path d="M46 122 l-4 -3"/><path d="M46 122 l0 -5"/></g>
+          <g transform="translate(20,120) rotate(-6)">
+            <rect x="0" y="0" width="28" height="21" rx="4" fill="#d8ccb2"/>
+            <g stroke="#8a7a58" stroke-width="1.6" stroke-linecap="round"><path d="M5 6 h18"/><path d="M5 11 h13"/><path d="M5 16 h15"/></g>
+          </g>
+        </g>
+      </svg>
     </div>
   </section>
 
@@ -596,6 +837,54 @@
         <li class="reveal"><b>Mercer is in charge of the ground.</b> Mercer is Lily's small four-legged companion. Mercer patrols the shoreline, holds full immunity, and gets first claim on any food that falls. Do not argue with Mercer.</li>
         <li class="reveal"><b>Roar when they say the forever-words.</b> I do not understand "marriage." But I understand loving something so much you want it near you until the world ends. That, I understand deeply. So, when the moment comes: ROAR.</li>
       </ol>
+
+      <svg class="vignette" viewBox="0 0 900 200" role="img" aria-label="A slab of rock holding an ammonite fossil, an old bone, a vertebra, and three-toed dinosaur tracks pressed into the stone.">
+        <rect x="8" y="34" width="884" height="150" rx="18" fill="#14301f"/>
+        <rect x="8" y="34" width="884" height="150" rx="18" fill="none" stroke="#1c3a28" stroke-width="2"/>
+        <g stroke="#0c1c14" stroke-width="2" opacity="0.45"><path d="M30 78 H870"/><path d="M30 128 H860"/></g>
+        <g stroke="#3f7a4c" stroke-width="1.4" opacity="0.25"><path d="M40 104 H840"/></g>
+
+        <!-- ammonite fossil (spiral) -->
+        <g transform="translate(170,110) scale(1.7)">
+          <g transform="translate(-50,-50)" fill="none" stroke="#f0a532" stroke-width="3" stroke-linecap="round">
+            <path d="M50 50 m0 0 a4 4 0 1 1 8 4 a10 10 0 1 1 -18 -2 a18 18 0 1 1 32 6 a26 26 0 1 1 -46 -8"/>
+          </g>
+          <g stroke="#d8ccb2" stroke-width="1.4" opacity="0.7">
+            <path d="M0 -26 l0 -7"/><path d="M18 -18 l5 -5"/><path d="M26 2 l7 1"/>
+            <path d="M16 22 l4 6"/><path d="M-8 28 l-2 7"/><path d="M-26 8 l-7 2"/>
+          </g>
+          <circle cx="2" cy="2" r="3" fill="#f0a532"/>
+        </g>
+
+        <!-- three-toed tracks pressed in the stone -->
+        <g fill="#0a1810" opacity="0.65">
+          <g transform="translate(430,92) scale(1.15)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+          <g transform="translate(508,126) scale(1.05)">
+            <ellipse cx="20" cy="12" rx="6.5" ry="5.5"/>
+            <path d="M17 8 C6 4 -2 2 -7 2 C0 6 8 9 15 11 Z"/>
+            <path d="M15 12 C2 11 -8 12 -13 12 C-4 12 6 12 15 13 Z"/>
+            <path d="M17 16 C6 20 -2 22 -7 22 C0 18 8 15 15 13 Z"/>
+          </g>
+        </g>
+
+        <!-- old bone -->
+        <g fill="#e9dcc0" opacity="0.85" transform="translate(690,150) rotate(-16)">
+          <rect x="0" y="-6" width="72" height="12" rx="6"/>
+          <circle cx="0" cy="-6" r="9"/><circle cx="0" cy="6" r="9"/>
+          <circle cx="72" cy="-6" r="9"/><circle cx="72" cy="6" r="9"/>
+        </g>
+        <!-- a small vertebra -->
+        <g transform="translate(628,150)">
+          <circle cx="0" cy="0" r="12" fill="#d8ccb2" opacity="0.85"/>
+          <circle cx="0" cy="0" r="4" fill="#14301f"/>
+          <path d="M-8 -10 l-6 -8 M8 -10 l6 -8 M0 12 l0 9" fill="none" stroke="#d8ccb2" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+        </g>
+      </svg>
     </div>
   </section>
 </main>
@@ -662,7 +951,7 @@
     setInterval(tick, 60 * 60 * 1000);
 
     /* ---- Escape hatch: drift to a random sibling page ---- */
-    var PAGES = ["../dino/","../batman/","../kissinger/","../mercer/","../nietzsche/","../gaga/"];
+    var PAGES = ["../dino/","../batman/","../kissinger/","../mercer/","../nietzsche/","../gaga/","../seinfeld/"];
     var HERE = "../dino/";
     var btn = document.getElementById("escape");
     if(btn){

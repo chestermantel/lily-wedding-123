@@ -373,6 +373,52 @@
     color:var(--bone);opacity:.6;font-size:.8em;
   }
 
+  /* ===== HERO STAGE + FAME-MONSTER FIGURE ===== */
+  .hero .wrap{position:relative;z-index:2;}
+  .hero__beams{
+    position:absolute;inset:0;z-index:0;
+    width:100%;height:100%;
+    pointer-events:none;opacity:.65;
+  }
+  .hero__beams svg{width:100%;height:100%;display:block;}
+  .hero__figure{
+    margin:clamp(26px,4.5vw,48px) auto 0;
+    width:min(100%,320px);
+  }
+  .hero__figure svg{
+    width:100%;height:auto;display:block;
+    filter:drop-shadow(0 0 36px rgba(194,8,18,.5));
+  }
+
+  /* ===== HANGING DISCO / MIRROR BALL ===== */
+  .discohang{
+    width:min(60vw,150px);
+    margin:0 auto clamp(6px,1.6vw,16px);
+  }
+  .discohang svg{
+    width:100%;height:auto;display:block;
+    filter:drop-shadow(0 0 24px rgba(215,218,222,.4));
+  }
+
+  /* ===== FACETED DIAMOND DIVIDER ===== */
+  .gems{
+    display:flex;justify-content:center;align-items:center;
+    gap:clamp(16px,5vw,40px);
+    padding:clamp(10px,3vw,26px) 0;
+  }
+  .gems svg{width:clamp(26px,6vw,50px);height:auto;display:block;}
+  .gems svg.g-mid{width:clamp(40px,9vw,74px);}
+
+  /* ===== VANITY (LIPSTICK + DIAMONDS) ===== */
+  .vanity{
+    display:flex;justify-content:center;align-items:center;
+    gap:clamp(18px,5vw,42px);
+    margin:clamp(26px,4vw,44px) auto 0;
+  }
+  .vanity .lip{width:clamp(30px,7vw,44px);height:auto;display:block;
+    filter:drop-shadow(0 0 14px rgba(194,8,18,.4));}
+  .vanity .dia{width:clamp(24px,5.5vw,40px);height:auto;display:block;}
+
   /* ===== ANIMATIONS (motion-safe only) ===== */
   @media (prefers-reduced-motion: no-preference){
     html{scroll-behavior:smooth;}
@@ -391,6 +437,16 @@
     @keyframes wobble{0%,100%{transform:rotate(-2deg);}50%{transform:rotate(2deg);}}
     .bolt-anim{animation:flash 2.6s steps(1) infinite;}
     @keyframes flash{0%,88%,100%{opacity:1;}90%,96%{opacity:.25;}}
+    .hero__figure{animation:floaty 7s ease-in-out infinite;}
+    @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+    .hero__beams svg{animation:beamPulse 5.5s ease-in-out infinite;transform-origin:50% 0;}
+    @keyframes beamPulse{0%,100%{opacity:.5;}50%{opacity:.95;}}
+    .discohang{transform-origin:top center;animation:sway 5s ease-in-out infinite;}
+    @keyframes sway{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
+    .gems svg{animation:gemTwinkle 4s ease-in-out infinite;}
+    .gems svg:nth-child(2){animation-delay:.5s;}
+    .gems svg:nth-child(3){animation-delay:1s;}
+    @keyframes gemTwinkle{0%,100%{opacity:.85;}50%{opacity:1;filter:drop-shadow(0 0 8px rgba(215,218,222,.6));}}
   }
 
   @media (max-width:520px){
@@ -419,6 +475,27 @@
 
   <!-- ================= HERO ================= -->
   <header class="hero">
+    <!-- stage-light beams raking down from above -->
+    <div class="hero__beams" aria-hidden="true">
+      <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="beamRed" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ff4b57" stop-opacity=".4"/>
+            <stop offset="1" stop-color="#ff4b57" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="beamChrome" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#d7dade" stop-opacity=".34"/>
+            <stop offset="1" stop-color="#d7dade" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <polygon points="600,-60 150,720 320,720" fill="url(#beamRed)"/>
+        <polygon points="600,-60 1050,720 880,720" fill="url(#beamRed)"/>
+        <polygon points="600,-60 380,720 500,720" fill="url(#beamChrome)"/>
+        <polygon points="600,-60 700,720 820,720" fill="url(#beamChrome)"/>
+        <polygon points="600,-60 558,720 642,720" fill="url(#beamRed)"/>
+      </svg>
+    </div>
+
     <span class="spark s1" aria-hidden="true"></span>
     <span class="spark s2" aria-hidden="true"></span>
     <span class="spark s3" aria-hidden="true"></span>
@@ -439,18 +516,158 @@
         Paws Up
       </span>
       <p class="subline">One <b>L</b>, one lifetime, one legendary <b>YES</b>. This is the alternate-universe invitation — every fear faced, and the one monster worth keeping forever.</p>
+
+      <!-- ===== FAME-MONSTER FIGURE — avant-garde couture centerpiece ===== -->
+      <div class="hero__figure" role="img" aria-label="An avant-garde fame-monster figure: a towering platinum wig, oversized dark glasses, blood-red lips and sharp couture shoulders, wreathed in stage light, diamonds and lightning.">
+        <svg viewBox="0 0 360 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="heroGlow" cx="50%" cy="34%" r="62%">
+              <stop offset="0" stop-color="#c20812" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#c20812" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="heroWig" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f4f5f7"/>
+              <stop offset=".5" stop-color="#c9ccd1"/>
+              <stop offset="1" stop-color="#8a8f98"/>
+            </linearGradient>
+            <linearGradient id="heroGown" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e11020"/>
+              <stop offset="1" stop-color="#5f0410"/>
+            </linearGradient>
+            <linearGradient id="heroHolo" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff4b57"/>
+              <stop offset=".5" stop-color="#7ad7ff"/>
+              <stop offset="1" stop-color="#c9a6ff"/>
+            </linearGradient>
+          </defs>
+
+          <!-- stage glow + chrome halo -->
+          <circle cx="180" cy="148" r="130" fill="url(#heroGlow)"/>
+          <circle cx="180" cy="148" r="120" stroke="url(#heroWig)" stroke-width="3" opacity=".5"/>
+
+          <!-- towering wig (behind) -->
+          <path d="M180 26 C126 26 88 72 92 134 C60 132 44 180 72 216 C86 236 110 234 120 216 C112 190 120 168 134 156 L134 120 C152 94 208 94 226 120 L226 156 C240 168 248 190 240 216 C250 234 274 236 288 216 C316 180 300 132 268 134 C272 72 234 26 180 26 Z" fill="url(#heroWig)"/>
+          <!-- red under-lights in the wig -->
+          <path d="M96 152 C74 172 74 198 88 212 C92 192 96 174 108 162 Z" fill="#c20812" opacity=".55"/>
+          <path d="M264 152 C286 172 286 198 272 212 C268 192 264 174 252 162 Z" fill="#c20812" opacity=".55"/>
+          <!-- sheen strands -->
+          <path d="M150 42 C132 68 126 104 130 140" stroke="#ffffff" stroke-width="2" opacity=".5"/>
+          <path d="M210 42 C228 68 234 104 230 140" stroke="#ffffff" stroke-width="2" opacity=".32"/>
+
+          <!-- face -->
+          <ellipse cx="180" cy="152" rx="43" ry="53" fill="#f2f2f3"/>
+          <ellipse cx="152" cy="170" rx="9" ry="6" fill="#ff4b57" opacity=".33"/>
+          <ellipse cx="208" cy="170" rx="9" ry="6" fill="#ff4b57" opacity=".33"/>
+
+          <!-- fringe swoop over the brow -->
+          <path d="M137 120 C150 100 210 100 223 120 C212 110 196 106 180 106 C164 106 148 110 137 120 Z" fill="#e9ebee"/>
+
+          <!-- oversized avant-garde shades -->
+          <path d="M138 150 L176 146 L176 170 C176 178 168 182 158 182 C144 182 136 172 136 160 C136 154 137 151 138 150 Z" fill="#0a0a0c" stroke="#d7dade" stroke-width="2.4"/>
+          <path d="M222 150 L184 146 L184 170 C184 178 192 182 202 182 C216 182 224 172 224 160 C224 154 223 151 222 150 Z" fill="#0a0a0c" stroke="#d7dade" stroke-width="2.4"/>
+          <path d="M176 152 L184 152" stroke="#d7dade" stroke-width="3"/>
+          <path d="M144 156 L166 152 L160 168 L142 170 Z" fill="url(#heroHolo)" opacity=".5"/>
+          <path d="M192 156 L214 152 L212 168 L194 170 Z" fill="url(#heroHolo)" opacity=".34"/>
+
+          <!-- blood-red lips -->
+          <path d="M164 190 C172 185 176 188 180 192 C184 188 188 185 196 190 C192 200 168 200 164 190 Z" fill="#c20812"/>
+          <path d="M168 191 C174 194 186 194 192 191" stroke="#7a0510" stroke-width="1.2"/>
+
+          <!-- lightning-bolt earrings -->
+          <path d="M132 176 l-7 12 5 0 -6 12 12 -16 -5 0 5 -8 z" fill="#f4f5f7"/>
+          <path d="M228 176 l7 12 -5 0 6 12 -12 -16 5 0 -5 -8 z" fill="#f4f5f7"/>
+
+          <!-- neck -->
+          <path d="M168 198 L192 198 L192 220 L168 220 Z" fill="#e9ebee"/>
+
+          <!-- sharp couture shoulders + bodice -->
+          <path d="M180 214 C168 214 158 220 150 228 L88 232 L126 262 C118 306 116 372 128 452 L232 452 C244 372 242 306 234 262 L272 232 L210 228 C202 220 192 214 180 214 Z" fill="url(#heroGown)"/>
+          <path d="M150 228 L88 232 L126 262 Z" fill="#d7dade" opacity=".22"/>
+          <path d="M210 228 L272 232 L234 262 Z" fill="#d7dade" opacity=".22"/>
+          <path d="M180 220 L180 452" stroke="#f4f5f7" stroke-width="2" stroke-dasharray="5 9" opacity=".8"/>
+          <path d="M150 244 C142 320 146 390 150 452" stroke="#d7dade" stroke-width="1.4" opacity=".45"/>
+          <path d="M210 244 C218 320 214 390 210 452" stroke="#d7dade" stroke-width="1.4" opacity=".45"/>
+
+          <!-- neckline diamond -->
+          <path d="M180 226 l12 12 -12 16 -12 -16 z" fill="#eef0f3" stroke="#8a8f98" stroke-width="1.2"/>
+          <path d="M168 238 l24 0 M180 226 l0 28" stroke="#8a8f98" stroke-width="1"/>
+
+          <!-- chest lightning accent -->
+          <path class="bolt-anim" d="M196 288 l-20 30 12 0 -14 30 30 -40 -14 0 14 -20 z" fill="#f4f5f7" stroke="#050506" stroke-width="1.6" stroke-linejoin="round" opacity=".9"/>
+        </svg>
+      </div>
     </div>
   </header>
 
   <!-- ================= COUNTDOWN ================= -->
   <section class="count" aria-labelledby="count-h">
     <div class="wrap">
+      <!-- the mirror ball descends -->
+      <div class="discohang" aria-hidden="true">
+        <svg viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="ballGrad" cx="38%" cy="30%" r="78%">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset=".35" stop-color="#d7dade"/>
+              <stop offset=".75" stop-color="#8a8f98"/>
+              <stop offset="1" stop-color="#3a3d43"/>
+            </radialGradient>
+            <clipPath id="ballClip"><circle cx="80" cy="112" r="60"/></clipPath>
+          </defs>
+          <path d="M80 6 L80 40" stroke="#8a8f98" stroke-width="3"/>
+          <rect x="70" y="38" width="20" height="14" rx="3" fill="#8a8f98"/>
+          <circle cx="80" cy="112" r="60" fill="url(#ballGrad)"/>
+          <g clip-path="url(#ballClip)">
+            <g stroke="#0a0a0c" stroke-width="1" opacity=".35">
+              <line x1="20" y1="82" x2="140" y2="82"/><line x1="20" y1="97" x2="140" y2="97"/>
+              <line x1="20" y1="112" x2="140" y2="112"/><line x1="20" y1="127" x2="140" y2="127"/>
+              <line x1="20" y1="142" x2="140" y2="142"/>
+              <line x1="35" y1="52" x2="35" y2="172"/><line x1="50" y1="52" x2="50" y2="172"/>
+              <line x1="65" y1="52" x2="65" y2="172"/><line x1="80" y1="52" x2="80" y2="172"/>
+              <line x1="95" y1="52" x2="95" y2="172"/><line x1="110" y1="52" x2="110" y2="172"/>
+              <line x1="125" y1="52" x2="125" y2="172"/>
+            </g>
+            <rect x="50" y="82" width="15" height="15" fill="#ffffff" opacity=".85"/>
+            <rect x="95" y="97" width="15" height="15" fill="#ff8f97" opacity=".5"/>
+            <rect x="65" y="127" width="15" height="15" fill="#ffffff" opacity=".55"/>
+            <rect x="35" y="112" width="15" height="15" fill="#c9ccd1" opacity=".7"/>
+            <rect x="110" y="82" width="15" height="15" fill="#c9ccd1" opacity=".6"/>
+            <rect x="80" y="142" width="15" height="15" fill="#ff8f97" opacity=".4"/>
+          </g>
+          <path d="M52 76 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#ffffff"/>
+        </svg>
+      </div>
       <h2 id="count-h">Days Until the Monster Ball (the Wedding)</h2>
       <div class="count__big chrome-text" id="count-num" aria-live="polite">—</div>
       <div class="count__label" id="count-label">nights until the ball descends</div>
       <p class="count__sub">Saturday, September 18, 2027 · the Haus of Lago Mar, on the Fort Lauderdale shore.</p>
     </div>
   </section>
+
+  <!-- ================= FACETED-DIAMOND DIVIDER ================= -->
+  <div class="gems wrap" aria-hidden="true">
+    <svg viewBox="0 0 60 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="diaA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f5f7"/><stop offset="1" stop-color="#8a8f98"/></linearGradient></defs>
+      <polygon points="12,6 48,6 60,26 30,74 0,26" fill="url(#diaA)" stroke="#3a3d43" stroke-width="1.4" stroke-linejoin="round"/>
+      <g stroke="#ffffff" stroke-width="1" opacity=".6" fill="none">
+        <path d="M0,26 L60,26 M12,6 L18,26 M48,6 L42,26 M18,26 L42,26 M18,26 L30,74 M42,26 L30,74 M0,26 L30,74 M60,26 L30,74"/>
+      </g>
+    </svg>
+    <svg class="g-mid" viewBox="0 0 60 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="diaB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4b57"/><stop offset="1" stop-color="#7a0510"/></linearGradient></defs>
+      <polygon points="12,6 48,6 60,26 30,74 0,26" fill="url(#diaB)" stroke="#3a0207" stroke-width="1.4" stroke-linejoin="round"/>
+      <g stroke="#ffd5d8" stroke-width="1" opacity=".55" fill="none">
+        <path d="M0,26 L60,26 M12,6 L18,26 M48,6 L42,26 M18,26 L42,26 M18,26 L30,74 M42,26 L30,74 M0,26 L30,74 M60,26 L30,74"/>
+      </g>
+    </svg>
+    <svg viewBox="0 0 60 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="diaC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a8f98"/><stop offset="1" stop-color="#f4f5f7"/></linearGradient></defs>
+      <polygon points="12,6 48,6 60,26 30,74 0,26" fill="url(#diaC)" stroke="#3a3d43" stroke-width="1.4" stroke-linejoin="round"/>
+      <g stroke="#ffffff" stroke-width="1" opacity=".6" fill="none">
+        <path d="M0,26 L60,26 M12,6 L18,26 M48,6 L42,26 M18,26 L42,26 M18,26 L30,74 M42,26 L30,74 M0,26 L30,74 M60,26 L30,74"/>
+      </g>
+    </svg>
+  </div>
 
   <!-- ================= ACT I — THE CEREMONY ================= -->
   <section class="act act--pink" aria-labelledby="act1-h">
@@ -573,6 +790,32 @@
       </p>
       <p class="sign">With all my LOVE,<br>Your Mother Monster<br><span class="paws">Paws up. 🐾</span></p>
 
+      <!-- vanity: blood-red lipstick between two diamonds -->
+      <div class="vanity" aria-hidden="true">
+        <svg class="dia" viewBox="0 0 60 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="diaD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f5f7"/><stop offset="1" stop-color="#8a8f98"/></linearGradient></defs>
+          <polygon points="12,6 48,6 60,26 30,74 0,26" fill="url(#diaD)" stroke="#3a3d43" stroke-width="1.4" stroke-linejoin="round"/>
+          <g stroke="#ffffff" stroke-width="1" opacity=".6" fill="none"><path d="M0,26 L60,26 M12,6 L18,26 M48,6 L42,26 M18,26 L42,26 M18,26 L30,74 M42,26 L30,74 M0,26 L30,74 M60,26 L30,74"/></g>
+        </svg>
+        <svg class="lip" viewBox="0 0 40 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lipTube" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5c616a"/><stop offset=".5" stop-color="#f4f5f7"/><stop offset="1" stop-color="#5c616a"/></linearGradient>
+            <linearGradient id="lipBullet" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7a0510"/><stop offset=".5" stop-color="#ff4b57"/><stop offset="1" stop-color="#7a0510"/></linearGradient>
+          </defs>
+          <rect x="8" y="48" width="24" height="40" rx="3" fill="url(#lipTube)" stroke="#3a3d43" stroke-width="1"/>
+          <rect x="6" y="44" width="28" height="8" rx="2" fill="#8a8f98"/>
+          <rect x="9" y="36" width="22" height="10" fill="#c9ccd1"/>
+          <path d="M11 36 L29 36 L29 16 C29 10 25 5 20 3 C15 5 11 10 11 16 Z" fill="url(#lipBullet)"/>
+          <path d="M11 16 C11 10 15 5 20 3 L20 24 L11 28 Z" fill="#ff4b57" opacity=".5"/>
+          <path d="M15 36 L15 86" stroke="#ffffff" stroke-width="1.4" opacity=".4"/>
+        </svg>
+        <svg class="dia" viewBox="0 0 60 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="diaE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a8f98"/><stop offset="1" stop-color="#f4f5f7"/></linearGradient></defs>
+          <polygon points="12,6 48,6 60,26 30,74 0,26" fill="url(#diaE)" stroke="#3a3d43" stroke-width="1.4" stroke-linejoin="round"/>
+          <g stroke="#ffffff" stroke-width="1" opacity=".6" fill="none"><path d="M0,26 L60,26 M12,6 L18,26 M48,6 L42,26 M18,26 L42,26 M18,26 L30,74 M42,26 L30,74 M0,26 L30,74 M60,26 L30,74"/></g>
+        </svg>
+      </div>
+
       <div class="cameo">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 7.5c-1 0-1.5 1.2-1 2.3.4.9 1.4 1.2 2.2.7.4 1.6 1.8 3 4.1 3s3.7-1.4 4.1-3c.8.5 1.8.2 2.2-.7.5-1.1 0-2.3-1-2.3-.9 0-1.4.7-1.6 1.4C13.9 8.6 13 8.2 12 8.2s-1.9.4-2.5 1.4C9.3 8.2 8.8 7.5 7.9 7.5c-.2 0-.4 0-.5.1-.2-.6-.6-1.1-1.3-1.1-.6 0-1 .4-1.2 1H4.5zM12 12.5c1.4 0 2.6.7 3 1.9.3 1-.4 2-1.4 2-.6 0-1-.3-1.6-.3s-1 .3-1.6.3c-1 0-1.7-1-1.4-2 .4-1.2 1.6-1.9 3-1.9z"/></svg>
         <span>Even <b>Mercer</b>, Lily's dog, will be backstage in a tiny couture bow tie — the smallest, softest monster of them all — howling his approval on cue.</span>
@@ -637,7 +880,7 @@
 
   // ---- teleport to a random sibling joke page ----
   (function(){
-    var PAGES = ["../dino/","../batman/","../kissinger/","../mercer/","../nietzsche/","../gaga/"];
+    var PAGES = ["../dino/","../batman/","../kissinger/","../mercer/","../nietzsche/","../gaga/","../seinfeld/"];
     var here = "../gaga/";
     var others = PAGES.filter(function(p){ return p !== here; });
     var btn = document.getElementById('teleport');

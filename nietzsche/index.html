@@ -291,13 +291,89 @@
   footer a.mail{color:var(--bone-dim);text-decoration:none;border-bottom:1px solid var(--rule);}
   footer a.mail:hover{color:var(--bone);border-color:var(--ash);}
 
+  /* ---------- Added illustration components ---------- */
+  .medallion{
+    margin:0 auto clamp(1.8rem,4.5vw,3rem);
+    max-width:340px;width:74%;
+    display:block;
+  }
+  .medallion svg{display:block;width:100%;height:auto;}
+
+  .emblem{margin:0 auto;display:block;}
+  .emblem svg{display:block;width:100%;height:auto;}
+  .emblem--ouro{
+    max-width:190px;width:52%;
+    margin:0 auto clamp(1.4rem,3.5vw,2.2rem);
+  }
+
+  .rule-art{
+    max-width:560px;width:86%;
+    margin:clamp(2.6rem,7vw,4.8rem) auto clamp(1rem,2vw,1.4rem);
+    display:block;
+  }
+  .rule-art svg{display:block;width:100%;height:auto;}
+  .rule-art .cap{
+    display:block;text-align:center;margin-top:.6rem;
+    font-family:"Playfair Display",serif;font-style:italic;font-weight:400;
+    font-size:clamp(.72rem,.66rem + .2vw,.86rem);
+    letter-spacing:.36em;text-transform:uppercase;color:var(--ash);
+  }
+
+  .foot-mark{max-width:96px;width:26%;margin:0 auto .9rem;display:block;}
+  .foot-mark svg{display:block;width:100%;height:auto;}
+
+  @media (prefers-reduced-motion: no-preference){
+    .ouro-rot{transform-box:fill-box;transform-origin:center;animation:turn 60s linear infinite;}
+    @keyframes turn{to{transform:rotate(360deg);}}
+    .eagle-drift{transform-box:fill-box;transform-origin:center;animation:drift 16s ease-in-out infinite;}
+    @keyframes drift{0%,100%{transform:translate(0,0) rotate(0);}50%{transform:translate(14px,-8px) rotate(-2deg);}}
+    .foot-mark .ouro-rot{animation-duration:80s;}
+  }
+
   @media (max-width:520px){
     .aph{grid-template-columns:1fr;gap:.4rem;}
     .aph .sec{padding-top:0;}
+    .medallion{width:82%;}
+    .emblem--ouro{width:60%;}
   }
 </style>
 
 <a class="skip" href="#gospel">Skip to the aphorisms</a>
+
+<!-- Reusable original artwork (hand-authored inline SVG). Decorative; referenced via <use>. -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="eagleSym" viewBox="0 0 240 120">
+    <!-- solitary soaring eagle, wings spread, primaries notched -->
+    <g fill="currentColor">
+      <ellipse cx="120" cy="66" rx="6.5" ry="24"/>
+      <circle cx="120" cy="40" r="6.6"/>
+      <path d="M120 34 l8 -6 -8 4 z"/>
+      <path d="M110 84 l10 24 10 -24 -6 6 -4 10 -4 -10 z"/>
+      <!-- right wing -->
+      <path d="M124 56 C 150 44 182 39 226 47 C 215 52 209 51 203 55 C 197 53 193 60 187 58 C 181 58 176 64 169 62 C 161 62 154 68 147 67 C 138 67 130 71 122 77 Z"/>
+      <!-- left wing (mirror) -->
+      <path d="M116 56 C 90 44 58 39 14 47 C 25 52 31 51 37 55 C 43 53 47 60 53 58 C 59 58 64 64 71 62 C 79 62 86 68 93 67 C 102 67 110 71 118 77 Z"/>
+    </g>
+  </symbol>
+
+  <symbol id="ouroSym" viewBox="0 0 260 260">
+    <!-- ouroboros: the serpent that eats its own tail — eternal recurrence -->
+    <g>
+      <!-- body ring, gapped at the top where head meets tail -->
+      <path d="M159.7 38.7 A 96 96 0 1 1 100.3 38.7" fill="none" stroke="#ece6d7" stroke-width="9" stroke-linecap="round"/>
+      <!-- oxblood scale-bands crossing the body -->
+      <path d="M159.7 38.7 A 96 96 0 1 1 100.3 38.7" fill="none" stroke="#8a1c1c" stroke-width="9" stroke-linecap="butt" stroke-dasharray="4.5 20"/>
+      <!-- thin dark seams between the scales -->
+      <path d="M159.7 38.7 A 96 96 0 1 1 100.3 38.7" fill="none" stroke="#0b0a09" stroke-width="9" stroke-linecap="butt" stroke-dasharray="0.9 24.1" transform="rotate(1.8 130 130)"/>
+      <!-- the tail, tapering into the mouth -->
+      <path d="M162 41 C 152 41 146 39 140 37 C 147 42 152 43 160 47 Z" fill="#ece6d7"/>
+      <!-- the head, jaws parted, biting the tail -->
+      <path d="M100 44 C 92 40 92 28 106 24 C 126 19 150 24 154 33 C 156 38 150 40 143 39 C 149 44 148 52 138 53 C 120 55 106 51 100 44 Z" fill="#ece6d7"/>
+      <circle cx="114" cy="33" r="3" fill="#8a1c1c"/>
+      <circle cx="115" cy="32" r="1" fill="#ece6d7"/>
+    </g>
+  </symbol>
+</svg>
 
 <header class="masthead">
   <div class="wrap">
@@ -317,7 +393,7 @@
     <p class="subline">Not a beginning. Not an ending. A ring — and the ring turns, and turns, and would have it no other way.</p>
     <!-- REVISED voice: numbered aphorisms below. Facts preserved: Lily &amp; Kremer · Sat Sept 18 2027 · Lago Mar, Fort Lauderdale. -->
 
-    <div class="abyss" role="img" aria-label="A lone wanderer stands upon a dark summit above a sea of fog, facing a rising sun — the horizon of an infinite recurrence.">
+    <div class="abyss" role="img" aria-label="A lone wanderer stands upon a dark summit above a sea of fog; a solitary eagle wheels beneath a low, blood-red sun — the horizon of an infinite recurrence.">
       <svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -332,9 +408,15 @@
           </radialGradient>
         </defs>
         <rect x="0" y="0" width="760" height="340" fill="url(#sky)"/>
-        <!-- sun / abyssal disc -->
+        <!-- sun / abyssal disc, with a thin eclipse corona -->
         <circle class="sun-halo" cx="380" cy="150" r="120" fill="url(#orb)"/>
         <circle cx="380" cy="150" r="52" fill="#e0a04a" opacity="0.9"/>
+        <circle cx="380" cy="150" r="62" fill="none" stroke="#f0c073" stroke-width="1.1" opacity="0.55"/>
+        <circle cx="380" cy="150" r="74" fill="none" stroke="#e0a04a" stroke-width="0.8" opacity="0.3"/>
+        <!-- solitary eagle wheeling before the sun -->
+        <g class="eagle-drift" style="color:#1c1109">
+          <use href="#eagleSym" x="286" y="70" width="86" height="43"/>
+        </g>
         <!-- distant ridgelines -->
         <path d="M0 208 L120 172 L215 200 L330 150 L470 196 L590 158 L680 190 L760 168 L760 340 L0 340 Z" fill="#0f0b07" opacity="0.85"/>
         <path d="M0 250 L90 224 L200 252 L300 214 L430 256 L560 220 L660 250 L760 232 L760 340 L0 340 Z" fill="#0a0806"/>
@@ -352,6 +434,11 @@
     </div>
 
     <div class="recurrence" aria-live="polite">
+      <div class="emblem emblem--ouro" aria-hidden="true">
+        <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+          <g class="ouro-rot"><use href="#ouroSym" width="260" height="260"/></g>
+        </svg>
+      </div>
       <p class="label">Days until the eternal recurrence begins</p>
       <p class="count"><span id="days">—</span><span class="unit" id="unit">and then, forever</span></p>
     </div>
@@ -359,6 +446,83 @@
 
   <section class="gospel wrap" id="gospel" aria-labelledby="gospelT">
     <div class="gospel-head">
+      <div class="medallion" role="img" aria-label="A stern philosopher in profile beneath a great drooping moustache, cast as a relief in a dark medallion before a low blood-red sun.">
+        <svg viewBox="0 0 300 360" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bustSun" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#c9873a"/>
+              <stop offset="0.4" stop-color="#8a1c1c"/>
+              <stop offset="1" stop-color="#8a1c1c" stop-opacity="0"/>
+            </radialGradient>
+            <clipPath id="tondo"><circle cx="150" cy="180" r="150"/></clipPath>
+          </defs>
+          <g clip-path="url(#tondo)">
+            <rect x="0" y="0" width="300" height="360" fill="#100e0c"/>
+            <circle class="sun-halo" cx="150" cy="286" r="150" fill="url(#bustSun)"/>
+            <circle cx="150" cy="286" r="52" fill="#e0a04a" opacity="0.28"/>
+            <!-- horizon rule behind the bust -->
+            <line x1="14" y1="252" x2="286" y2="252" stroke="#8a1c1c" stroke-width="1" opacity="0.45"/>
+
+            <!-- the bust -->
+            <g>
+              <!-- silhouette: hair, skull, nape, shoulders, throat, chin, lip, nose, brow, forehead -->
+              <path d="M152 68
+                C 186 70 212 90 217 122
+                C 219 140 216 152 208 160
+                C 204 174 201 182 202 192
+                C 222 200 246 210 262 226
+                C 274 238 279 254 280 276
+                C 281 296 278 310 273 320
+                L 273 330 L 27 330 L 27 320
+                C 22 300 27 256 47 236
+                C 60 223 78 214 93 208
+                C 100 205 105 205 110 208
+                C 118 213 122 224 120 246
+                C 118 236 116 228 114 220
+                C 113 214 113 208 114 202
+                C 108 200 98 196 86 192
+                C 96 178 106 164 114 150
+                C 112 146 110 145 108 146
+                C 110 142 112 140 114 138
+                C 116 118 118 100 124 86
+                C 130 76 138 70 152 68 Z" fill="#ece6d7"/>
+
+              <!-- the great bushy moustache, overlaid; it covers the mouth -->
+              <path d="M118 199
+                C 104 197 88 200 74 212
+                C 63 221 66 237 82 237
+                C 100 237 118 234 132 228
+                C 146 222 153 213 150 205
+                C 144 210 134 210 126 206
+                C 123 203 121 200 118 199 Z" fill="#ece6d7"/>
+              <!-- shadow lifting the moustache off the chin -->
+              <path d="M82 236 C 100 235 118 233 132 227 C 140 224 146 219 150 213" fill="none" stroke="#100e0c" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
+              <!-- moustache bristle strokes -->
+              <path d="M116 205 C 100 205 84 210 72 222" fill="none" stroke="#100e0c" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+              <path d="M120 214 C 106 215 92 220 82 229" fill="none" stroke="#100e0c" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+              <path d="M126 210 C 134 212 142 214 148 210" fill="none" stroke="#100e0c" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+
+              <!-- deep-set eye -->
+              <path d="M120 159 C 126 154 136 154 142 159 C 136 164 126 164 120 159 Z" fill="#100e0c"/>
+              <circle cx="130" cy="159" r="2.3" fill="#100e0c"/>
+              <!-- stern brow, in oxblood -->
+              <path d="M116 148 C 126 143 138 143 146 149" fill="none" stroke="#8a1c1c" stroke-width="3" stroke-linecap="round"/>
+              <!-- nostril hint -->
+              <path d="M99 198 C 103 200 108 200 112 199" fill="none" stroke="#100e0c" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+              <!-- swept-back hair -->
+              <path d="M132 72 C 152 68 176 74 196 92" fill="none" stroke="#100e0c" stroke-width="1.3" opacity="0.4"/>
+              <path d="M138 92 C 158 88 180 96 198 116" fill="none" stroke="#100e0c" stroke-width="1.1" opacity="0.3"/>
+              <path d="M150 116 C 168 114 186 122 200 140" fill="none" stroke="#100e0c" stroke-width="1" opacity="0.25"/>
+              <!-- drapery folds -->
+              <path d="M120 252 C 150 264 190 258 224 234" fill="none" stroke="#100e0c" stroke-width="1.4" opacity="0.45"/>
+              <path d="M150 302 C 170 288 196 282 232 288" fill="none" stroke="#100e0c" stroke-width="1.1" opacity="0.3"/>
+            </g>
+          </g>
+          <!-- medallion rings -->
+          <circle cx="150" cy="180" r="149" fill="none" stroke="#8a1c1c" stroke-width="2"/>
+          <circle cx="150" cy="180" r="141" fill="none" stroke="#2a2620" stroke-width="1"/>
+        </svg>
+      </div>
       <h2 id="gospelT">On Marriage &amp; the Abyss</h2>
       <span class="from">being fragments recovered from the wedding notebooks</span>
     </div>
@@ -457,6 +621,26 @@
     </article>
   </section>
 
+  <div class="rule-art wrap" aria-hidden="true">
+    <svg viewBox="0 0 560 210" xmlns="http://www.w3.org/2000/svg">
+      <!-- solitary eagle above the summit -->
+      <g class="eagle-drift" style="color:#ece6d7"><use href="#eagleSym" x="230" y="6" width="100" height="50"/></g>
+      <!-- faint rear range -->
+      <path d="M0 178 L90 124 L152 154 L232 100 L300 150 L360 114 L442 158 L520 122 L560 152" fill="none" stroke="#2a2620" stroke-width="1.4" stroke-linejoin="round"/>
+      <!-- stark front massif -->
+      <path d="M34 192 L150 120 L212 158 L288 76 L372 150 L440 118 L526 192" fill="none" stroke="#ece6d7" stroke-width="1.8" stroke-linejoin="round"/>
+      <!-- oxblood + ash facets catching the low light -->
+      <path d="M288 76 L268 118" fill="none" stroke="#8a1c1c" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M288 76 L305 110" fill="none" stroke="#928879" stroke-width="1" stroke-linecap="round"/>
+      <path d="M150 120 L138 140 M150 120 L164 142" fill="none" stroke="#928879" stroke-width="0.9"/>
+      <path d="M440 118 L430 138 M440 118 L452 140" fill="none" stroke="#928879" stroke-width="0.9"/>
+      <!-- the lone figure upon the summit -->
+      <g fill="#ece6d7"><circle cx="288" cy="66" r="3.1"/><path d="M285 79 C 285 71 291 71 291 79 Z"/></g>
+      <!-- horizon rule -->
+      <line x1="18" y1="192" x2="542" y2="192" stroke="#2a2620" stroke-width="1"/>
+    </svg>
+  </div>
+
   <section class="tablet" aria-labelledby="tabletT">
     <div class="wrap">
       <h2 id="tabletT">The Tablets of the New Law</h2>
@@ -488,7 +672,11 @@
 
 <footer>
   <div class="wrap">
-    <div class="glyph" aria-hidden="true">∞</div>
+    <div class="foot-mark" aria-hidden="true">
+      <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+        <g class="ouro-rot"><use href="#ouroSym" width="260" height="260"/></g>
+      </svg>
+    </div>
     <p class="names">Lily &amp; Kremer · MMXXVII</p>
     <p class="whisper">
       Lago Mar Beach Resort &amp; Club — Fort Lauderdale, Florida<br>
@@ -521,7 +709,7 @@
     setInterval(tick, 60000);
 
     /* ---- The leap into another world ---- */
-    var PAGES = ["../dino/","../batman/","../kissinger/","../mercer/","../nietzsche/","../gaga/"];
+    var PAGES = ["../dino/","../batman/","../kissinger/","../mercer/","../nietzsche/","../gaga/","../seinfeld/"];
     var here = "../nietzsche/";
     var others = PAGES.filter(function(p){ return p !== here; });
     var btn = document.getElementById('leap');
