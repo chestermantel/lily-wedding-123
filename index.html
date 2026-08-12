@@ -87,8 +87,24 @@
     display: inline-block;
   }
   .go { font-weight: 700; color: var(--chartreuse); font-size: 0.95rem; }
-  footer { margin-top: 3.5rem; font-size: 0.85rem; color: #8a7a80; text-align: center; }
-  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+  .surprise { margin-top: 3.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .surprise-btn {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ivory);
+    background: var(--burgundy);
+    border: none;
+    border-radius: 999px;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .surprise-btn:hover, .surprise-btn:focus-visible { transform: translateY(-2px); background: #551826; }
+  .surprise-btn:focus-visible { outline: 3px solid var(--chartreuse); outline-offset: 3px; }
+  .surprise-hint { font-size: 0.8rem; color: #a2929a; font-style: italic; }
+  footer { margin-top: 2.5rem; font-size: 0.85rem; color: #8a7a80; text-align: center; }
+  @media (prefers-reduced-motion: reduce) { .card, .surprise-btn { transition: none; } }
 </style>
 </head>
 <body>
@@ -152,6 +168,23 @@
     </a>
   </main>
 
+  <div class="surprise">
+    <button id="surprise-btn" class="surprise-btn" type="button">🎲 Take me somewhere else</button>
+    <p class="surprise-hint">this site has a few secrets</p>
+  </div>
+
   <footer>Made with love for Lily &amp; Kremer · questions → lilyandkremer@gmail.com</footer>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('surprise-btn');
+      if (!btn) return;
+      var pages = ['dino/', 'batman/', 'kissinger/', 'mercer/', 'nietzsche/', 'gaga/'];
+      btn.addEventListener('click', function(){
+        var pick = pages[Math.floor(Math.random() * pages.length)];
+        window.location.href = pick;
+      });
+    })();
+  </script>
 </body>
 </html>

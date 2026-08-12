@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://lilyandkremer.com/">
+<title>MERCER'S WEDDING PAGE (yellow lab, VERY good boy) 🎾🐾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ball:#c6f24a;          /* tennis-ball green */
+    --ball-deep:#a3d92e;
+    --sky:#5cc8ff;           /* sky blue */
+    --sky-deep:#2ba4e6;      /* decorative (shadows/borders) */
+    --sea:#0c6193;           /* AA-contrast deep blue for TEXT */
+    --sand:#fff4d6;          /* warm sandy paper */
+    --sand-2:#ffe9b8;
+    --ink:#2c3a17;           /* deep grassy ink for text */
+    --ink-soft:#4d5c33;
+    --cream:#fffdf6;
+    --sun:#ffd23f;
+    --coral:#ff8a5c;
+    --shadow:rgba(60,80,20,.16);
+    --radius:26px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:"Nunito",system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 500px at 50% -10%, #eafcff 0%, transparent 60%),
+      linear-gradient(180deg,#eafcff 0%, #f4ffe2 32%, var(--sand) 100%);
+    line-height:1.55;
+    overflow-x:hidden;
+  }
+  .wrap{width:min(920px,92vw);margin-inline:auto}
+
+  a{color:var(--sea)}
+  a:focus-visible,button:focus-visible{
+    outline:4px solid var(--coral);
+    outline-offset:3px;
+    border-radius:14px;
+  }
+
+  h1,h2,h3{font-family:"Fredoka",sans-serif;line-height:1.05;margin:0;letter-spacing:.3px}
+
+  /* ---------- floating paw + tennis ball background ---------- */
+  .sky-decor{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .sky-decor span{position:absolute;font-size:2.2rem;opacity:.22}
+  .sky-decor .b1{top:12%;left:6%}
+  .sky-decor .b2{top:26%;right:8%;font-size:3rem}
+  .sky-decor .b3{top:64%;left:4%;font-size:2.6rem}
+  .sky-decor .b4{top:78%;right:6%}
+  .sky-decor .b5{top:44%;left:48%;font-size:1.6rem}
+  main,header,footer{position:relative;z-index:1}
+
+  /* ---------- HERO ---------- */
+  header{padding:38px 0 8px;text-align:center}
+  .collar{
+    display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5ch;
+    max-width:100%;
+    background:var(--sky);color:#06344d;
+    font-family:"Fredoka",sans-serif;font-weight:600;
+    padding:8px 18px;border-radius:999px;
+    box-shadow:0 6px 0 var(--sky-deep);
+    transform:rotate(-2deg);
+    font-size:.95rem;
+  }
+  .tag{
+    display:inline-block;margin-top:4px;
+    background:var(--sun);color:#5a3d00;
+    font-family:"Fredoka",sans-serif;
+    padding:3px 12px;border-radius:999px;font-size:.8rem;font-weight:600;
+    transform:rotate(3deg);box-shadow:0 4px 0 #e0a900;
+  }
+  .doghero{
+    margin:22px auto 6px;
+    width:170px;height:170px;
+    display:grid;place-items:center;
+  }
+  h1{
+    font-size:clamp(2.1rem,7vw,3.9rem);
+    color:var(--ink);
+    text-shadow:0 3px 0 #fff, 0 4px 0 var(--ball-deep);
+    margin-top:6px;
+  }
+  h1 .pop{color:var(--sea)}
+  .subhero{
+    font-size:clamp(1.05rem,2.6vw,1.35rem);
+    font-weight:700;color:var(--ink-soft);
+    max-width:640px;margin:14px auto 0;
+  }
+
+  /* ---------- CARDS ---------- */
+  .card{
+    background:var(--cream);
+    border:3px solid #fff;
+    border-radius:var(--radius);
+    box-shadow:0 14px 34px var(--shadow);
+    padding:clamp(22px,4vw,38px);
+    margin:26px 0;
+  }
+  .card.ball{background:linear-gradient(160deg,#eaffc0,#d7f78a);border-color:#fff}
+  .card.sky{background:linear-gradient(160deg,#e2f6ff,#bfe9ff);border-color:#fff}
+
+  section h2{
+    font-size:clamp(1.5rem,4.4vw,2.3rem);
+    display:flex;align-items:center;gap:.4ch;flex-wrap:wrap;
+    margin-bottom:.5em;
+  }
+  section p{font-size:1.08rem;margin:.7em 0}
+  .shout{font-weight:800;color:var(--sea)}
+
+  /* ---------- COUNTDOWN ---------- */
+  .count-card{text-align:center}
+  .sleeps{
+    font-family:"Fredoka",sans-serif;font-weight:700;
+    font-size:clamp(3.4rem,15vw,7rem);
+    color:var(--ink);line-height:.9;
+    text-shadow:0 4px 0 #fff,0 6px 0 var(--ball-deep);
+  }
+  .sleeps-label{
+    font-family:"Fredoka",sans-serif;font-size:clamp(1rem,3.4vw,1.5rem);
+    color:var(--ink-soft);font-weight:600;letter-spacing:.5px;
+  }
+  .zzz{color:var(--sea)}
+
+  /* ---------- FACT BOX ---------- */
+  .facts{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:8px}
+  .fact{
+    background:#fff;border-radius:20px;padding:18px 20px;
+    box-shadow:0 8px 18px var(--shadow);
+    border-left:8px solid var(--ball-deep);
+  }
+  .fact:nth-child(2){border-left-color:var(--sky)}
+  .fact:nth-child(3){border-left-color:var(--coral)}
+  .fact .k{font-family:"Fredoka",sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--ink-soft)}
+  .fact .v{font-family:"Fredoka",sans-serif;font-size:1.28rem;color:var(--ink);margin-top:2px}
+
+  /* ---------- TREAT LIST ---------- */
+  ul.treats{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:12px}
+  ul.treats li{
+    background:#fff;border-radius:16px;padding:14px 16px 14px 52px;position:relative;
+    box-shadow:0 6px 14px var(--shadow);font-weight:700;font-size:1.05rem;
+  }
+  ul.treats li::before{content:"🐾";position:absolute;left:16px;top:12px;font-size:1.35rem}
+
+  /* squirrel aside */
+  .squirrel{
+    background:repeating-linear-gradient(45deg,#fff6df,#fff6df 14px,#ffeec2 14px,#ffeec2 28px);
+    border:3px dashed var(--coral);
+    border-radius:20px;padding:20px 22px;margin:10px 0;
+    font-weight:700;color:#7a4a1f;
+  }
+  .squirrel .cap{font-family:"Fredoka",sans-serif;color:#b0461a;font-size:1.15rem;display:block;margin-bottom:4px}
+
+  /* Kremer approval stamp */
+  .stamp{
+    display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+    border:5px solid #2e6b0e;color:#2e6b0e;
+    border-radius:16px;padding:10px 22px;transform:rotate(-8deg);
+    font-family:"Fredoka",sans-serif;font-weight:700;line-height:1;
+    background:rgba(255,255,255,.6);
+    box-shadow:inset 0 0 0 2px #fff;
+  }
+  .stamp .big{font-size:1.9rem;letter-spacing:2px}
+  .stamp .small{font-size:.7rem;letter-spacing:3px;margin-top:4px;text-transform:uppercase}
+  .approve-row{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:10px}
+
+  /* ---------- BUTTONS ---------- */
+  .btn-row{display:flex;flex-direction:column;align-items:center;gap:18px;margin:12px 0 6px;text-align:center}
+  .bigbtn{
+    font-family:"Fredoka",sans-serif;font-weight:600;
+    font-size:clamp(1.05rem,3vw,1.35rem);
+    border:none;cursor:pointer;
+    background:var(--ball);color:#2c3a17;
+    padding:18px 30px;border-radius:999px;
+    box-shadow:0 8px 0 var(--ball-deep),0 16px 26px var(--shadow);
+    transition:transform .12s ease, box-shadow .12s ease, background .2s;
+    display:inline-flex;align-items:center;gap:.5ch;
+  }
+  .bigbtn:hover{background:#d3ff63;transform:translateY(-2px)}
+  .bigbtn:active{transform:translateY(6px);box-shadow:0 2px 0 var(--ball-deep),0 6px 12px var(--shadow)}
+  .bigbtn.sky{background:var(--sky);color:#06344d;box-shadow:0 8px 0 var(--sky-deep),0 16px 26px var(--shadow)}
+  .bigbtn.sky:hover{background:#79d4ff}
+  .reality{
+    font-family:"Fredoka",sans-serif;font-weight:500;
+    color:var(--ink-soft);text-decoration-thickness:2px;text-underline-offset:4px;
+    font-size:1.02rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{text-align:center;padding:30px 0 60px;color:var(--ink-soft)}
+  .pawline{font-size:1.4rem;letter-spacing:6px;opacity:.55}
+  .sig{font-family:"Fredoka",sans-serif;font-size:1.25rem;color:var(--ink);margin-top:6px}
+  footer a{color:var(--sea);font-weight:700}
+
+  /* ---------- animation (reduced-motion safe) ---------- */
+  @media (prefers-reduced-motion: no-preference){
+    .doghero{animation:bob 2.4s ease-in-out infinite}
+    .sky-decor .b1{animation:float 7s ease-in-out infinite}
+    .sky-decor .b2{animation:float 9s ease-in-out infinite}
+    .sky-decor .b3{animation:float 8s ease-in-out infinite reverse}
+    .sky-decor .b4{animation:float 6s ease-in-out infinite}
+    .tag{animation:wag 1.6s ease-in-out infinite}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+    @keyframes wag{0%,100%{transform:rotate(3deg)}50%{transform:rotate(-4deg)}}
+  }
+</style>
+</head>
+<body>
+
+<div class="sky-decor" aria-hidden="true">
+  <span class="b1">🎾</span><span class="b2">🐾</span><span class="b3">🐾</span><span class="b4">🎾</span><span class="b5">🦴</span>
+</div>
+
+<header>
+  <div class="wrap">
+    <span class="collar">🐕 MERCER DOT COM &middot; yellow lab &middot; official good boy</span><br>
+    <span class="tag">tail going ZOOM ZOOM ZOOM</span>
+
+    <div class="doghero" role="img" aria-label="A very happy cartoon yellow Labrador face with a tennis ball">
+      <!-- inline SVG happy yellow lab with a tennis ball -->
+      <svg width="170" height="170" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="85" cy="150" rx="55" ry="10" fill="#a3d92e" opacity=".35"/>
+        <!-- ears -->
+        <path d="M34 46 C10 60 14 110 40 118 L58 78 Z" fill="#d9a94f"/>
+        <path d="M136 46 C160 60 156 110 130 118 L112 78 Z" fill="#d9a94f"/>
+        <!-- head (yellow lab gold) -->
+        <circle cx="85" cy="86" r="52" fill="#f0c766"/>
+        <!-- snout -->
+        <ellipse cx="85" cy="104" rx="30" ry="26" fill="#fbeccb"/>
+        <!-- eyes -->
+        <circle cx="66" cy="80" r="9" fill="#3a2a14"/>
+        <circle cx="104" cy="80" r="9" fill="#3a2a14"/>
+        <circle cx="69" cy="77" r="3" fill="#fff"/>
+        <circle cx="107" cy="77" r="3" fill="#fff"/>
+        <!-- nose -->
+        <ellipse cx="85" cy="98" rx="10" ry="7.5" fill="#3a2a14"/>
+        <!-- tongue -->
+        <path d="M76 116 Q85 140 94 116 Z" fill="#ff8aa0"/>
+        <path d="M85 116 L85 132" stroke="#e06d84" stroke-width="2"/>
+        <!-- tennis ball he is definitely holding -->
+        <circle cx="118" cy="126" r="15" fill="#c6f24a" stroke="#8fbf22" stroke-width="2"/>
+        <path d="M104 121 Q118 126 132 121 M104 131 Q118 126 132 131" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <h1>MY HUMANS ARE<br><span class="pop">GETTING MARRIED!!!</span></h1>
+    <p class="subhero">hi hi HI it is ME. MERCER. i am a yellow lab. i do not know what "married" is but i heard BEACH and i heard PEOPLE and i have been spinning in a circle for like an HOUR</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- COUNTDOWN -->
+  <section class="card ball count-card" aria-labelledby="count-h">
+    <h2 id="count-h">⏰ how many sleeps?? (i cannot count)</h2>
+    <div class="sleeps" id="sleeps">…</div>
+    <div class="sleeps-label"><span class="zzz">Zzz</span> sleeps until Lily &amp; Kremer do the marry thing <span class="zzz">Zzz</span></div>
+    <p id="soon-note" style="font-weight:700;color:var(--ink-soft);margin-top:14px">i tried counting on my paws but i only have paws and then i got distracted by my paws. it is a lot of sleeps. i will wait. i am waiting. am i still waiting. YES i am a GOOD BOY.</p>
+  </section>
+
+  <!-- THE IMPORTANT STUFF -->
+  <section class="card" aria-labelledby="facts-h">
+    <h2 id="facts-h">🦴 the SUPER important facts (i wrote them with my nose)</h2>
+    <p>okay so. some of the human words are hard. what is a "RSVP." is it food. can i eat it. BUT the parts that MATTER are in my brain, both of the cells have it, here you go:</p>
+    <div class="facts">
+      <div class="fact">
+        <div class="k">my people</div>
+        <div class="v">Lily &amp; Kremer 💛</div>
+      </div>
+      <div class="fact">
+        <div class="k">the good sniffing day</div>
+        <div class="v">Saturday, September something, 2027</div>
+      </div>
+      <div class="fact">
+        <div class="k">the WATER place</div>
+        <div class="v">the big beach place — Lago Mar 🏖️</div>
+      </div>
+    </div>
+    <p style="margin-top:18px">it is the <strong>Lago Mar Beach Resort &amp; Club</strong> in <strong>Fort Lauderdale, Florida</strong>, and it is right on the OCEAN. do you know what the ocean is. it is the BIGGEST water bowl. i am going to SWIM in it. i am going to DIG next to it. SAND. SO MUCH SAND. i already ate a little of the sand to test it. it is fine i am fine.</p>
+    <p style="margin-top:6px">(Sept eighteen, i think? the day number is fuzzy but the SMELL of the day will be perfect and that is how i know.)</p>
+  </section>
+
+  <!-- WHY THIS IS THE BEST -->
+  <section class="card sky" aria-labelledby="best-h">
+    <h2 id="best-h">🎾 why this wedding is FOR ME (a yellow lab)</h2>
+    <p>let me tell you. LET ME TELL YOU. i thought about this really hard during four naps and one bark at nothing:</p>
+    <ul class="treats">
+      <li>SO MANY NEW PEOPLE and every single one of them has HANDS and hands go on ME. that is what hands are for. i checked.</li>
+      <li>a BEACH. WATER!! SAND!! DIG!! do you get it. do you GET it. i can put my whole self in the water and then shake it onto everyone at the party, a GIFT</li>
+      <li>weddings have FOOD and food is on tables and tables are up HIGH but sometimes food goes on the FLOOR and the floor. is. MINE.</li>
+      <li>there will be TENNIS BALLS. maybe. probably. i will bring one just in case. it is in my mouth right now actually</li>
+      <li>my Lily gets SO happy and happy Lily = the deep belly rubs, the ones that make my back leg go <span class="shout">brrrrrr</span> all by itself, i do not even tell it to</li>
+      <li>everybody keeps saying "their big day" and i am pretty sure they mean MY big day, they just said it wrong, it is okay</li>
+    </ul>
+  </section>
+
+  <!-- SQUIRREL TANGENT -->
+  <section aria-labelledby="squirrel-h">
+    <div class="squirrel">
+      <span class="cap" id="squirrel-h">🐿️ WAIT. HOLD ON. STOP EVERYTHING.</span>
+      SQUIRREL. there was a SQUIRREL. right THERE. it went up the — and i said HEY and it did NOT even — is that food. did someone say walk. WHO SAID WALK. my tail just knocked over the water cup, that was not me, i do not know who did that. anyway. WHERE was i. oh. OH. the wedding. YES. i love the wedding. sorry. i love you too. good talk.
+    </div>
+  </section>
+
+  <!-- KREMER APPROVAL -->
+  <section class="card ball" aria-labelledby="kremer-h">
+    <h2 id="kremer-h">✅ i sniffed Kremer and he PASSED</h2>
+    <p>it is my very serious job to sniff-test any human who wants to be in my Lily's pack. i took it SO seriously. i sniffed his shoes (good). i sniffed his hands (VERY good, smelled like a sandwich). and one time — ONE TIME — he DROPPED food and did not even get mad. a whole piece. on the floor. for ME. i will never forget it. i think about it daily. verdict:</p>
+    <div class="approve-row">
+      <div class="stamp" role="img" aria-label="Approval stamp: Kremer approved by Mercer the dog">
+        <span class="big">APPROVED</span>
+        <span class="small">by mercer, dog</span>
+      </div>
+      <p style="margin:0;font-weight:800;color:var(--ink-soft)">Kremer is a GOOD one. he drops food. he throws the ball. he lets me on the couch even when i am sandy. 10 out of 10 you may join the pack sir. also please keep dropping food.</p>
+    </div>
+  </section>
+
+  <!-- SIGN OFF -->
+  <section class="card sky" aria-labelledby="love-h">
+    <h2 id="love-h">💛 a message from my whole heart (and both brain cells)</h2>
+    <p>Lily you found me when i was a tiny confused wet puppy and you gave me food and a bed and a NAME and now there is Kremer and Kremer is nice and drops food and that means the pack is getting BIGGER and a bigger pack is MORE people to love me and that is just math and i am very very bad at math but even i can tell this math is GOOD.</p>
+    <p>i promise to be the goodest boy at the beach. i promise. (i will dig one hole. okay maybe two. okay i already dug one. it is fine i am fine.)</p>
+    <p class="shout" style="font-size:1.3rem">i love you. i love the WATER. i love EVERYONE at the party already. see you in the sand. 🏖️🐾</p>
+  </section>
+
+  <!-- NAV BUTTONS -->
+  <section class="btn-row" aria-label="Go somewhere else">
+    <button type="button" class="bigbtn" id="elsewhere">🐕 WALK?? take me somewhere else!</button>
+    <a class="reality" href="https://lilyandkremer.com/">🏠 back to reality (the real wedding site)</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pawline" aria-hidden="true">🐾 🐾 🐾 🐾 🐾</div>
+    <p class="sig">with the entire wag of my entire tail,<br>— Mercer (a VERY good boy) 🐕</p>
+    <p>tell my humans i said hi (and treats): <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
+    <p style="font-size:.85rem">Lily &amp; Kremer &middot; September 18, 2027 &middot; Lago Mar Beach Resort &amp; Club, Fort Lauderdale FL</p>
+  </div>
+</footer>
+
+<script>
+  // ----- sleeps countdown -----
+  (function(){
+    var wedding = new Date(2027, 8, 18); // Sept 18, 2027 (month is 0-indexed)
+    var now = new Date();
+    var msPerDay = 1000*60*60*24;
+    var sleeps = Math.ceil((wedding - now) / msPerDay);
+    var el = document.getElementById('sleeps');
+    var note = document.getElementById('soon-note');
+    if(sleeps > 1){
+      el.textContent = sleeps.toLocaleString();
+    } else if(sleeps === 1){
+      el.textContent = "1";
+      note.textContent = "ONE SLEEP. ONE!!! how do i even sleep. i will just lie here vibrating. i am a GOOD BOY.";
+    } else if(sleeps === 0){
+      el.textContent = "0!!";
+      note.textContent = "IT IS TODAY?? IT IS TODAY. i have been brushed. i smell like a fancy dog. LET US GO TO THE WATER.";
+    } else {
+      el.textContent = "🐾💍";
+      note.textContent = "they did the marry thing and i was the goodest, sandiest, wettest boy at the whole beach. best day of my ENTIRE life. i ate one shell. it is fine i am fine.";
+    }
+  })();
+
+  // ----- random sibling page -----
+  (function(){
+    var PAGES = ["../dino/","../batman/","../kissinger/","../mercer/","../nietzsche/","../gaga/"];
+    var mine = "../mercer/";
+    var others = PAGES.filter(function(p){ return p !== mine; });
+    document.getElementById('elsewhere').addEventListener('click', function(){
+      var pick = others[Math.floor(Math.random()*others.length)];
+      window.location.href = pick;
+    });
+  })();
+</script>
+</body>
+</html>
