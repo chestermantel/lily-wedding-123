@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lilly &amp; Kremer — September 18, 2027</title>
+<meta name="description" content="Lilly &amp; Kremer are getting married on September 18, 2027 at Lago Mar Beach Resort &amp; Club in Fort Lauderdale, Florida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============ Reset & tokens ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F7F3EC;
+  --ink: #241A1C;
+  --burgundy: #4E1420;
+  --burgundy-deep: #3A0E18;
+  --blue: #3D639B;
+  --chartreuse: #8A9A2B;      /* rules & accents on dark ground */
+  --chartreuse-text: #6F7D1F; /* deepened for numerals on cream (AA) */
+  --terracotta: #BF6B4B;
+  --rule: rgba(36, 26, 28, 0.22);
+  --rule-strong: rgba(36, 26, 28, 0.45);
+  --muted: rgba(36, 26, 28, 0.72);
+  --cream-muted: rgba(247, 243, 236, 0.82);
+  --cream-rule: rgba(247, 243, 236, 0.4);
+  --nav-h: 64px;
+  --serif: "Cormorant Garamond", "Times New Roman", Times, serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+html {
+  scroll-padding-top: calc(var(--nav-h) + 1.5rem);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--cream);
+  overflow-x: clip;
+}
+::selection { background: var(--burgundy); color: var(--cream); }
+
+h1, h2, h3 { line-height: 1.15; font-weight: 500; }
+ul { list-style: none; }
+svg { display: block; }
+
+a { color: var(--blue); }
+.text-link {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.text-link:hover { color: var(--burgundy); }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--cream);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+}
+.skip:focus { top: 1rem; }
+
+.wrap {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+/* ============ Sticky nav ============ */
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+}
+.nav {
+  position: relative;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.15em;
+}
+.brand .amp {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--terracotta);
+  font-size: 0.85em;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.1rem, 2vw, 1.9rem);
+}
+.menu a {
+  position: relative;
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.45rem 0;
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 1px;
+  background: var(--burgundy);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.menu a:hover::after,
+.menu a:focus-visible::after { transform: scaleX(1); }
+.menu a.rsvp-link {
+  border: 1px solid var(--burgundy);
+  color: var(--burgundy);
+  padding: 0.45rem 1.1rem;
+}
+.menu a.rsvp-link::after { content: none; }
+.menu a.rsvp-link:hover,
+.menu a.rsvp-link:focus-visible {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.7rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 0.5rem 0.25rem;
+}
+.bars {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 20px;
+}
+.bars span {
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background: var(--ink);
+}
+.nav-toggle[aria-expanded="true"] .bars span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .bars span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+@media (max-width: 939px) {
+  .nav-toggle { display: inline-flex; }
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 14px 24px -18px rgba(36, 26, 28, 0.35);
+    padding: 0.5rem clamp(1.25rem, 5vw, 3rem) 1.25rem;
+  }
+  .menu.open { display: flex; }
+  .menu li { border-top: 1px solid var(--rule); }
+  .menu li:first-child { border-top: 0; }
+  .menu a { display: block; padding: 0.9rem 0.15rem; }
+  .menu a::after { content: none; }
+  .menu a.rsvp-link {
+    margin-top: 0.9rem;
+    text-align: center;
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* ============ Hero ============ */
+.hero {
+  background: var(--burgundy);
+  color: var(--cream);
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100svh - var(--nav-h));
+  padding: clamp(1.25rem, 4vw, 3rem);
+}
+.hero-frame {
+  width: min(100%, 900px);
+  border: 1px solid var(--cream-rule);
+  padding: clamp(2.25rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 4.5rem);
+  text-align: center;
+}
+.hero-kicker {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cream-muted);
+}
+.hero-names {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(3.4rem, 13vw, 8.75rem);
+  line-height: 1.02;
+  letter-spacing: 0.015em;
+  margin-top: 1.4rem;
+}
+.hero-names .amp {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.34em;
+  color: var(--chartreuse);
+  margin: 0.35em 0;
+}
+.hero-rule {
+  width: 76px;
+  height: 1px;
+  background: var(--chartreuse);
+  margin: clamp(1.6rem, 4vw, 2.4rem) auto;
+}
+.hero-date {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+}
+.hero-place {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--cream-muted);
+}
+.hero-count { margin-top: clamp(1.8rem, 4vw, 2.6rem); }
+.count-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--chartreuse);
+}
+.count-label {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-muted);
+}
+
+/* ============ Section scaffolding ============ */
+.sec { padding-block: clamp(4rem, 9vw, 7rem); }
+.sec + .sec .wrap { border-top: 1px solid var(--rule); padding-top: clamp(4rem, 9vw, 7rem); }
+.sec + .sec { padding-top: 0; }
+
+.sec-grid { display: grid; gap: clamp(2rem, 5vw, 3rem); }
+@media (min-width: 900px) {
+  .sec-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .sec-body { padding-top: 0.4rem; }
+}
+
+.kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.kicker .num {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--chartreuse-text);
+}
+.kicker .num::after {
+  content: "—";
+  margin-left: 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--rule-strong);
+}
+.display {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4.6vw, 3.5rem);
+  line-height: 1.12;
+  margin-top: 1.1rem;
+  max-width: 14ch;
+}
+.display em {
+  font-style: italic;
+  font-weight: 400;
+}
+.display .terra { color: var(--terracotta); }
+.lead { max-width: 58ch; }
+.prose p { max-width: 58ch; }
+.prose p + p { margin-top: 1.2rem; }
+.muted { color: var(--muted); }
+.small-note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+/* Dark sections */
+.on-dark {
+  background: var(--burgundy);
+  color: var(--cream);
+}
+.on-dark .kicker { color: var(--cream); }
+.on-dark .kicker .num { color: var(--chartreuse); }
+.on-dark .kicker .num::after { color: var(--cream-rule); }
+.on-dark .muted, .on-dark .small-note { color: var(--cream-muted); }
+.on-dark .text-link { color: var(--cream); }
+.on-dark .text-link:hover { color: var(--chartreuse); }
+
+/* ============ Our story ============ */
+.story-grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  align-items: start;
+}
+@media (min-width: 700px) {
+  .story-grid { grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); }
+  .photo-frame { margin-top: 2.75rem; } /* editorial offset */
+}
+.photo-frame {
+  max-width: 320px;
+}
+.frame-inner {
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--ink);
+  padding: 10px;
+}
+.frame-mat {
+  height: 100%;
+  border: 1px solid var(--rule);
+  display: grid;
+  place-items: center;
+  background: #F1EBE0;
+}
+.frame-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--muted);
+}
+.photo-frame figcaption {
+  margin-top: 0.75rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+.photo-frame figcaption::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 26px;
+  height: 1px;
+  background: var(--terracotta);
+  margin-right: 0.6rem;
+}
+
+/* ============ The wedding ============ */
+.detail-rows {
+  border-top: 1px solid var(--rule);
+  margin-top: 0.5rem;
+}
+.detail-row {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.6rem 0.1rem;
+  display: grid;
+  gap: 0.35rem 2rem;
+}
+@media (min-width: 640px) {
+  .detail-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); align-items: baseline; }
+}
+.detail-row h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.detail-row .where { max-width: none; }
+.detail-row .when {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-top: 0.35rem;
+}
+.details-note { margin-top: 1.6rem; }
+
+/* ============ Travel ============ */
+.travel-block + .travel-block {
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  padding-top: clamp(2.25rem, 5vw, 3.25rem);
+  border-top: 1px solid var(--rule);
+}
+.sub-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.7rem;
+}
+.todo-list { margin-top: 0.25rem; }
+.todo-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+.todo-list li:first-child { border-top: 1px solid var(--rule); }
+.todo-num {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--chartreuse-text);
+  min-width: 1.6rem;
+}
+.todo-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.todo-desc {
+  margin-left: auto;
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+@media (max-width: 560px) {
+  .todo-list li { flex-wrap: wrap; gap: 0.15rem 1rem; }
+  .todo-desc { margin-left: 2.6rem; width: 100%; text-align: left; }
+}
+
+/* ============ Wedding party ============ */
+.party-list { border-top: 1px solid var(--rule); margin-top: 0.5rem; }
+.party-list li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.1rem 1rem;
+  align-items: baseline;
+  padding: 1.5rem 0.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+@media (min-width: 640px) {
+  .party-list li { grid-template-columns: 3rem minmax(0, 1fr) auto; }
+}
+.party-num {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--chartreuse-text);
+}
+.party-name {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  font-weight: 500;
+}
+.party-role {
+  grid-column: 2;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+@media (min-width: 640px) {
+  .party-role { grid-column: 3; text-align: right; }
+}
+
+/* ============ RSVP ============ */
+.sec-rsvp {
+  background: var(--burgundy);
+  color: var(--cream);
+  padding-block: clamp(4rem, 9vw, 7rem);
+}
+.sec-rsvp .lead { margin-top: 1.1rem; }
+.reply-card {
+  margin-top: clamp(2.5rem, 6vw, 3.75rem);
+  background: var(--cream);
+  color: var(--ink);
+  max-width: 780px;
+  margin-inline: auto;
+  padding: clamp(1.75rem, 6vw, 3.5rem);
+  outline: 1px solid var(--cream-rule);
+  outline-offset: 7px;
+}
+.card-orn {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+.card-orn::before,
+.card-orn::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 34px;
+  height: 1px;
+  background: var(--chartreuse);
+  margin: 0 0.9rem;
+}
+.card-title {
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  margin-top: 0.9rem;
+}
+.form-grid {
+  display: grid;
+  gap: 1.7rem 2.25rem;
+  margin-top: 2.25rem;
+}
+@media (min-width: 620px) {
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .span-2 { grid-column: 1 / -1; }
+}
+.f-label, .f-legend {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.45rem;
+}
+.f-hint {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule-strong);
+  border-radius: 0;
+  padding: 0.55rem 0.1rem;
+}
+textarea {
+  border: 1px solid var(--rule-strong);
+  padding: 0.75rem;
+  resize: vertical;
+  min-height: 6.5rem;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 1px 0 0 var(--blue);
+  background: rgba(61, 99, 155, 0.06);
+}
+textarea:focus { box-shadow: inset 0 0 0 1px var(--blue); }
+input[type="radio"]:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  box-shadow: none;
+  background: transparent;
+}
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23241A1C' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.35rem center;
+  padding-right: 1.8rem;
+  cursor: pointer;
+}
+fieldset { border: 0; }
+.radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.25rem;
+  padding-top: 0.3rem;
+}
+.radio-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+input[type="radio"] {
+  accent-color: var(--burgundy);
+  width: 1.05rem;
+  height: 1.05rem;
+  cursor: pointer;
+}
+.form-actions {
+  margin-top: 2.25rem;
+  text-align: center;
+}
+.btn {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--burgundy);
+  border: 1px solid var(--burgundy);
+  padding: 1.05rem 2.6rem;
+  cursor: pointer;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--burgundy);
+}
+.form-note {
+  margin-top: 1rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--muted);
+}
+
+/* ============ Registry ============ */
+.ghost-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(36, 26, 28, 0.55);
+  border: 1px dashed var(--rule-strong);
+  padding: 1.05rem 2.6rem;
+  cursor: not-allowed;
+  user-select: none;
+}
+.registry-cta { margin-top: 1.8rem; }
+
+/* ============ FAQ ============ */
+.faq-list { border-top: 1px solid var(--rule); margin-top: 0.5rem; }
+.faq-list details { border-bottom: 1px solid var(--rule); }
+.faq-list summary {
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.3rem 0.1rem;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  font-weight: 500;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "+";
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--blue);
+  flex: none;
+}
+.faq-list details[open] summary::after { content: "\2212"; }
+.faq-list summary:hover { color: var(--burgundy); }
+.faq-a {
+  padding: 0 0.1rem 1.5rem;
+  max-width: 58ch;
+}
+
+/* ============ Footer ============ */
+.site-foot {
+  background: var(--burgundy);
+  color: var(--cream);
+  text-align: center;
+  padding-block: clamp(3.5rem, 8vw, 5.5rem);
+}
+.foot-mono {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.foot-mono .amp {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--chartreuse);
+  font-size: 0.8em;
+  margin: 0 0.2em;
+}
+.foot-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--chartreuse);
+  margin: 1.4rem auto;
+}
+.foot-q { color: var(--cream-muted); }
+.foot-line {
+  margin-top: 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--cream-muted);
+}
+@media (max-width: 560px) {
+  .foot-line { letter-spacing: 0.18em; }
+}
+
+/* ============ Motion (opt-in only) ============ */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .menu a::after { transition: transform 0.28s ease; }
+  .menu a, .btn, .text-link, .brand, .faq-list summary, .nav-toggle {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .bars span { transition: transform 0.25s ease; }
+  input, select, textarea { transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
+  .hero-frame > * {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: heroRise 0.85s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  }
+  .hero-frame > :nth-child(2) { animation-delay: 0.1s; }
+  .hero-frame > :nth-child(3) { animation-delay: 0.2s; }
+  .hero-frame > :nth-child(4) { animation-delay: 0.3s; }
+  .hero-frame > :nth-child(5) { animation-delay: 0.38s; }
+  .hero-frame > :nth-child(6) { animation-delay: 0.46s; }
+  @keyframes heroRise {
+    to { opacity: 1; transform: none; }
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#home">L<span class="amp" aria-hidden="true">&amp;</span><span class="sr-only">illy and </span>K<span class="sr-only">remer — home</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+      Menu
+      <span class="bars" aria-hidden="true"><span></span><span></span></span>
+    </button>
+    <ul class="menu" id="nav-menu">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#details">The Wedding</a></li>
+      <li><a href="#travel">Travel &amp; Stay</a></li>
+      <li><a href="#party">Wedding Party</a></li>
+      <li><a href="#registry">Registry</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="rsvp-link" href="#rsvp">RSVP</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- 1 · Hero -->
+  <section class="hero on-dark" id="home" aria-label="Lilly and Kremer — wedding welcome">
+    <div class="hero-frame">
+      <p class="hero-kicker">We're getting married</p>
+      <h1 class="hero-names">Lilly <span class="amp">&amp;</span> Kremer</h1>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="hero-date">Saturday, September 18, 2027</p>
+      <p class="hero-place">Fort Lauderdale, Florida</p>
+      <p class="hero-count" id="countdown"><span class="count-label">Counting the days</span></p>
+    </div>
+  </section>
+
+  <!-- 2 · Our story -->
+  <section class="sec" id="story">
+    <div class="wrap">
+      <div class="sec-grid">
+        <header class="sec-head">
+          <h2 class="kicker"><span class="num" aria-hidden="true">01</span>Our Story</h2>
+          <p class="display">A friendship that became <em>everything</em>.</p>
+        </header>
+        <div class="sec-body">
+          <div class="story-grid">
+            <div class="prose">
+              <p>We've been friends for so long that neither of us can point to the exact moment it became something more. There was no dramatic scene, no grand gesture — just a friendship that kept quietly growing, first into best-friendship, and then, somewhere along the way, into everything.</p>
+              <p>Looking back, it feels like it was always meant to be; we were simply the last two people to figure it out. Now we get to spend a lifetime making up for the slow start — and we'd love nothing more than to begin it with you, by the ocean, on September 18, 2027.</p>
+            </div>
+            <figure class="photo-frame">
+              <div class="frame-inner">
+                <div class="frame-mat">
+                  <span class="frame-mark" aria-hidden="true">L &amp; K</span>
+                </div>
+              </div>
+              <figcaption>photo coming soon</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · The wedding -->
+  <section class="sec" id="details">
+    <div class="wrap">
+      <div class="sec-grid">
+        <header class="sec-head">
+          <h2 class="kicker"><span class="num" aria-hidden="true">02</span>The Wedding</h2>
+          <p class="display">A celebration <em class="terra">by the ocean</em>.</p>
+        </header>
+        <div class="sec-body">
+          <p class="lead">Both the ceremony and the reception will be held at Lago Mar, an oceanfront resort right on the sand in Fort Lauderdale.</p>
+          <div class="detail-rows">
+            <div class="detail-row">
+              <h3>The Ceremony</h3>
+              <div>
+                <p class="where">Lago Mar Beach Resort &amp; Club<br>Fort Lauderdale, Florida</p>
+                <p class="when">Saturday, September 18, 2027</p>
+              </div>
+            </div>
+            <div class="detail-row">
+              <h3>The Reception</h3>
+              <div>
+                <p class="where">Lago Mar Beach Resort &amp; Club<br>Fort Lauderdale, Florida</p>
+                <p class="when">To follow the ceremony</p>
+              </div>
+            </div>
+          </div>
+          <p class="small-note details-note">Full schedule and details will arrive with your invitation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Travel & stay -->
+  <section class="sec" id="travel">
+    <div class="wrap">
+      <div class="sec-grid">
+        <header class="sec-head">
+          <h2 class="kicker"><span class="num" aria-hidden="true">03</span>Travel &amp; Stay</h2>
+          <p class="display">Getting here, <em>staying here</em>.</p>
+        </header>
+        <div class="sec-body">
+          <div class="travel-block">
+            <h3 class="sub-label">The Hotel</h3>
+            <p class="lead">Lago Mar Beach Resort &amp; Club is an oceanfront resort right on Fort Lauderdale beach — the ceremony, the reception, and the ocean are all just steps away.</p>
+            <p class="small-note" style="margin-top: 0.9rem;">We're working on a room block — booking details coming soon.</p>
+          </div>
+          <div class="travel-block">
+            <h3 class="sub-label">Getting There</h3>
+            <p class="lead">Fly into Fort Lauderdale–Hollywood International Airport (FLL) — it's about 15 minutes from the resort.</p>
+          </div>
+          <div class="travel-block">
+            <h3 class="sub-label">Things to Do</h3>
+            <ul class="todo-list">
+              <li><span class="todo-num" aria-hidden="true">i.</span><span class="todo-name">Fort Lauderdale Beach</span></li>
+              <li><span class="todo-num" aria-hidden="true">ii.</span><span class="todo-name">Las Olas Boulevard</span><span class="todo-desc">shopping &amp; restaurants</span></li>
+              <li><span class="todo-num" aria-hidden="true">iii.</span><span class="todo-name">The Water Taxi</span><span class="todo-desc">along the Intracoastal</span></li>
+              <li><span class="todo-num" aria-hidden="true">iv.</span><span class="todo-name">Bonnet House Museum &amp; Gardens</span></li>
+              <li><span class="todo-num" aria-hidden="true">v.</span><span class="todo-name">Hugh Taylor Birch State Park</span></li>
+              <li><span class="todo-num" aria-hidden="true">vi.</span><span class="todo-name">Everglades Airboat Tours</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Wedding party -->
+  <section class="sec" id="party">
+    <div class="wrap">
+      <div class="sec-grid">
+        <header class="sec-head">
+          <h2 class="kicker"><span class="num" aria-hidden="true">04</span>Wedding Party</h2>
+          <p class="display">Our favorite <em>people</em>.</p>
+        </header>
+        <div class="sec-body">
+          <ul class="party-list">
+            <li>
+              <span class="party-num" aria-hidden="true">01</span>
+              <span class="party-name">Lucie</span>
+              <span class="party-role">Maid of Honor</span>
+            </li>
+            <li>
+              <span class="party-num" aria-hidden="true">02</span>
+              <span class="party-name">Kent</span>
+              <span class="party-role">Best Man · Brother of the Groom</span>
+            </li>
+            <li>
+              <span class="party-num" aria-hidden="true">03</span>
+              <span class="party-name">Alex</span>
+              <span class="party-role">Best Man · Best Friend of the Groom</span>
+            </li>
+            <li>
+              <span class="party-num" aria-hidden="true">04</span>
+              <span class="party-name">Chester</span>
+              <span class="party-role">Brother of the Bride</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · RSVP -->
+  <section class="sec-rsvp on-dark" id="rsvp">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 class="kicker"><span class="num" aria-hidden="true">05</span>RSVP</h2>
+        <p class="display">Kindly <em>reply</em>.</p>
+        <p class="lead">Formal invitations are on their way — you'll be able to RSVP right here.</p>
+      </header>
+      <form class="reply-card" id="rsvp-form">
+        <p class="card-orn" aria-hidden="true">R · S · V · P</p>
+        <p class="card-title">The favour of a reply</p>
+        <div class="form-grid">
+          <div>
+            <label class="f-label" for="rsvp-name">Your name(s)</label>
+            <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
+          </div>
+          <div>
+            <label class="f-label" for="rsvp-email">Email</label>
+            <input type="email" id="rsvp-email" name="email" autocomplete="email" required>
+          </div>
+          <fieldset class="span-2">
+            <legend class="f-legend">Will you be attending?</legend>
+            <div class="radio-row">
+              <label><input type="radio" name="attending" value="Joyfully accepts" required>Joyfully accepts</label>
+              <label><input type="radio" name="attending" value="Regretfully declines">Regretfully declines</label>
+            </div>
+          </fieldset>
+          <div>
+            <label class="f-label" for="rsvp-guests">Number of guests</label>
+            <input type="number" id="rsvp-guests" name="guests" min="1" max="10" value="1" inputmode="numeric" required>
+          </div>
+          <div>
+            <label class="f-label" for="rsvp-meal">Meal preference
+              <span class="f-hint" id="meal-hint">a sample menu — the final menu is still to come</span>
+            </label>
+            <select id="rsvp-meal" name="meal" aria-describedby="meal-hint">
+              <option value="">Please choose…</option>
+              <option value="Beef">Beef</option>
+              <option value="Fish">Fish</option>
+              <option value="Vegetarian">Vegetarian</option>
+            </select>
+          </div>
+          <div class="span-2">
+            <label class="f-label" for="rsvp-diet">Dietary restrictions or allergies</label>
+            <input type="text" id="rsvp-diet" name="diet">
+          </div>
+          <div class="span-2">
+            <label class="f-label" for="rsvp-note">A note for the couple
+              <span class="f-hint">optional — we'd love to hear from you</span>
+            </label>
+            <textarea id="rsvp-note" name="note" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Send our reply</button>
+          <p class="form-note">Submitting opens a pre-filled email to the couple — just press send.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 7 · Registry -->
+  <section class="sec" id="registry">
+    <div class="wrap">
+      <div class="sec-grid">
+        <header class="sec-head">
+          <h2 class="kicker"><span class="num" aria-hidden="true">06</span>Registry</h2>
+          <p class="display">A note on <em>gifts</em>.</p>
+        </header>
+        <div class="sec-body">
+          <p class="lead">We're still putting our registry together — check back soon!</p>
+          <p class="registry-cta"><span class="ghost-link" aria-disabled="true">View our registry — coming soon</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · FAQ -->
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-grid">
+        <header class="sec-head">
+          <h2 class="kicker"><span class="num" aria-hidden="true">07</span>FAQ</h2>
+          <p class="display">Good <em>questions</em>.</p>
+        </header>
+        <div class="sec-body">
+          <div class="faq-list">
+            <details>
+              <summary>What should I wear?</summary>
+              <p class="faq-a">The dress code is still to be announced — we'll share it along with the invitations.</p>
+            </details>
+            <details>
+              <summary>Can I bring a date?</summary>
+              <p class="faq-a">Your invitation will say exactly who's included — if you have any doubt, just ask us.</p>
+            </details>
+            <details>
+              <summary>Are kids invited?</summary>
+              <p class="faq-a">To be announced — details will come with your invitation.</p>
+            </details>
+            <details>
+              <summary>What will the weather be like?</summary>
+              <p class="faq-a">Warm and tropical — expect temperatures in the mid-80s&nbsp;°F, with a chance of brief afternoon showers.</p>
+            </details>
+            <details>
+              <summary>Where should I stay?</summary>
+              <p class="faq-a">Have a look at <a class="text-link" href="#travel">Travel &amp; Stay</a> — we're working on a room block at Lago Mar, with booking details coming soon.</p>
+            </details>
+            <details>
+              <summary>Have another question?</summary>
+              <p class="faq-a">Write to us any time at <a class="text-link" href="mailto:lillyandkremer@gmail.com">lillyandkremer@gmail.com</a> — we're happy to help.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 9 · Footer -->
+<footer class="site-foot on-dark">
+  <div class="wrap">
+    <p class="foot-mono" aria-hidden="true">L<span class="amp">&amp;</span>K</p>
+    <div class="foot-rule" aria-hidden="true"></div>
+    <p class="foot-q">Questions? Write to us at <a class="text-link" href="mailto:lillyandkremer@gmail.com">lillyandkremer@gmail.com</a></p>
+    <p class="foot-line">Lilly &amp; Kremer — September 18, 2027 — Fort Lauderdale, Florida</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- Countdown ---- */
+  var countdown = document.getElementById("countdown");
+  if (countdown) {
+    var target = new Date(2027, 8, 18);
+    var now = new Date();
+    var days = Math.ceil((target.getTime() - now.getTime()) / 86400000);
+    if (days > 0) {
+      countdown.innerHTML =
+        '<span class="count-num">' + days + "</span>" +
+        '<span class="count-label">' + (days === 1 ? "day to go" : "days to go") + "</span>";
+    } else if (now.getFullYear() === 2027 && now.getMonth() === 8 && now.getDate() === 18) {
+      countdown.innerHTML = '<span class="count-label">Today is the day — see you at the beach</span>';
+    } else {
+      countdown.innerHTML = '<span class="count-label">Happily married since September 18, 2027</span>';
+    }
+  }
+
+  /* ---- Mobile nav ---- */
+  var toggle = document.querySelector(".nav-toggle");
+  var menu = document.getElementById("nav-menu");
+  if (toggle && menu) {
+    var closeMenu = function () {
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+    toggle.addEventListener("click", function () {
+      var open = menu.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    menu.addEventListener("click", function (e) {
+      if (e.target.closest("a")) closeMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 940) closeMenu();
+    });
+  }
+
+  /* ---- RSVP → mailto ---- */
+  var form = document.getElementById("rsvp-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var val = function (id) {
+        var el = document.getElementById(id);
+        return el && el.value ? el.value.trim() : "";
+      };
+      var name = val("rsvp-name");
+      var email = val("rsvp-email");
+      var attendingEl = form.querySelector('input[name="attending"]:checked');
+      var attending = attendingEl ? attendingEl.value : "";
+      var guests = val("rsvp-guests");
+      var meal = val("rsvp-meal");
+      var diet = val("rsvp-diet");
+      var note = val("rsvp-note");
+
+      var lines = [
+        "Name(s): " + name,
+        "Email: " + email,
+        "Attending: " + attending,
+        "Number of guests: " + guests,
+        "Meal preference: " + (meal || "No preference given"),
+        "Dietary restrictions or allergies: " + (diet || "None")
+      ];
+      if (note) {
+        lines.push("", "A note for the couple:", note);
+      }
+      var subject = "RSVP — " + name;
+      var body = lines.join("\r\n");
+      window.location.href =
+        "mailto:lillyandkremer@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+  }
+})();
+</script>
+</body>
+</html>

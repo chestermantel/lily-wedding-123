@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Lilly &amp; Kremer — Pick a Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #FAF6EF;
+    --ink: #33262B;
+    --burgundy: #6B1F30;
+    --chartreuse: #6F7D1F;
+    --mauve: #C79AA6;
+    --terracotta: #C96F4A;
+    --butter: #F6E27F;
+    --blue: #3D639B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Karla', sans-serif;
+    background: var(--ivory);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 1.5rem;
+  }
+  header { text-align: center; max-width: 40rem; }
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--chartreuse);
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    color: var(--burgundy);
+    margin: 0.75rem 0 1rem;
+  }
+  header p { font-size: 1.05rem; line-height: 1.6; color: #5a4a50; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 62rem;
+    width: 100%;
+    margin-top: 3rem;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e9e0d2;
+    border-radius: 1.25rem 1.25rem 1rem 1rem;
+    padding: 2rem 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(107, 31, 48, 0.12);
+  }
+  .card:focus-visible { outline: 3px solid var(--burgundy); outline-offset: 3px; }
+  .num {
+    font-family: 'Fraunces', serif;
+    font-size: 0.95rem;
+    color: var(--terracotta);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .card h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.5rem; color: var(--burgundy); }
+  .card p { font-size: 0.95rem; line-height: 1.55; color: #5a4a50; flex: 1; }
+  .swatches { display: flex; gap: 0.4rem; }
+  .swatches span {
+    width: 1.1rem; height: 1.1rem; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.12);
+    display: inline-block;
+  }
+  .go { font-weight: 700; color: var(--chartreuse); font-size: 0.95rem; }
+  footer { margin-top: 3.5rem; font-size: 0.85rem; color: #8a7a80; text-align: center; }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+</style>
+</head>
+<body>
+  <header>
+    <p class="kicker">September 18, 2027 · Fort Lauderdale</p>
+    <h1>Lilly &amp; Kremer</h1>
+    <p>Three takes on the wedding website — same info, three different vibes. Click around, see which one feels like you, and the winner becomes the real site.</p>
+  </header>
+
+  <main class="cards">
+    <a class="card" href="one/">
+      <span class="num">Option One</span>
+      <h2>Garden Romantic</h2>
+      <p>Cute, airy, and warm — arches, botanical sprigs, and soft edges. The garden-party invitation feel.</p>
+      <div class="swatches" aria-hidden="true">
+        <span style="background:#6B1F30"></span>
+        <span style="background:#8A9A2B"></span>
+        <span style="background:#C79AA6"></span>
+        <span style="background:#F6E9C4"></span>
+      </div>
+      <span class="go">Take a look →</span>
+    </a>
+
+    <a class="card" href="two/">
+      <span class="num">Option Two</span>
+      <h2>Fun &amp; Funky</h2>
+      <p>Bold color-blocked sections, chunky type, a scrolling marquee — playful editorial-poster energy.</p>
+      <div class="swatches" aria-hidden="true">
+        <span style="background:#5E1B2C"></span>
+        <span style="background:#B5C34D"></span>
+        <span style="background:#C96F4A"></span>
+        <span style="background:#F6E27F"></span>
+      </div>
+      <span class="go">Take a look →</span>
+    </a>
+
+    <a class="card" href="three/">
+      <span class="num">Option Three</span>
+      <h2>Modern Editorial</h2>
+      <p>Refined and minimal, like a magazine feature — big serif headlines, thin rules, quiet confidence.</p>
+      <div class="swatches" aria-hidden="true">
+        <span style="background:#4E1420"></span>
+        <span style="background:#8A9A2B"></span>
+        <span style="background:#3D639B"></span>
+        <span style="background:#F7F3EC"></span>
+      </div>
+      <span class="go">Take a look →</span>
+    </a>
+  </main>
+
+  <footer>Made with love for Lilly &amp; Kremer · questions → lillyandkremer@gmail.com</footer>
+</body>
+</html>
