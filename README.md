@@ -1,4 +1,4 @@
-# Lilly & Kremer — Wedding Website (three options)
+# Lily & Kremer — Wedding Website (three options)
 
 Three candidate designs for the wedding website, all with the same content so you can
 compare purely on vibe. The root page (`index.html`) is a chooser that links to all three.
@@ -12,10 +12,10 @@ compare purely on vibe. The root page (`index.html`) is a chooser that links to 
 Each option is a single self-contained `index.html` — all styles and scripts inline,
 only Google Fonts loaded externally. To edit anything, open the file and change the text.
 
-## ⚠️ Things Lilly should verify before sharing the link
+## ⚠️ Things Lily should verify before sharing the link
 
-- **The email address.** Every contact/RSVP link points to `lillyandkremer@gmail.com` —
-  in the car you weren't sure if it's that or `kramerandlilly@...`. If it's different,
+- **The email address.** Every contact/RSVP link points to `lilyandkremer@gmail.com` —
+  in the car you weren't sure if it's that or `kramerandlily@...`. If it's different,
   find-and-replace in all four HTML files.
 - **Our Story copy** — it's a draft written from your description ("friends for so long…").
   Rewrite in your own voice whenever you're ready.
