@@ -170,6 +170,13 @@
   }
   .crew .who .emoji{ font-size:2.4rem; display:block; }
   .crew .who .role{ font-weight:normal; font-size:.9rem; margin-top:4px; display:block; }
+  .crew .who .gator-pic{
+    display:block; width:96px; height:96px; margin:0 auto 6px;
+    object-fit:cover; object-position:50% 20%; border-radius:50%;
+    border:4px solid var(--poo-dark); box-shadow:3px 3px 0 var(--poo);
+  }
+  .crew .who.officiant{ grid-column:1 / -1; background:var(--pee); }
+  .crew .who.officiant .gator-pic{ width:150px; height:150px; }
 
   /* ===== RSVP ===== */
   .rsvp-card{ background:var(--lime); border-color:var(--poo-dark); }
@@ -326,7 +333,8 @@
   <div class="wrap">
     <h2 class="sect-title">THE POOP CREW 💩👑</h2>
     <div class="crew">
-      <div class="who"><span class="emoji">👸</span>Lucie<span class="role">Maid of Ho... i mean Maid of HONOR (the #1 girl)</span></div>
+      <div class="who officiant"><img class="gator-pic" src="ale-gator.jpg" alt="Ale Gator, a alligator wearing a priest robe and reading a book">Ale Gator<span class="role">WEDDING OFFICIANT 🐊⛪ he is a REAL alligator and he WILL marry them. do NOT ask him questions. do NOT get 2 close. he has read the book.</span></div>
+      <div class="who"><span class="emoji">👸</span>Lucy<span class="role">Maid of Ho... i mean Maid of HONOR (the #1 girl)</span></div>
       <div class="who"><span class="emoji">🤵</span>Kent<span class="role">Best Man (hes kremers BROTHER)</span></div>
       <div class="who"><span class="emoji">😎</span>Alex<span class="role">also Best Man (kremers best bud)</span></div>
       <div class="who"><span class="emoji">🦸</span>Chester<span class="role">brother of the bride AND the guy who made this AWESOME website ur welcome</span></div>
