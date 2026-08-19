@@ -7,14 +7,15 @@
 <link rel="canonical" href="https://lilyandkremer.com/">
 <title>Lily &amp; Kremer — September 18, 2027</title>
 <meta name="description" content="Lily &amp; Kremer are getting married on September 18, 2027 at Lago Mar Beach Resort &amp; Club in Fort Lauderdale, Florida.">
-<meta name="theme-color" content="#2A0C15">
+<meta name="theme-color" content="#280B15">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<noscript><style>#cover{display:none !important}</style></noscript>
 <style>
 /* ============================================================
    Lily & Kremer — moody "old money" wedding site
-   Palette: wine / ivory / olive / gold + chrome, lace, stripes
+   Palette: wine / ivory / GREEN + florals / soft gold, lace
    ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none !important}
@@ -29,13 +30,17 @@
   --cream-dim:rgba(242,232,213,.74);
   --cream-faint:rgba(242,232,213,.42);
   --cream-hair:rgba(242,232,213,.22);
+  --green:#4D5E26;
   --olive:#93A233;
   --olive-deep:#6F7D1F;
+  --sage:#AAB77E;
   --rose:#C88A95;
   --ink:#2A1016;
   --muted:rgba(42,16,22,.68);
   --rule:rgba(42,16,22,.2);
-  --gold-grad:linear-gradient(180deg,#f4dc9b 0%,#d9b25e 42%,#b1873a 72%,#8a6326 100%);
+  --gold:#c9a24b;
+  --gold-soft:#d9b25e;
+  --gold-grad:linear-gradient(180deg,#e8d199 0%,#c9a24b 52%,#9c7a30 100%);
   --chrome-grad:linear-gradient(180deg,#f7f8fa 0%,#d3d7dd 38%,#f0f1f3 55%,#a9afb8 100%);
   --stripe:repeating-linear-gradient(90deg,var(--wine-800) 0 15px,var(--wine-900) 15px 30px);
   --nav-h:62px;
@@ -49,7 +54,8 @@ body{
   color:var(--cream);background:var(--wine-900);overflow-x:clip;
   -webkit-font-smoothing:antialiased;
 }
-::selection{background:var(--gold-4,#c9a24b);color:var(--wine-950)}
+body.locked{overflow:hidden}
+::selection{background:var(--gold);color:var(--wine-950)}
 h1,h2,h3{line-height:1.12;font-weight:500}
 ul{list-style:none}
 svg{display:block}
@@ -60,32 +66,44 @@ a{color:inherit}
 /* ---- shared text bits ---- */
 .serif{font-family:var(--serif)}
 .script{font-family:var(--script);font-weight:400}
-.gold-text{
-  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;
-  color:transparent;-webkit-text-fill-color:transparent;
-}
-.chrome-text{
-  background:var(--chrome-grad);-webkit-background-clip:text;background-clip:text;
-  color:transparent;-webkit-text-fill-color:transparent;
-}
-.kicker{
-  font-family:var(--sans);font-size:.72rem;font-weight:500;
-  letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim);
-}
+.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.chrome-text{background:var(--chrome-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.kicker{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip{position:absolute;left:1rem;top:-4rem;z-index:200;background:var(--cream);color:var(--wine);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:.7rem 1.1rem}
 .skip:focus{top:1rem}
 .wrap{max-width:1140px;margin-inline:auto;padding-inline:clamp(1.2rem,5vw,3rem)}
 
-/* ---- gold hairline w/ diamond ---- */
 .flourish{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem auto}
-.flourish .ln{height:1px;width:min(120px,22vw);background:linear-gradient(90deg,transparent,#c9a24b)}
-.flourish .ln.r{background:linear-gradient(90deg,#c9a24b,transparent)}
+.flourish .ln{height:1px;width:min(120px,22vw);background:linear-gradient(90deg,transparent,var(--olive))}
+.flourish .ln.r{background:linear-gradient(90deg,var(--olive),transparent)}
 .flourish .dot{width:6px;height:6px;background:var(--gold-grad);transform:rotate(45deg)}
 
-/* ============ decorative laurel/floral sprig (SVG symbol reused) ============ */
-.sprig{width:clamp(46px,8vw,74px);height:auto;color:#c9a24b}
-.sprig path,.sprig circle{vector-effect:non-scaling-stroke}
+/* decorative sprig */
+.sprig{width:clamp(50px,8vw,76px);height:auto}
+
+/* ============ Intro cover (opens to a bouquet, then the site) ============ */
+.cover{position:fixed;inset:0;z-index:1000;overflow:hidden}
+.cover-half{position:absolute;top:0;bottom:0;width:calc(50% + 1px);overflow:hidden;background:radial-gradient(130% 90% at 50% 18%,var(--wine-700),var(--wine-900) 58%,var(--wine-950));transition:transform 1.15s cubic-bezier(.76,0,.24,1)}
+.cover-half::before{content:"";position:absolute;inset:0;background:var(--stripe);opacity:.13;mix-blend-mode:overlay}
+.cover-half.l{left:0;box-shadow:inset -1px 0 0 rgba(201,162,75,.18)}
+.cover-half.r{right:0}
+.cover.open .cover-half.l{transform:translateX(-101%)}
+.cover.open .cover-half.r{transform:translateX(101%)}
+.cover-inner{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;padding:1.5rem;transition:opacity .5s ease,transform .7s ease}
+.cover.open .cover-inner{opacity:0;transform:translateY(-14px);pointer-events:none}
+.cover-kicker{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--cream-dim)}
+.cover-bouquet{width:min(66vw,272px);height:auto;margin:.5rem auto .1rem;filter:drop-shadow(0 20px 32px rgba(0,0,0,.5))}
+.cover-names{font-family:var(--script);font-weight:400;font-size:clamp(3rem,11vw,5.2rem);line-height:.9;color:var(--cream)}
+.cover-date{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-dim);margin-top:.35rem}
+.cover-open{margin-top:1.5rem;font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--wine-950);background:var(--gold-grad);border:1px solid #8a6326;padding:.85rem 2.2rem;cursor:pointer}
+.cover-open:hover{transform:translateY(-2px)}
+.cover-hint{margin-top:.8rem;font-family:var(--serif);font-style:italic;color:var(--cream-faint);font-size:1.02rem}
+@media(prefers-reduced-motion:no-preference){
+  .cover-open{transition:transform .18s ease}
+  .cover-bouquet{animation:sway 6s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.4deg)}}
+}
 
 /* ============ Nav ============ */
 .site-head{position:sticky;top:0;z-index:100;background:rgba(24,6,16,.82);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--cream-hair)}
@@ -94,14 +112,14 @@ a{color:inherit}
 .brand .amp{font-family:var(--script);font-size:1.15em;line-height:0}
 .menu{display:flex;align-items:center;gap:clamp(1rem,2vw,1.8rem)}
 .menu a{position:relative;color:var(--cream);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:.4rem 0}
-.menu a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:#c9a24b;transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--olive);transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
 .menu a:hover::after,.menu a:focus-visible::after{transform:scaleX(1)}
 .menu a.rsvp-link{border:1px solid #b58a3e;color:#eBce8f;padding:.42rem 1.05rem;letter-spacing:.22em}
 .menu a.rsvp-link::after{content:none}
 .menu a.rsvp-link:hover,.menu a.rsvp-link:focus-visible{background:var(--gold-grad);color:var(--wine-950)}
 .nav-toggle{display:none;align-items:center;gap:.6rem;background:none;border:0;cursor:pointer;color:var(--cream);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:.5rem .2rem}
 .bars{display:inline-flex;flex-direction:column;gap:5px;width:20px}
-.bars span{display:block;height:1.5px;width:100%;background:#d9b25e;transition:transform .25s ease}
+.bars span{display:block;height:1.5px;width:100%;background:var(--gold-soft);transition:transform .25s ease}
 .nav-toggle[aria-expanded="true"] .bars span:first-child{transform:translateY(3.25px) rotate(45deg)}
 .nav-toggle[aria-expanded="true"] .bars span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
 @media(max-width:860px){
@@ -115,7 +133,7 @@ a{color:inherit}
   .menu a.rsvp-link{margin-top:.8rem;text-align:center;padding:.75rem 1rem}
 }
 
-/* ============ Hero / Save the Date ============ */
+/* ============ Hero ============ */
 .hero{position:relative;background:radial-gradient(120% 100% at 50% -10%,var(--wine-700),var(--wine-900) 55%,var(--wine-950));overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:var(--stripe);opacity:.16;mix-blend-mode:overlay;pointer-events:none}
 .hero-inner{position:relative;display:grid;gap:clamp(2rem,5vw,3.5rem);align-items:center;padding-block:clamp(2.4rem,6vw,4.5rem) clamp(3rem,7vw,5rem)}
@@ -132,7 +150,6 @@ a{color:inherit}
 .hero-cta{margin-top:1.7rem;display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
 @media(min-width:900px){.hero-cta{justify-content:flex-start}}
 
-/* countdown */
 .count{margin-top:1.9rem;display:flex;gap:clamp(.7rem,2vw,1.4rem);justify-content:center}
 @media(min-width:900px){.count{justify-content:flex-start}}
 .count .unit{text-align:center;min-width:3.4rem}
@@ -141,54 +158,49 @@ a{color:inherit}
 .count .sep{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--cream-faint);align-self:flex-start;line-height:1.1}
 .count-note{margin-top:1rem;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--cream-dim)}
 
-/* buttons */
 .btn{display:inline-block;font-family:var(--sans);font-size:.76rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;padding:.95rem 2.1rem;cursor:pointer;text-decoration:none;border:1px solid transparent;transition:transform .18s ease,background-color .2s ease,color .2s ease,border-color .2s ease}
 .btn-gold{background:var(--gold-grad);color:var(--wine-950);border-color:#8a6326}
 .btn-gold:hover{transform:translateY(-2px)}
 .btn-ghost{border-color:var(--cream-faint);color:var(--cream)}
-.btn-ghost:hover{border-color:#d9b25e;color:#f0d692}
+.btn-ghost:hover{border-color:var(--gold-soft);color:#f0d692}
 
 /* ============ Lace-framed photo ============ */
 .lace{position:relative;width:min(100%,420px);margin-inline:auto;padding:6.2%;filter:drop-shadow(0 22px 40px rgba(0,0,0,.5))}
 .lace-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .lace-svg .fill{fill:#f4ecdc}
-.lace-svg .trim{fill:none;stroke:#c9a24b;stroke-width:1.1;opacity:.75}
+.lace-svg .trim{fill:none;stroke:var(--gold);stroke-width:1.1;opacity:.75}
 .lace img{position:relative;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.05) contrast(1.02)}
-.lace .cap{position:relative;margin-top:.6rem;text-align:center;font-family:var(--serif);font-style:italic;color:var(--wine);font-size:1rem}
 
 /* ============ Sections ============ */
 .sec{position:relative;padding-block:clamp(3.6rem,8vw,6rem)}
 .sec-head{text-align:center;max-width:52ch;margin-inline:auto}
-.sec-head .eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:#d9b25e}
+.sec-head .eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft)}
 .sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,5vw,3.2rem);margin-top:.6rem}
 .sec-head h2 em{font-style:italic;font-family:var(--script);font-weight:400;font-size:1.15em}
 .sec-head p{margin-top:.9rem;color:var(--cream-dim)}
 .sec.on-cream{background:var(--cream);color:var(--ink)}
 .on-cream .kicker,.on-cream .sec-head p{color:var(--muted)}
 .on-cream .sec-head .eyebrow{color:var(--olive-deep)}
-.on-cream .flourish .ln{background:linear-gradient(90deg,transparent,#b1873a)}
-.on-cream .flourish .ln.r{background:linear-gradient(90deg,#b1873a,transparent)}
 
 /* story */
 .story{display:grid;gap:clamp(1.8rem,5vw,3.2rem);align-items:center;margin-top:clamp(2rem,5vw,3rem)}
 @media(min-width:820px){.story{grid-template-columns:1fr 1fr}}
 .story .prose p{font-family:var(--serif);font-size:1.28rem;line-height:1.6;max-width:34ch;margin-inline:auto}
 .story .prose p+p{margin-top:1rem}
-.story .prose .lead-drop::first-letter{font-family:var(--serif);font-size:3.2em;line-height:.72;float:left;padding:.06em .12em 0 0;color:#b1873a}
+.story .prose .lead-drop::first-letter{font-family:var(--serif);font-size:3.2em;line-height:.72;float:left;padding:.06em .12em 0 0;color:var(--olive-deep)}
 
-/* ============ Polaroids ============ */
+/* polaroids */
 .polas{display:flex;flex-wrap:wrap;gap:clamp(1rem,3vw,2rem);justify-content:center;margin-top:clamp(2rem,5vw,3rem)}
 .pola{background:#fbf6ea;padding:.7rem .7rem 0;box-shadow:0 16px 30px -14px rgba(0,0,0,.6);width:min(78vw,270px);position:relative}
 .pola:nth-child(odd){transform:rotate(-2.6deg)}
 .pola:nth-child(even){transform:rotate(2.2deg)}
 .pola:hover{transform:rotate(0) scale(1.02);z-index:2}
 .pola img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:saturate(1.02) contrast(1.02)}
-.pola .grain{position:absolute;inset:.7rem .7rem 3.2rem;opacity:.14;mix-blend-mode:multiply;pointer-events:none}
 .pola figcaption{font-family:var(--script);font-size:1.5rem;color:#4a3018;text-align:center;padding:.35rem 0 .7rem;line-height:1}
 .pola.tall img{aspect-ratio:4/5}
 @media(prefers-reduced-motion:no-preference){.pola{transition:transform .3s ease}}
 
-/* ============ Details (arched cards on stripes) ============ */
+/* details */
 .detail-band{position:relative}
 .detail-band::before{content:"";position:absolute;inset:0;background:var(--stripe);opacity:.5}
 .arches{position:relative;display:grid;gap:clamp(1.4rem,4vw,2.4rem);margin-top:clamp(2rem,5vw,3rem)}
@@ -200,7 +212,7 @@ a{color:inherit}
 .arch .where{margin-top:.7rem;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--cream)}
 .detail-note{margin-top:1.7rem;text-align:center;font-family:var(--serif);font-style:italic;color:var(--cream-dim)}
 
-/* ============ Travel ============ */
+/* travel */
 .travel{display:grid;gap:clamp(1.6rem,4vw,2.4rem);margin-top:clamp(2rem,5vw,3rem)}
 @media(min-width:760px){.travel{grid-template-columns:repeat(3,1fr)}}
 .tcard{border:1px solid var(--rule);padding:1.6rem 1.4rem;background:rgba(255,255,255,.4)}
@@ -209,11 +221,11 @@ a{color:inherit}
 .tcard .mini{margin-top:.6rem;font-family:var(--sans);font-size:.86rem;color:var(--muted);line-height:1.5}
 .todo{margin-top:.4rem}
 .todo li{display:flex;gap:.6rem;font-family:var(--serif);font-size:1.08rem;padding:.2rem 0;color:var(--ink)}
-.todo li::before{content:"❦";color:#b1873a;font-size:.9em}
+.todo li::before{content:"❦";color:var(--olive-deep);font-size:.9em}
 
-/* ============ RSVP ============ */
+/* rsvp */
 .sec-rsvp{background:radial-gradient(120% 120% at 50% 0,var(--wine-700),var(--wine-900) 60%)}
-.reply-card{position:relative;margin:clamp(2rem,5vw,3rem) auto 0;max-width:640px;background:var(--cream);color:var(--ink);padding:clamp(1.8rem,6vw,3.2rem);border:1px solid #d9b25e;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.reply-card{position:relative;margin:clamp(2rem,5vw,3rem) auto 0;max-width:640px;background:var(--cream);color:var(--ink);padding:clamp(1.8rem,6vw,3.2rem);border:1px solid var(--gold-soft);box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
 .reply-card::after{content:"";position:absolute;inset:9px;border:1px solid rgba(177,135,58,.5);pointer-events:none}
 .card-orn{position:relative;text-align:center;font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--olive-deep)}
 .card-title{position:relative;text-align:center;font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.7rem,4vw,2.3rem);margin-top:.5rem;color:var(--wine)}
@@ -232,26 +244,27 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
 .form-note{margin-top:.9rem;font-family:var(--serif);font-style:italic;color:var(--muted)}
 .hp-wrap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
-/* ============ FAQ ============ */
+/* faq */
 .faq{max-width:760px;margin:clamp(2rem,5vw,3rem) auto 0;border-top:1px solid var(--cream-hair)}
 .faq details{border-bottom:1px solid var(--cream-hair)}
 .faq summary{list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.15rem .1rem;cursor:pointer;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.45rem);color:var(--cream)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:1.3rem;color:#d9b25e}
+.faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:1.3rem;color:var(--gold-soft)}
 .faq details[open] summary::after{content:"\2212"}
 .faq .a{padding:0 .1rem 1.3rem;max-width:60ch;color:var(--cream-dim)}
 .faq .a a{color:#f0d692;text-decoration:underline;text-underline-offset:3px}
 
-/* ============ Footer ============ */
+/* footer */
 .foot{background:var(--wine-950);text-align:center;padding-block:clamp(3rem,7vw,4.5rem)}
-.foot .mono{font-family:var(--script);font-size:2.6rem;line-height:1}
+.foot .fsprig{width:66px;margin:0 auto .3rem}
+.foot .mono{font-family:var(--script);font-size:2.6rem;line-height:1;color:var(--cream)}
 .foot .fdate{margin-top:.6rem;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-dim)}
 .foot .fmail{margin-top:1rem;color:var(--cream-dim)}
 .foot .fmail a{color:#f0d692;text-decoration:underline;text-underline-offset:3px}
 .egg{display:inline-block;margin-top:1.8rem;font-size:1.1rem;color:rgba(242,232,213,.16);text-decoration:none;transition:color .3s ease}
 .egg:hover{color:rgba(242,232,213,.4)}
 
-/* ============ motion ============ */
+/* motion */
 @media(prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
@@ -264,27 +277,103 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
 <script src="rsvp-config.js"></script>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- reusable SVG defs: laurel sprig -->
+<!-- reusable SVG defs: floral sprig + bouquet -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <!-- small green + burgundy floral sprig -->
     <g id="laurel">
-      <path d="M40 76 C40 54 40 30 40 6" fill="none" stroke="currentColor" stroke-width="1.4"/>
-      <g fill="none" stroke="currentColor" stroke-width="1.3">
-        <path d="M40 20 C30 15 22 17 17 24 C26 27 34 26 40 20Z"/>
-        <path d="M40 20 C50 15 58 17 63 24 C54 27 46 26 40 20Z"/>
-        <path d="M40 34 C29 29 20 31 15 39 C25 42 34 41 40 34Z"/>
-        <path d="M40 34 C51 29 60 31 65 39 C55 42 46 41 40 34Z"/>
-        <path d="M40 48 C30 44 22 46 18 53 C27 56 35 55 40 48Z"/>
-        <path d="M40 48 C50 44 58 46 62 53 C53 56 45 55 40 48Z"/>
-        <path d="M40 62 C32 59 25 60 21 66 C29 69 36 68 40 62Z"/>
-        <path d="M40 62 C48 59 55 60 59 66 C51 69 44 68 40 62Z"/>
+      <path d="M40 78 C41 56 38 34 40 13" fill="none" stroke="#6f7d1f" stroke-width="2.2"/>
+      <path d="M40 60 C28 56 20 59 15 67 C27 70 35 68 40 60Z" fill="#6f7d1f"/>
+      <path d="M40 52 C52 48 60 51 65 59 C53 62 45 60 40 52Z" fill="#93a233"/>
+      <path d="M40 44 C30 41 22 44 18 51 C29 54 36 51 40 44Z" fill="#4d5e26"/>
+      <path d="M47 58 C53 66 52 74 46 80" fill="none" stroke="#93a233" stroke-width="2.4" stroke-linecap="round"/>
+      <g transform="translate(40,20)" fill="#7a2436">
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(288)"/>
       </g>
-      <circle cx="40" cy="7" r="3.2" fill="currentColor"/>
-      <circle cx="31" cy="12" r="2.1" fill="currentColor"/>
-      <circle cx="49" cy="12" r="2.1" fill="currentColor"/>
+      <circle cx="40" cy="20" r="3.4" fill="#e0b85f"/>
+      <g transform="translate(55,33) scale(.7)" fill="#b06576">
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-9" rx="5.4" ry="8.2" transform="rotate(288)"/>
+      </g>
+      <circle cx="55" cy="33" r="2.4" fill="#e0b85f"/>
+    </g>
+
+    <!-- moody bouquet: white callas, burgundy roses, plum blooms, trailing green -->
+    <g id="bouquet">
+      <!-- foliage fan -->
+      <g>
+        <g transform="rotate(-58 150 162)"><path d="M150 162 C137 130 140 100 150 82 C160 100 163 130 150 162Z" fill="#4d5e26"/></g>
+        <g transform="rotate(-36 150 162)"><path d="M150 162 C138 128 141 98 150 80 C159 98 162 128 150 162Z" fill="#6f7d1f"/></g>
+        <g transform="rotate(-16 150 162)"><path d="M150 162 C139 126 142 96 150 78 C158 96 161 126 150 162Z" fill="#4d5e26"/></g>
+        <g transform="rotate(14 150 162)"><path d="M150 162 C139 126 142 96 150 78 C158 96 161 126 150 162Z" fill="#6f7d1f"/></g>
+        <g transform="rotate(34 150 162)"><path d="M150 162 C138 128 141 98 150 80 C159 98 162 128 150 162Z" fill="#4d5e26"/></g>
+        <g transform="rotate(56 150 162)"><path d="M150 162 C137 130 140 100 150 82 C160 100 163 130 150 162Z" fill="#6f7d1f"/></g>
+      </g>
+      <!-- trailing amaranthus -->
+      <path d="M138 232 C122 262 136 292 120 322 C112 342 120 352 118 366" fill="none" stroke="#6f7d1f" stroke-width="6" stroke-linecap="round"/>
+      <path d="M152 238 C150 270 156 300 150 330 C147 348 151 362 150 374" fill="none" stroke="#93a233" stroke-width="6" stroke-linecap="round"/>
+      <path d="M164 232 C182 260 168 292 182 320 C190 340 182 352 184 362" fill="none" stroke="#9a7f88" stroke-width="5" stroke-linecap="round"/>
+      <!-- ribbon tie -->
+      <path d="M140 244 C132 258 132 274 138 286 L152 250Z" fill="#5e1b2c"/>
+      <path d="M160 244 C168 258 168 274 162 286 L148 250Z" fill="#5e1b2c"/>
+      <rect x="133" y="222" width="34" height="22" rx="4" fill="#3a0e18"/>
+      <rect x="133" y="222" width="34" height="22" rx="4" fill="none" stroke="#c9a24b" stroke-width="1.3" opacity=".7"/>
+      <!-- plum 5-petal blooms -->
+      <g transform="translate(104,120)" fill="#6d2338">
+        <ellipse cx="0" cy="-13" rx="8" ry="12"/><ellipse cx="0" cy="-13" rx="8" ry="12" transform="rotate(72)"/><ellipse cx="0" cy="-13" rx="8" ry="12" transform="rotate(144)"/><ellipse cx="0" cy="-13" rx="8" ry="12" transform="rotate(216)"/><ellipse cx="0" cy="-13" rx="8" ry="12" transform="rotate(288)"/>
+      </g><circle cx="104" cy="120" r="5.5" fill="#d9a94f"/>
+      <g transform="translate(200,146)" fill="#5e1b2c">
+        <ellipse cx="0" cy="-12" rx="7.5" ry="11" transform="rotate(20)"/><ellipse cx="0" cy="-12" rx="7.5" ry="11" transform="rotate(92)"/><ellipse cx="0" cy="-12" rx="7.5" ry="11" transform="rotate(164)"/><ellipse cx="0" cy="-12" rx="7.5" ry="11" transform="rotate(236)"/><ellipse cx="0" cy="-12" rx="7.5" ry="11" transform="rotate(308)"/>
+      </g><circle cx="200" cy="146" r="5" fill="#d9a94f"/>
+      <!-- white calla lilies -->
+      <g transform="translate(120,128) rotate(-14)">
+        <path d="M0 4 C-20 -4 -30 -30 -14 -50 C-2 -63 20 -61 24 -44 C27 -32 17 -26 9 -18 C3 -12 4 -3 0 4Z" fill="#f5eddd" stroke="#e2d3ba" stroke-width="1"/>
+        <path d="M4 -14 C1 -30 4 -40 9 -48" fill="none" stroke="#cf9f45" stroke-width="3.6" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(186,126) rotate(16) scale(-1,1)">
+        <path d="M0 4 C-20 -4 -30 -30 -14 -50 C-2 -63 20 -61 24 -44 C27 -32 17 -26 9 -18 C3 -12 4 -3 0 4Z" fill="#f5eddd" stroke="#e2d3ba" stroke-width="1"/>
+        <path d="M4 -14 C1 -30 4 -40 9 -48" fill="none" stroke="#cf9f45" stroke-width="3.6" stroke-linecap="round"/>
+      </g>
+      <!-- burgundy rose (center) -->
+      <g transform="translate(150,152)">
+        <circle r="31" fill="#5e1b2c"/>
+        <path d="M0 27 A27 27 0 0 1 27 0" fill="none" stroke="#7a2436" stroke-width="9" opacity=".85"/>
+        <circle r="21" fill="#7a2436"/>
+        <path d="M0 -17 A17 17 0 0 1 -17 0" fill="none" stroke="#9a3348" stroke-width="7" opacity=".85"/>
+        <circle r="12" fill="#8e2c3e"/>
+        <path d="M0 0 C6 -4 10 4 4 8 C-4 13 -13 3 -7 -6 C1 -17 15 -10 16 3" fill="none" stroke="#4a1420" stroke-width="2.2" opacity=".6"/>
+        <circle r="4.5" fill="#5e1b2c"/>
+      </g>
+      <!-- smaller rose -->
+      <g transform="translate(112,178) scale(.6)">
+        <circle r="31" fill="#5e1b2c"/><circle r="21" fill="#7a2436"/><circle r="12" fill="#8e2c3e"/><circle r="4.5" fill="#5e1b2c"/>
+      </g>
+      <!-- cream filler -->
+      <g fill="#efe3cc"><circle cx="176" cy="176" r="6"/><circle cx="184" cy="184" r="4.5"/><circle cx="170" cy="186" r="4"/><circle cx="132" cy="150" r="5"/></g>
     </g>
   </defs>
 </svg>
+
+<!-- ============ Intro cover ============ -->
+<div class="cover" id="cover">
+  <div class="cover-half l" aria-hidden="true"></div>
+  <div class="cover-half r" aria-hidden="true"></div>
+  <div class="cover-inner">
+    <p class="cover-kicker">You're invited</p>
+    <svg class="cover-bouquet" viewBox="0 0 300 390" role="img" aria-label="A bouquet of flowers"><use href="#bouquet"/></svg>
+    <h2 class="cover-names">Lily &amp; Kremer</h2>
+    <p class="cover-date">September 18, 2027 · Fort Lauderdale</p>
+    <button class="cover-open" id="cover-open" type="button">Open the invitation</button>
+    <p class="cover-hint">tap to open</p>
+  </div>
+</div>
 
 <header class="site-head">
   <nav class="nav" aria-label="Main">
@@ -303,7 +392,7 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
 
 <main id="main">
 
-  <!-- Hero / Save the Date -->
+  <!-- Hero -->
   <section class="hero" id="home" aria-label="Lily and Kremer — save the date">
     <div class="wrap hero-inner">
       <div class="hero-copy reveal in">
@@ -333,12 +422,12 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow"><svg class="sprig" style="width:34px" viewBox="0 0 80 80"><use href="#laurel"/></svg> Our Story</span>
-        <h2>A friendship that became <em>everything</em></h2>
+        <h2>Long story <em>short</em></h2>
       </div>
       <div class="story">
         <div class="prose reveal">
-          <p class="lead-drop">Friends first — for so long that neither of us can name the moment it turned into something more.</p>
-          <p>Now we get to spend a lifetime making up for the slow start. We'd love to begin it with you, by the ocean.</p>
+          <p class="lead-drop">We were friends first — for a long time.</p>
+          <p>Then, somewhere in there, we weren't just friends anymore. Come hear the rest by the ocean.</p>
         </div>
         <figure class="pola reveal" style="margin-inline:auto">
           <img src="photos/picnic-kiss.jpg" alt="Lily and Kremer sharing a kiss at a bar">
@@ -485,8 +574,8 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
 
 <footer class="foot">
   <div class="wrap">
-    <div class="flourish" aria-hidden="true"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
-    <p class="mono gold-text">Lily &amp; Kremer</p>
+    <svg class="fsprig" viewBox="0 0 80 80" aria-hidden="true"><use href="#laurel"/></svg>
+    <p class="mono">Lily &amp; Kremer</p>
     <p class="fdate">September 18, 2027 · Fort Lauderdale</p>
     <p class="fmail">Questions? <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
     <a class="egg" href="peepeepoopoo/" title="don't" aria-label="a little secret">❦</a>
@@ -497,14 +586,45 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
 (function(){
   "use strict";
 
+  /* ---- Intro cover: open to bouquet, then reveal the site ---- */
+  var cover = document.getElementById("cover");
+  if(cover){
+    var KEY = "lk_opened";
+    var seen = false;
+    try{ seen = sessionStorage.getItem(KEY) === "1"; }catch(e){}
+    if(seen){
+      cover.setAttribute("hidden","");
+    } else {
+      document.body.classList.add("locked");
+      var opened = false;
+      var openCover = function(){
+        if(opened) return; opened = true;
+        try{ sessionStorage.setItem(KEY,"1"); }catch(e){}
+        cover.classList.add("open");
+        document.body.classList.remove("locked");
+        var half = cover.querySelector(".cover-half.r");
+        var done = function(){ cover.setAttribute("hidden",""); };
+        if(half){ half.addEventListener("transitionend", done, {once:true}); }
+        setTimeout(done, 1400);
+      };
+      var btn = document.getElementById("cover-open");
+      if(btn) btn.addEventListener("click", openCover);
+      cover.addEventListener("click", function(e){
+        if(e.target !== btn) openCover();
+      });
+      document.addEventListener("keydown", function(e){
+        if(!opened && (e.key === "Enter" || e.key === " " || e.key === "Escape")) openCover();
+      });
+    }
+  }
+
   /* ---- Countdown ---- */
   var cd = document.getElementById("countdown");
   function pad(n){return (n<10?"0":"")+n;}
   function tick(){
     if(!cd) return;
     var target = new Date(2027,8,18,16,0,0).getTime();
-    var now = Date.now();
-    var diff = target - now;
+    var diff = target - Date.now();
     if(diff <= 0){
       cd.innerHTML = '<p class="count-note">Married since September 18, 2027 &#10084;</p>';
       return;
@@ -513,10 +633,9 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
     var h = Math.floor(diff%86400000/3600000);
     var m = Math.floor(diff%3600000/60000);
     var s = Math.floor(diff%60000/1000);
-    cd.innerHTML =
-      unit(d,"days") + sep() + unit(h,"hrs") + sep() + unit(m,"min") + sep() + unit(s,"sec");
     function unit(n,l){return '<div class="unit"><span class="n gold-text">'+(l==="days"?n:pad(n))+'</span><span class="l">'+l+'</span></div>';}
     function sep(){return '<span class="sep">:</span>';}
+    cd.innerHTML = unit(d,"days")+sep()+unit(h,"hrs")+sep()+unit(m,"min")+sep()+unit(s,"sec");
   }
   tick(); setInterval(tick,1000);
 
@@ -530,24 +649,20 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
     var r = 11;
     function scallops(len){var n=Math.max(3,Math.round(len/(2*r)));return {n:n,r:len/(2*n)};}
     var t=scallops(w), rt=scallops(h), b=scallops(w), l=scallops(h);
-    var d="M 0 0 ";
-    var i;
+    var d="M 0 0 ", i;
     for(i=0;i<t.n;i++) d+="A "+t.r+" "+t.r+" 0 0 1 "+((i+1)*2*t.r)+" 0 ";
     for(i=0;i<rt.n;i++) d+="A "+rt.r+" "+rt.r+" 0 0 1 "+w+" "+((i+1)*2*rt.r)+" ";
     for(i=0;i<b.n;i++) d+="A "+b.r+" "+b.r+" 0 0 1 "+(w-(i+1)*2*b.r)+" "+h+" ";
     for(i=0;i<l.n;i++) d+="A "+l.r+" "+l.r+" 0 0 1 0 "+(h-(i+1)*2*l.r)+" ";
     d+="Z";
     svg.querySelector(".fill").setAttribute("d",d);
-    // inner trim: a simple inset rounded rect
     var inset=Math.min(w,h)*0.055;
-    svg.querySelector(".trim").setAttribute("d",
-      "M "+inset+" "+inset+" H "+(w-inset)+" V "+(h-inset)+" H "+inset+" Z");
+    svg.querySelector(".trim").setAttribute("d","M "+inset+" "+inset+" H "+(w-inset)+" V "+(h-inset)+" H "+inset+" Z");
   }
   var laces = Array.prototype.slice.call(document.querySelectorAll(".lace"));
   function buildAll(){laces.forEach(buildLace);}
   if(laces.length){
     buildAll();
-    // rebuild once the hero image has real dimensions
     laces.forEach(function(f){var im=f.querySelector("img"); if(im && !im.complete){im.addEventListener("load",buildAll);}});
     var rt2; window.addEventListener("resize",function(){clearTimeout(rt2);rt2=setTimeout(buildAll,120);});
   }
@@ -569,7 +684,7 @@ input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:p
     reveals.forEach(function(el){io.observe(el);});
   } else { reveals.forEach(function(el){el.classList.add("in");}); }
 
-  /* ---- RSVP step 1 -> details page ---- */
+  /* ---- RSVP step 1 -> details ---- */
   var form=document.getElementById("rsvp-form");
   if(form){
     form.addEventListener("submit",function(e){
