@@ -1,190 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>Lily &amp; Kremer — Pick a Website</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><!-- private wedding site -->
+<link rel="canonical" href="https://lilyandkremer.com/">
+<title>Lily &amp; Kremer — September 18, 2027</title>
+<meta name="description" content="Lily &amp; Kremer are getting married on September 18, 2027 at Lago Mar Beach Resort &amp; Club in Fort Lauderdale, Florida.">
+<meta name="theme-color" content="#2A0C15">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ivory: #FAF6EF;
-    --ink: #33262B;
-    --burgundy: #6B1F30;
-    --chartreuse: #6F7D1F;
-    --mauve: #C79AA6;
-    --terracotta: #C96F4A;
-    --butter: #F6E27F;
-    --blue: #3D639B;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Karla', sans-serif;
-    background: var(--ivory);
-    color: var(--ink);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4rem 1.5rem;
-  }
-  header { text-align: center; max-width: 40rem; }
-  .kicker {
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--chartreuse);
-  }
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: clamp(2.2rem, 6vw, 3.5rem);
-    color: var(--burgundy);
-    margin: 0.75rem 0 1rem;
-  }
-  header p { font-size: 1.05rem; line-height: 1.6; color: #5a4a50; }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    max-width: 62rem;
-    width: 100%;
-    margin-top: 3rem;
-  }
-  .card {
-    background: #fff;
-    border: 1px solid #e9e0d2;
-    border-radius: 1.25rem 1.25rem 1rem 1rem;
-    padding: 2rem 1.75rem;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .card:hover, .card:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(107, 31, 48, 0.12);
-  }
-  .card:focus-visible { outline: 3px solid var(--burgundy); outline-offset: 3px; }
-  .num {
-    font-family: 'Fraunces', serif;
-    font-size: 0.95rem;
-    color: var(--terracotta);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-  .card h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.5rem; color: var(--burgundy); }
-  .card p { font-size: 0.95rem; line-height: 1.55; color: #5a4a50; flex: 1; }
-  .swatches { display: flex; gap: 0.4rem; }
-  .swatches span {
-    width: 1.1rem; height: 1.1rem; border-radius: 50%;
-    border: 1px solid rgba(0,0,0,0.12);
-    display: inline-block;
-  }
-  .go { font-weight: 700; color: var(--chartreuse); font-size: 0.95rem; }
-  .surprise { margin-top: 3.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-  .surprise-btn {
-    font-family: 'Karla', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--ivory);
-    background: var(--burgundy);
-    border: none;
-    border-radius: 999px;
-    padding: 0.8rem 1.6rem;
-    cursor: pointer;
-    transition: transform 0.15s ease, background 0.15s ease;
-  }
-  .surprise-btn:hover, .surprise-btn:focus-visible { transform: translateY(-2px); background: #551826; }
-  .surprise-btn:focus-visible { outline: 3px solid var(--chartreuse); outline-offset: 3px; }
-  .surprise-hint { font-size: 0.8rem; color: #a2929a; font-style: italic; }
-  footer { margin-top: 2.5rem; font-size: 0.85rem; color: #8a7a80; text-align: center; }
-  @media (prefers-reduced-motion: reduce) { .card, .surprise-btn { transition: none; } }
+/* ============================================================
+   Lily & Kremer — moody "old money" wedding site
+   Palette: wine / ivory / olive / gold + chrome, lace, stripes
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none !important}
+:root{
+  --wine-950:#180610;
+  --wine-900:#280B15;
+  --wine-800:#37101D;
+  --wine:#4E1523;
+  --wine-700:#5F1C2D;
+  --cream:#F2E8D5;
+  --cream-2:#E8D9BF;
+  --cream-dim:rgba(242,232,213,.74);
+  --cream-faint:rgba(242,232,213,.42);
+  --cream-hair:rgba(242,232,213,.22);
+  --olive:#93A233;
+  --olive-deep:#6F7D1F;
+  --rose:#C88A95;
+  --ink:#2A1016;
+  --muted:rgba(42,16,22,.68);
+  --rule:rgba(42,16,22,.2);
+  --gold-grad:linear-gradient(180deg,#f4dc9b 0%,#d9b25e 42%,#b1873a 72%,#8a6326 100%);
+  --chrome-grad:linear-gradient(180deg,#f7f8fa 0%,#d3d7dd 38%,#f0f1f3 55%,#a9afb8 100%);
+  --stripe:repeating-linear-gradient(90deg,var(--wine-800) 0 15px,var(--wine-900) 15px 30px);
+  --nav-h:62px;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --script:"Pinyon Script","Cormorant Garamond",cursive;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + 1rem)}
+body{
+  font-family:var(--sans);font-weight:400;font-size:1.02rem;line-height:1.72;
+  color:var(--cream);background:var(--wine-900);overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold-4,#c9a24b);color:var(--wine-950)}
+h1,h2,h3{line-height:1.12;font-weight:500}
+ul{list-style:none}
+svg{display:block}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid #e7c877;outline-offset:3px}
+
+/* ---- shared text bits ---- */
+.serif{font-family:var(--serif)}
+.script{font-family:var(--script);font-weight:400}
+.gold-text{
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}
+.chrome-text{
+  background:var(--chrome-grad);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}
+.kicker{
+  font-family:var(--sans);font-size:.72rem;font-weight:500;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim);
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:1rem;top:-4rem;z-index:200;background:var(--cream);color:var(--wine);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:.7rem 1.1rem}
+.skip:focus{top:1rem}
+.wrap{max-width:1140px;margin-inline:auto;padding-inline:clamp(1.2rem,5vw,3rem)}
+
+/* ---- gold hairline w/ diamond ---- */
+.flourish{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem auto}
+.flourish .ln{height:1px;width:min(120px,22vw);background:linear-gradient(90deg,transparent,#c9a24b)}
+.flourish .ln.r{background:linear-gradient(90deg,#c9a24b,transparent)}
+.flourish .dot{width:6px;height:6px;background:var(--gold-grad);transform:rotate(45deg)}
+
+/* ============ decorative laurel/floral sprig (SVG symbol reused) ============ */
+.sprig{width:clamp(46px,8vw,74px);height:auto;color:#c9a24b}
+.sprig path,.sprig circle{vector-effect:non-scaling-stroke}
+
+/* ============ Nav ============ */
+.site-head{position:sticky;top:0;z-index:100;background:rgba(24,6,16,.82);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid var(--cream-hair)}
+.nav{position:relative;max-width:1140px;margin-inline:auto;padding-inline:clamp(1.2rem,5vw,3rem);height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.12em;text-decoration:none;display:inline-flex;align-items:baseline;gap:.12em}
+.brand .amp{font-family:var(--script);font-size:1.15em;line-height:0}
+.menu{display:flex;align-items:center;gap:clamp(1rem,2vw,1.8rem)}
+.menu a{position:relative;color:var(--cream);text-decoration:none;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:.4rem 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:#c9a24b;transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+.menu a:hover::after,.menu a:focus-visible::after{transform:scaleX(1)}
+.menu a.rsvp-link{border:1px solid #b58a3e;color:#eBce8f;padding:.42rem 1.05rem;letter-spacing:.22em}
+.menu a.rsvp-link::after{content:none}
+.menu a.rsvp-link:hover,.menu a.rsvp-link:focus-visible{background:var(--gold-grad);color:var(--wine-950)}
+.nav-toggle{display:none;align-items:center;gap:.6rem;background:none;border:0;cursor:pointer;color:var(--cream);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:.5rem .2rem}
+.bars{display:inline-flex;flex-direction:column;gap:5px;width:20px}
+.bars span{display:block;height:1.5px;width:100%;background:#d9b25e;transition:transform .25s ease}
+.nav-toggle[aria-expanded="true"] .bars span:first-child{transform:translateY(3.25px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .bars span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+@media(max-width:860px){
+  .nav-toggle{display:inline-flex}
+  .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--wine-900);border-bottom:1px solid var(--cream-hair);padding:.4rem clamp(1.2rem,5vw,3rem) 1.1rem}
+  .menu.open{display:flex}
+  .menu li{border-top:1px solid var(--cream-hair)}
+  .menu li:first-child{border-top:0}
+  .menu a{display:block;padding:.85rem .1rem}
+  .menu a::after{content:none}
+  .menu a.rsvp-link{margin-top:.8rem;text-align:center;padding:.75rem 1rem}
+}
+
+/* ============ Hero / Save the Date ============ */
+.hero{position:relative;background:radial-gradient(120% 100% at 50% -10%,var(--wine-700),var(--wine-900) 55%,var(--wine-950));overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:var(--stripe);opacity:.16;mix-blend-mode:overlay;pointer-events:none}
+.hero-inner{position:relative;display:grid;gap:clamp(2rem,5vw,3.5rem);align-items:center;padding-block:clamp(2.4rem,6vw,4.5rem) clamp(3rem,7vw,5rem)}
+@media(min-width:900px){.hero-inner{grid-template-columns:1.05fr .95fr}}
+.hero-copy{text-align:center}
+@media(min-width:900px){.hero-copy{text-align:left}}
+.hero-laurels{display:flex;align-items:center;justify-content:center;gap:.8rem;margin-bottom:1rem}
+@media(min-width:900px){.hero-laurels{justify-content:flex-start}}
+.hero-kicker{font-size:.76rem;letter-spacing:.4em}
+.hero-names{font-family:var(--script);font-weight:400;font-size:clamp(4.2rem,13vw,8rem);line-height:.86;margin:.5rem 0 .2rem;filter:drop-shadow(0 2px 10px rgba(0,0,0,.4))}
+.hero-names .amp{display:inline-block;font-size:.9em;margin:0 .04em}
+.hero-date{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3vw,1.75rem);color:var(--cream)}
+.hero-place{margin-top:.35rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cream-dim)}
+.hero-cta{margin-top:1.7rem;display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
+@media(min-width:900px){.hero-cta{justify-content:flex-start}}
+
+/* countdown */
+.count{margin-top:1.9rem;display:flex;gap:clamp(.7rem,2vw,1.4rem);justify-content:center}
+@media(min-width:900px){.count{justify-content:flex-start}}
+.count .unit{text-align:center;min-width:3.4rem}
+.count .n{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4.5vw,2.9rem);line-height:1}
+.count .l{display:block;margin-top:.3rem;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim)}
+.count .sep{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--cream-faint);align-self:flex-start;line-height:1.1}
+.count-note{margin-top:1rem;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--cream-dim)}
+
+/* buttons */
+.btn{display:inline-block;font-family:var(--sans);font-size:.76rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;padding:.95rem 2.1rem;cursor:pointer;text-decoration:none;border:1px solid transparent;transition:transform .18s ease,background-color .2s ease,color .2s ease,border-color .2s ease}
+.btn-gold{background:var(--gold-grad);color:var(--wine-950);border-color:#8a6326}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:var(--cream-faint);color:var(--cream)}
+.btn-ghost:hover{border-color:#d9b25e;color:#f0d692}
+
+/* ============ Lace-framed photo ============ */
+.lace{position:relative;width:min(100%,420px);margin-inline:auto;padding:6.2%;filter:drop-shadow(0 22px 40px rgba(0,0,0,.5))}
+.lace-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.lace-svg .fill{fill:#f4ecdc}
+.lace-svg .trim{fill:none;stroke:#c9a24b;stroke-width:1.1;opacity:.75}
+.lace img{position:relative;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(.05) contrast(1.02)}
+.lace .cap{position:relative;margin-top:.6rem;text-align:center;font-family:var(--serif);font-style:italic;color:var(--wine);font-size:1rem}
+
+/* ============ Sections ============ */
+.sec{position:relative;padding-block:clamp(3.6rem,8vw,6rem)}
+.sec-head{text-align:center;max-width:52ch;margin-inline:auto}
+.sec-head .eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:#d9b25e}
+.sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,5vw,3.2rem);margin-top:.6rem}
+.sec-head h2 em{font-style:italic;font-family:var(--script);font-weight:400;font-size:1.15em}
+.sec-head p{margin-top:.9rem;color:var(--cream-dim)}
+.sec.on-cream{background:var(--cream);color:var(--ink)}
+.on-cream .kicker,.on-cream .sec-head p{color:var(--muted)}
+.on-cream .sec-head .eyebrow{color:var(--olive-deep)}
+.on-cream .flourish .ln{background:linear-gradient(90deg,transparent,#b1873a)}
+.on-cream .flourish .ln.r{background:linear-gradient(90deg,#b1873a,transparent)}
+
+/* story */
+.story{display:grid;gap:clamp(1.8rem,5vw,3.2rem);align-items:center;margin-top:clamp(2rem,5vw,3rem)}
+@media(min-width:820px){.story{grid-template-columns:1fr 1fr}}
+.story .prose p{font-family:var(--serif);font-size:1.28rem;line-height:1.6;max-width:34ch;margin-inline:auto}
+.story .prose p+p{margin-top:1rem}
+.story .prose .lead-drop::first-letter{font-family:var(--serif);font-size:3.2em;line-height:.72;float:left;padding:.06em .12em 0 0;color:#b1873a}
+
+/* ============ Polaroids ============ */
+.polas{display:flex;flex-wrap:wrap;gap:clamp(1rem,3vw,2rem);justify-content:center;margin-top:clamp(2rem,5vw,3rem)}
+.pola{background:#fbf6ea;padding:.7rem .7rem 0;box-shadow:0 16px 30px -14px rgba(0,0,0,.6);width:min(78vw,270px);position:relative}
+.pola:nth-child(odd){transform:rotate(-2.6deg)}
+.pola:nth-child(even){transform:rotate(2.2deg)}
+.pola:hover{transform:rotate(0) scale(1.02);z-index:2}
+.pola img{width:100%;aspect-ratio:1/1;object-fit:cover;filter:saturate(1.02) contrast(1.02)}
+.pola .grain{position:absolute;inset:.7rem .7rem 3.2rem;opacity:.14;mix-blend-mode:multiply;pointer-events:none}
+.pola figcaption{font-family:var(--script);font-size:1.5rem;color:#4a3018;text-align:center;padding:.35rem 0 .7rem;line-height:1}
+.pola.tall img{aspect-ratio:4/5}
+@media(prefers-reduced-motion:no-preference){.pola{transition:transform .3s ease}}
+
+/* ============ Details (arched cards on stripes) ============ */
+.detail-band{position:relative}
+.detail-band::before{content:"";position:absolute;inset:0;background:var(--stripe);opacity:.5}
+.arches{position:relative;display:grid;gap:clamp(1.4rem,4vw,2.4rem);margin-top:clamp(2rem,5vw,3rem)}
+@media(min-width:720px){.arches{grid-template-columns:1fr 1fr}}
+.arch{position:relative;background:linear-gradient(180deg,var(--wine-800),var(--wine-900));border:1px solid rgba(201,162,75,.4);border-radius:50% 50% 10px 10px/34% 34% 10px 10px;padding:clamp(2rem,5vw,2.8rem) 1.6rem 2rem;text-align:center}
+.arch .a-ico{margin:0 auto .6rem}
+.arch h3{font-family:var(--serif);font-size:1.7rem;font-weight:500;color:#f0d692}
+.arch .when{margin-top:.5rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-dim)}
+.arch .where{margin-top:.7rem;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--cream)}
+.detail-note{margin-top:1.7rem;text-align:center;font-family:var(--serif);font-style:italic;color:var(--cream-dim)}
+
+/* ============ Travel ============ */
+.travel{display:grid;gap:clamp(1.6rem,4vw,2.4rem);margin-top:clamp(2rem,5vw,3rem)}
+@media(min-width:760px){.travel{grid-template-columns:repeat(3,1fr)}}
+.tcard{border:1px solid var(--rule);padding:1.6rem 1.4rem;background:rgba(255,255,255,.4)}
+.tcard h3{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-deep);margin-bottom:.7rem}
+.tcard p{font-family:var(--serif);font-size:1.15rem;line-height:1.5;color:var(--ink)}
+.tcard .mini{margin-top:.6rem;font-family:var(--sans);font-size:.86rem;color:var(--muted);line-height:1.5}
+.todo{margin-top:.4rem}
+.todo li{display:flex;gap:.6rem;font-family:var(--serif);font-size:1.08rem;padding:.2rem 0;color:var(--ink)}
+.todo li::before{content:"❦";color:#b1873a;font-size:.9em}
+
+/* ============ RSVP ============ */
+.sec-rsvp{background:radial-gradient(120% 120% at 50% 0,var(--wine-700),var(--wine-900) 60%)}
+.reply-card{position:relative;margin:clamp(2rem,5vw,3rem) auto 0;max-width:640px;background:var(--cream);color:var(--ink);padding:clamp(1.8rem,6vw,3.2rem);border:1px solid #d9b25e;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.reply-card::after{content:"";position:absolute;inset:9px;border:1px solid rgba(177,135,58,.5);pointer-events:none}
+.card-orn{position:relative;text-align:center;font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--olive-deep)}
+.card-title{position:relative;text-align:center;font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.7rem,4vw,2.3rem);margin-top:.5rem;color:var(--wine)}
+.form-grid{position:relative;display:grid;gap:1.5rem;margin-top:1.8rem}
+@media(min-width:560px){.form-grid{grid-template-columns:1fr 1fr}.span-2{grid-column:1/-1}}
+.f-label,.f-legend{display:block;font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--olive-deep);margin-bottom:.4rem}
+input[type=text],input[type=email],input[type=number],select,textarea{width:100%;font-family:var(--sans);font-size:1rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(42,16,22,.4);border-radius:0;padding:.5rem .1rem}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--wine);box-shadow:0 1px 0 0 var(--wine)}
+fieldset{border:0}
+.radio-row{display:flex;flex-wrap:wrap;gap:.5rem 1.8rem;padding-top:.2rem}
+.radio-row label{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--serif);font-size:1.2rem;cursor:pointer}
+input[type=radio]{accent-color:var(--wine);width:1.05rem;height:1.05rem;cursor:pointer}
+.form-actions{position:relative;margin-top:1.9rem;text-align:center}
+.btn-wine{background:var(--wine);color:var(--cream);border-color:var(--wine)}
+.btn-wine:hover{background:var(--wine-950)}
+.form-note{margin-top:.9rem;font-family:var(--serif);font-style:italic;color:var(--muted)}
+.hp-wrap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ============ FAQ ============ */
+.faq{max-width:760px;margin:clamp(2rem,5vw,3rem) auto 0;border-top:1px solid var(--cream-hair)}
+.faq details{border-bottom:1px solid var(--cream-hair)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.15rem .1rem;cursor:pointer;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.45rem);color:var(--cream)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:1.3rem;color:#d9b25e}
+.faq details[open] summary::after{content:"\2212"}
+.faq .a{padding:0 .1rem 1.3rem;max-width:60ch;color:var(--cream-dim)}
+.faq .a a{color:#f0d692;text-decoration:underline;text-underline-offset:3px}
+
+/* ============ Footer ============ */
+.foot{background:var(--wine-950);text-align:center;padding-block:clamp(3rem,7vw,4.5rem)}
+.foot .mono{font-family:var(--script);font-size:2.6rem;line-height:1}
+.foot .fdate{margin-top:.6rem;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream-dim)}
+.foot .fmail{margin-top:1rem;color:var(--cream-dim)}
+.foot .fmail a{color:#f0d692;text-decoration:underline;text-underline-offset:3px}
+.egg{display:inline-block;margin-top:1.8rem;font-size:1.1rem;color:rgba(242,232,213,.16);text-decoration:none;transition:color .3s ease}
+.egg:hover{color:rgba(242,232,213,.4)}
+
+/* ============ motion ============ */
+@media(prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  .btn{will-change:transform}
+}
 </style>
 </head>
 <body>
-  <header>
-    <p class="kicker">September 18, 2027 · Fort Lauderdale</p>
-    <h1>Lily &amp; Kremer</h1>
-    <p>Three takes on the wedding website — same info, three different vibes. Click around, see which one feels like you, and the winner becomes the real site.</p>
-  </header>
+<script src="rsvp-config.js"></script>
+<a class="skip" href="#main">Skip to content</a>
 
-  <main class="cards">
-    <a class="card" href="one/">
-      <span class="num">Option One</span>
-      <h2>Garden Romantic</h2>
-      <p>Cute, airy, and warm — arches, botanical sprigs, and soft edges. The garden-party invitation feel.</p>
-      <div class="swatches" aria-hidden="true">
-        <span style="background:#6B1F30"></span>
-        <span style="background:#8A9A2B"></span>
-        <span style="background:#C79AA6"></span>
-        <span style="background:#F6E9C4"></span>
+<!-- reusable SVG defs: laurel sprig -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="laurel">
+      <path d="M40 76 C40 54 40 30 40 6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <g fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M40 20 C30 15 22 17 17 24 C26 27 34 26 40 20Z"/>
+        <path d="M40 20 C50 15 58 17 63 24 C54 27 46 26 40 20Z"/>
+        <path d="M40 34 C29 29 20 31 15 39 C25 42 34 41 40 34Z"/>
+        <path d="M40 34 C51 29 60 31 65 39 C55 42 46 41 40 34Z"/>
+        <path d="M40 48 C30 44 22 46 18 53 C27 56 35 55 40 48Z"/>
+        <path d="M40 48 C50 44 58 46 62 53 C53 56 45 55 40 48Z"/>
+        <path d="M40 62 C32 59 25 60 21 66 C29 69 36 68 40 62Z"/>
+        <path d="M40 62 C48 59 55 60 59 66 C51 69 44 68 40 62Z"/>
+      </g>
+      <circle cx="40" cy="7" r="3.2" fill="currentColor"/>
+      <circle cx="31" cy="12" r="2.1" fill="currentColor"/>
+      <circle cx="49" cy="12" r="2.1" fill="currentColor"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="site-head">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#home"><span class="chrome-text">L</span><span class="amp gold-text">&amp;</span><span class="chrome-text">K</span><span class="sr-only">Lily and Kremer — home</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+    <ul class="menu" id="nav-menu">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#details">The Wedding</a></li>
+      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#travel">Travel</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="rsvp-link" href="#rsvp">RSVP</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- Hero / Save the Date -->
+  <section class="hero" id="home" aria-label="Lily and Kremer — save the date">
+    <div class="wrap hero-inner">
+      <div class="hero-copy reveal in">
+        <div class="hero-laurels" aria-hidden="true">
+          <svg class="sprig" viewBox="0 0 80 80" style="transform:scaleX(-1)"><use href="#laurel"/></svg>
+          <span class="kicker hero-kicker">Save the Date</span>
+          <svg class="sprig" viewBox="0 0 80 80"><use href="#laurel"/></svg>
+        </div>
+        <h1 class="hero-names"><span class="chrome-text">Lily</span> <span class="amp gold-text">&amp;</span> <span class="chrome-text">Kremer</span></h1>
+        <p class="hero-date">Saturday, the eighteenth of September<br>two thousand twenty-seven</p>
+        <p class="hero-place">Lago Mar · Fort Lauderdale, Florida</p>
+        <div class="count" id="countdown" aria-label="Countdown to the wedding"></div>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#rsvp">RSVP</a>
+          <a class="btn btn-ghost" href="#details">The Details</a>
+        </div>
       </div>
-      <span class="go">Take a look →</span>
-    </a>
+      <figure class="lace reveal in">
+        <svg class="lace-svg" preserveAspectRatio="none" aria-hidden="true"><path class="fill" d=""/><path class="trim" d=""/></svg>
+        <img src="photos/bw-ring.jpg" alt="Lily and Kremer, foreheads together, her engagement ring on his chest" width="1200" height="1500">
+      </figure>
+    </div>
+  </section>
 
-    <a class="card" href="two/">
-      <span class="num">Option Two</span>
-      <h2>Fun &amp; Funky</h2>
-      <p>Bold color-blocked sections, chunky type, a scrolling marquee — playful editorial-poster energy.</p>
-      <div class="swatches" aria-hidden="true">
-        <span style="background:#5E1B2C"></span>
-        <span style="background:#B5C34D"></span>
-        <span style="background:#C96F4A"></span>
-        <span style="background:#F6E27F"></span>
+  <!-- Our Story -->
+  <section class="sec" id="story">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><svg class="sprig" style="width:34px" viewBox="0 0 80 80"><use href="#laurel"/></svg> Our Story</span>
+        <h2>A friendship that became <em>everything</em></h2>
       </div>
-      <span class="go">Take a look →</span>
-    </a>
-
-    <a class="card" href="three/">
-      <span class="num">Option Three</span>
-      <h2>Modern Editorial</h2>
-      <p>Refined and minimal, like a magazine feature — big serif headlines, thin rules, quiet confidence.</p>
-      <div class="swatches" aria-hidden="true">
-        <span style="background:#4E1420"></span>
-        <span style="background:#8A9A2B"></span>
-        <span style="background:#3D639B"></span>
-        <span style="background:#F7F3EC"></span>
+      <div class="story">
+        <div class="prose reveal">
+          <p class="lead-drop">Friends first — for so long that neither of us can name the moment it turned into something more.</p>
+          <p>Now we get to spend a lifetime making up for the slow start. We'd love to begin it with you, by the ocean.</p>
+        </div>
+        <figure class="pola reveal" style="margin-inline:auto">
+          <img src="photos/picnic-kiss.jpg" alt="Lily and Kremer sharing a kiss at a bar">
+          <figcaption>the two of us</figcaption>
+        </figure>
       </div>
-      <span class="go">Take a look →</span>
-    </a>
+    </div>
+  </section>
 
-    <a class="card" href="peepeepoopoo/">
-      <span class="num">Pee Pee Poo Poo</span>
-      <h2>💩 Pee Pee Poo Poo 🚽</h2>
-      <p>The one your little brother made. Comic Sans, toilet jokes, and set entirely in Fart Lauderdale — proceed at your own risk.</p>
-      <div class="swatches" aria-hidden="true">
-        <span style="background:#7a4a25"></span>
-        <span style="background:#ffe11a"></span>
-        <span style="background:#ff5bb0"></span>
-        <span style="background:#22c1e0"></span>
+  <!-- The Wedding -->
+  <section class="sec detail-band" id="details">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><svg class="sprig" style="width:34px" viewBox="0 0 80 80"><use href="#laurel"/></svg> The Wedding</span>
+        <h2>A celebration <em>by the sea</em></h2>
+        <p>Ceremony &amp; reception at Lago Mar, oceanfront on the sand in Fort Lauderdale.</p>
       </div>
-      <span class="go">Take a look →</span>
-    </a>
-  </main>
+      <div class="arches">
+        <div class="arch reveal">
+          <svg class="sprig a-ico" viewBox="0 0 80 80"><use href="#laurel"/></svg>
+          <h3>The Ceremony</h3>
+          <p class="when">Saturday · September 18, 2027</p>
+          <p class="where">Lago Mar Beach Resort &amp; Club<br>Fort Lauderdale, Florida</p>
+        </div>
+        <div class="arch reveal">
+          <svg class="sprig a-ico" viewBox="0 0 80 80"><use href="#laurel"/></svg>
+          <h3>The Reception</h3>
+          <p class="when">To follow the ceremony</p>
+          <p class="where">Dinner, drinks &amp; dancing<br>steps from the ocean</p>
+        </div>
+      </div>
+      <p class="detail-note reveal">The full schedule will arrive with your invitation.</p>
+    </div>
+  </section>
 
-  <div class="surprise">
-    <button id="surprise-btn" class="surprise-btn" type="button">🎲 Take me somewhere else</button>
-    <p class="surprise-hint">this site has a few secrets</p>
+  <!-- Photos -->
+  <section class="sec" id="gallery">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><svg class="sprig" style="width:34px" viewBox="0 0 80 80"><use href="#laurel"/></svg> Us, lately</span>
+        <h2>A few of our <em>favorites</em></h2>
+      </div>
+      <div class="polas">
+        <figure class="pola reveal">
+          <img src="photos/beach.jpg" alt="Lily and Kremer walking on the beach at sunset">
+          <figcaption>golden hour</figcaption>
+        </figure>
+        <figure class="pola reveal">
+          <img src="photos/red-jacket.jpg" alt="Lily and Kremer at a bar">
+          <figcaption>date night</figcaption>
+        </figure>
+        <figure class="pola tall reveal">
+          <img src="photos/bw-ring.jpg" alt="Lily and Kremer, black and white">
+          <figcaption>she said yes</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel -->
+  <section class="sec on-cream" id="travel">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Travel &amp; Stay</span>
+        <h2>Getting there, <em>staying there</em></h2>
+      </div>
+      <div class="travel">
+        <div class="tcard reveal">
+          <h3>The Hotel</h3>
+          <p>Lago Mar Beach Resort &amp; Club — oceanfront, steps from the ceremony.</p>
+          <p class="mini">A room block is in the works — booking details soon.</p>
+        </div>
+        <div class="tcard reveal">
+          <h3>Getting Here</h3>
+          <p>Fly into Fort Lauderdale–Hollywood (FLL).</p>
+          <p class="mini">About 15 minutes from the resort.</p>
+        </div>
+        <div class="tcard reveal">
+          <h3>While You're Here</h3>
+          <ul class="todo">
+            <li>Las Olas Boulevard</li>
+            <li>The Water Taxi</li>
+            <li>Bonnet House &amp; Gardens</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="sec sec-rsvp" id="rsvp">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><svg class="sprig" style="width:34px" viewBox="0 0 80 80"><use href="#laurel"/></svg> Kindly Reply</span>
+        <h2>Will you <em>join us?</em></h2>
+        <p id="rsvp-intro">Two quick questions to start — the rest comes next.</p>
+      </div>
+      <form class="reply-card reveal" id="rsvp-form" novalidate>
+        <p class="card-orn">R &middot; S &middot; V &middot; P</p>
+        <p class="card-title">The favour of a reply</p>
+        <div class="hp-wrap" aria-hidden="true">
+          <label for="rsvp-website">Leave this field empty</label>
+          <input type="text" id="rsvp-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-grid">
+          <div class="span-2">
+            <label class="f-label" for="rsvp-name">Your name(s)</label>
+            <input type="text" id="rsvp-name" name="name" autocomplete="name" required>
+          </div>
+          <fieldset class="span-2">
+            <legend class="f-legend">Will you be attending?</legend>
+            <div class="radio-row">
+              <label><input type="radio" name="attending" value="Joyfully accepts" required> Joyfully accepts</label>
+              <label><input type="radio" name="attending" value="Regretfully declines"> Regretfully declines</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-wine" type="submit">Continue &rarr;</button>
+          <p class="form-note">You can add the details on the next page.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow"><svg class="sprig" style="width:34px" viewBox="0 0 80 80"><use href="#laurel"/></svg> Good to Know</span>
+        <h2>A few <em>questions</em></h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>What should I wear?</summary><p class="a">The dress code will be shared with your invitation — think moody garden romance.</p></details>
+        <details><summary>Can I bring a guest?</summary><p class="a">Your invitation will name exactly who's included. If you're unsure, just ask us.</p></details>
+        <details><summary>What's the weather like?</summary><p class="a">Warm and tropical — mid-80s&nbsp;°F, with a chance of a brief afternoon shower.</p></details>
+        <details><summary>Is there a registry?</summary><p class="a">We're still putting it together — check back soon.</p></details>
+        <details><summary>Another question?</summary><p class="a">Write to us any time at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a>.</p></details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="flourish" aria-hidden="true"><span class="ln"></span><span class="dot"></span><span class="ln r"></span></div>
+    <p class="mono gold-text">Lily &amp; Kremer</p>
+    <p class="fdate">September 18, 2027 · Fort Lauderdale</p>
+    <p class="fmail">Questions? <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
+    <a class="egg" href="peepeepoopoo/" title="don't" aria-label="a little secret">❦</a>
   </div>
+</footer>
 
-  <footer>Made with love for Lily &amp; Kremer · questions → lilyandkremer@gmail.com</footer>
+<script>
+(function(){
+  "use strict";
 
-  <script>
-    (function(){
-      var btn = document.getElementById('surprise-btn');
-      if (!btn) return;
-      var pages = ['dino/', 'batman/', 'kissinger/', 'mercer/', 'nietzsche/', 'gaga/', 'seinfeld/'];
-      btn.addEventListener('click', function(){
-        var pick = pages[Math.floor(Math.random() * pages.length)];
-        window.location.href = pick;
-      });
-    })();
-  </script>
+  /* ---- Countdown ---- */
+  var cd = document.getElementById("countdown");
+  function pad(n){return (n<10?"0":"")+n;}
+  function tick(){
+    if(!cd) return;
+    var target = new Date(2027,8,18,16,0,0).getTime();
+    var now = Date.now();
+    var diff = target - now;
+    if(diff <= 0){
+      cd.innerHTML = '<p class="count-note">Married since September 18, 2027 &#10084;</p>';
+      return;
+    }
+    var d = Math.floor(diff/86400000);
+    var h = Math.floor(diff%86400000/3600000);
+    var m = Math.floor(diff%3600000/60000);
+    var s = Math.floor(diff%60000/1000);
+    cd.innerHTML =
+      unit(d,"days") + sep() + unit(h,"hrs") + sep() + unit(m,"min") + sep() + unit(s,"sec");
+    function unit(n,l){return '<div class="unit"><span class="n gold-text">'+(l==="days"?n:pad(n))+'</span><span class="l">'+l+'</span></div>';}
+    function sep(){return '<span class="sep">:</span>';}
+  }
+  tick(); setInterval(tick,1000);
+
+  /* ---- Lace frame generator ---- */
+  function buildLace(fig){
+    var svg = fig.querySelector(".lace-svg");
+    if(!svg) return;
+    var w = fig.clientWidth, h = fig.clientHeight;
+    if(!w || !h) return;
+    svg.setAttribute("viewBox","0 0 "+w+" "+h);
+    var r = 11;
+    function scallops(len){var n=Math.max(3,Math.round(len/(2*r)));return {n:n,r:len/(2*n)};}
+    var t=scallops(w), rt=scallops(h), b=scallops(w), l=scallops(h);
+    var d="M 0 0 ";
+    var i;
+    for(i=0;i<t.n;i++) d+="A "+t.r+" "+t.r+" 0 0 1 "+((i+1)*2*t.r)+" 0 ";
+    for(i=0;i<rt.n;i++) d+="A "+rt.r+" "+rt.r+" 0 0 1 "+w+" "+((i+1)*2*rt.r)+" ";
+    for(i=0;i<b.n;i++) d+="A "+b.r+" "+b.r+" 0 0 1 "+(w-(i+1)*2*b.r)+" "+h+" ";
+    for(i=0;i<l.n;i++) d+="A "+l.r+" "+l.r+" 0 0 1 0 "+(h-(i+1)*2*l.r)+" ";
+    d+="Z";
+    svg.querySelector(".fill").setAttribute("d",d);
+    // inner trim: a simple inset rounded rect
+    var inset=Math.min(w,h)*0.055;
+    svg.querySelector(".trim").setAttribute("d",
+      "M "+inset+" "+inset+" H "+(w-inset)+" V "+(h-inset)+" H "+inset+" Z");
+  }
+  var laces = Array.prototype.slice.call(document.querySelectorAll(".lace"));
+  function buildAll(){laces.forEach(buildLace);}
+  if(laces.length){
+    buildAll();
+    // rebuild once the hero image has real dimensions
+    laces.forEach(function(f){var im=f.querySelector("img"); if(im && !im.complete){im.addEventListener("load",buildAll);}});
+    var rt2; window.addEventListener("resize",function(){clearTimeout(rt2);rt2=setTimeout(buildAll,120);});
+  }
+
+  /* ---- Mobile nav ---- */
+  var toggle=document.querySelector(".nav-toggle"), menu=document.getElementById("nav-menu");
+  if(toggle && menu){
+    var close=function(){menu.classList.remove("open");toggle.setAttribute("aria-expanded","false");};
+    toggle.addEventListener("click",function(){var o=menu.classList.toggle("open");toggle.setAttribute("aria-expanded",o?"true":"false");});
+    menu.addEventListener("click",function(e){if(e.target.closest("a"))close();});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&menu.classList.contains("open")){close();toggle.focus();}});
+    window.addEventListener("resize",function(){if(window.innerWidth>=861)close();});
+  }
+
+  /* ---- Reveal on scroll ---- */
+  var reveals=Array.prototype.slice.call(document.querySelectorAll(".reveal:not(.in)"));
+  if("IntersectionObserver" in window && reveals.length){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{rootMargin:"0px 0px -8% 0px"});
+    reveals.forEach(function(el){io.observe(el);});
+  } else { reveals.forEach(function(el){el.classList.add("in");}); }
+
+  /* ---- RSVP step 1 -> details page ---- */
+  var form=document.getElementById("rsvp-form");
+  if(form){
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      if(!form.reportValidity()) return;
+      var val=function(id){var el=document.getElementById(id);return el&&el.value?el.value.trim():"";};
+      var name=val("rsvp-name");
+      var att=form.querySelector('input[name="attending"]:checked');
+      var attending=att?att.value:"";
+      var hp=form.querySelector('input[name="website"]');
+      var website=hp&&hp.value?hp.value:"";
+      try{sessionStorage.setItem("lk_rsvp",JSON.stringify({name:name,attending:attending,website:website}));}catch(err){}
+      window.location.href="rsvp-details.html";
+    });
+  }
+})();
+</script>
 </body>
 </html>

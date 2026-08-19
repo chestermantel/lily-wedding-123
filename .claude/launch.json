@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "lily-static",
+      "name": "lily-wedding",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["/private/tmp/claude-504/-Users-Chester2-Downloads-Lily-wedding/0fe23bdf-1c93-4301-a8d8-5da8bb54af4e/scratchpad/serve.py"],
-      "port": 8123
+      "runtimeArgs": ["-c", "import http.server,socketserver,functools; socketserver.TCPServer.allow_reuse_address=True; H=functools.partial(http.server.SimpleHTTPRequestHandler, directory='/Users/Chester2/Downloads/Lily wedding'); socketserver.TCPServer(('127.0.0.1',4173),H).serve_forever()"],
+      "port": 4173
     }
   ]
 }
