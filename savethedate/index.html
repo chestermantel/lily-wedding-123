@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://lilyandkremer.com/savethedate/">
+<title>Lily &amp; Kremer — Save the Date</title>
+<meta name="description" content="Lily &amp; Kremer are getting married — September 18, 2027, Fort Lauderdale, Florida. Save the date.">
+<meta name="theme-color" content="#160a0c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lily &amp; Kremer — Save the Date">
+<meta property="og:description" content="We're getting married! September 18, 2027 · Fort Lauderdale, Florida.">
+<meta property="og:image" content="https://lilyandkremer.com/photos/bw-ring.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Lily & Kremer — Save the Date.
+   A moody photo-booth strip on deep wine-black, echoing the
+   reel: "we are getting married" · names · the strip prints
+   in one photo at a time · "save the date" · the date.
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --wine-deep:#160a0c;
+  --wine:#2a1016;
+  --burgundy:#3a1220;
+  --rose:#b34a4f;
+  --pink:#e8bcc0;
+  --pink-soft:#f3d9dc;
+  --cream:#f2e8d5;
+  --cream-dim:rgba(242,232,213,.66);
+  --cream-faint:rgba(242,232,213,.4);
+  --paper:#f7f3ea;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --script:"Pinyon Script","Cormorant Garamond",cursive;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);color:var(--cream);
+  min-height:100dvh;
+  background:
+    radial-gradient(120% 90% at 50% 30%, #431823 0%, #2a1016 42%, #160a0c 78%, #0e0608 100%);
+  -webkit-font-smoothing:antialiased;
+  display:grid;place-items:center;
+  padding:clamp(1rem,5vw,2.4rem) 1rem;
+}
+/* soft film grain + vignette over everything */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(130% 100% at 50% 38%,transparent 46%,rgba(0,0,0,.5) 100%);
+  mix-blend-mode:multiply;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+img{display:block;max-width:100%}
+a{color:var(--pink);text-decoration:none}
+
+.card{
+  position:relative;z-index:1;
+  width:min(94vw,430px);
+  text-align:center;
+  padding:clamp(.5rem,3vw,1.5rem) 0;
+}
+
+.eyebrow{
+  font-size:clamp(.6rem,2.4vw,.72rem);letter-spacing:.42em;text-transform:uppercase;
+  color:var(--pink);font-weight:400;
+}
+.names{
+  font-family:var(--script);font-weight:400;line-height:.9;
+  font-size:clamp(2.9rem,15vw,4.4rem);
+  color:var(--cream);margin:.35rem 0 .1rem;
+}
+.names .amp{color:var(--rose);font-size:.82em;vertical-align:.02em;padding:0 .04em}
+
+/* ============ photo-booth strip ============ */
+.strip-wrap{
+  margin:clamp(1.2rem,4vw,1.8rem) auto clamp(1.1rem,4vw,1.6rem);
+  width:clamp(176px,58vw,224px);
+  perspective:900px;
+}
+.strip{
+  --gap:7px;
+  background:var(--paper);
+  padding:11px 11px 15px;
+  display:flex;flex-direction:column;gap:var(--gap);
+  border-radius:3px;
+  transform:rotate(-1.3deg);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.6) inset,
+    0 26px 40px -18px rgba(0,0,0,.75),
+    0 8px 16px -10px rgba(0,0,0,.6);
+}
+.cell{
+  position:relative;overflow:hidden;aspect-ratio:3/2;background:#20110f;
+  box-shadow:0 0 0 1px rgba(0,0,0,.06);
+}
+.cell img{width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.02)}
+/* keep the couple in frame for each crop */
+.cell.c-picnic img{object-position:center 34%}
+.cell.c-jacket img{object-position:center 40%}
+.cell.c-beach  img{object-position:center 52%}
+.cell.c-ring   img{object-position:center 38%}
+
+.std{
+  font-family:var(--script);font-size:clamp(2rem,10vw,2.9rem);line-height:1;
+  color:var(--cream);margin-top:.2rem;
+}
+.date{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(1rem,4.4vw,1.28rem);letter-spacing:.34em;
+  color:var(--pink-soft);margin-top:.6rem;text-transform:uppercase;
+  padding-left:.34em; /* optical: balance the tracking */
+}
+.place{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(.98rem,3.6vw,1.14rem);color:var(--cream-dim);margin-top:.5rem;
+}
+.foot{
+  margin-top:clamp(1.3rem,5vw,1.9rem);
+  font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-faint);
+}
+.foot a{color:var(--cream-dim);border-bottom:1px solid rgba(242,232,213,.25);padding-bottom:1px}
+.foot a:hover{color:var(--pink)}
+.foot .dot{margin:0 .55em;opacity:.6}
+
+/* ============ entrance: the strip "prints" in ============ */
+@media (prefers-reduced-motion:no-preference){
+  .fx{opacity:0;animation:rise .95s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  .strip{opacity:0;animation:strin 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:.5s}
+  @keyframes strin{from{opacity:0;transform:rotate(-1.3deg) translateY(-16px) scale(.96)}
+                   to{opacity:1;transform:rotate(-1.3deg) translateY(0) scale(1)}}
+
+  .cell{opacity:0;animation:printin .8s ease forwards;animation-delay:var(--d)}
+  @keyframes printin{from{opacity:0;transform:translateY(-12px) scale(.985);filter:brightness(1.6)}
+                     to{opacity:1;transform:none;filter:none}}
+}
+</style>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow fx" style="--d:.15s">We are getting married</p>
+    <h1 class="names fx" style="--d:.3s">Lily <span class="amp">&amp;</span> Kremer</h1>
+
+    <div class="strip-wrap">
+      <div class="strip">
+        <figure class="cell c-picnic" style="--d:.95s"><img src="../photos/picnic-kiss.jpg" alt="Lily and Kremer"></figure>
+        <figure class="cell c-jacket" style="--d:1.2s"><img src="../photos/red-jacket.jpg" alt="Lily and Kremer"></figure>
+        <figure class="cell c-beach"  style="--d:1.45s"><img src="../photos/beach.jpg" alt="Lily and Kremer on the beach at sunset"></figure>
+        <figure class="cell c-ring"   style="--d:1.7s"><img src="../photos/bw-ring.jpg" alt="Lily and Kremer with the ring"></figure>
+      </div>
+    </div>
+
+    <p class="std fx" style="--d:2s">Save the Date</p>
+    <p class="date fx" style="--d:2.15s">09 &middot; 18 &middot; 2027</p>
+    <p class="place fx" style="--d:2.3s">Fort Lauderdale, Florida</p>
+
+    <p class="foot fx" style="--d:2.5s">
+      Invitation to follow<span class="dot">&middot;</span><a href="https://lilyandkremer.com">lilyandkremer.com</a>
+    </p>
+  </main>
+</body>
+</html>
