@@ -46,7 +46,7 @@
   --stripe:repeating-linear-gradient(90deg,var(--rose) 0 13px,var(--pink-soft) 13px 26px);
 }
 html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + 1rem)}
-body{font-family:var(--sans);font-weight:400;font-size:1.02rem;line-height:1.7;color:var(--ink);background:var(--ivory);overflow-x:clip;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);font-weight:400;font-size:1.02rem;line-height:1.7;color:var(--ink);background:var(--ivory);overflow-x:clip;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
 body.locked{overflow:hidden}
 ::selection{background:var(--rose);color:var(--ivory)}
 h1,h2,h3{line-height:1.1;font-weight:500}
@@ -266,6 +266,14 @@ input[type=radio]{accent-color:var(--rose);width:1.05rem;height:1.05rem;cursor:p
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
 }
+
+/* ============ tabbed pages — the top nav swaps sections; no long scroll ============ */
+main{flex:1 0 auto;display:flex;flex-direction:column}
+main > section{display:none}
+main > section.is-active{display:flex;flex-direction:column;justify-content:center;flex:1 0 auto;overflow:hidden}
+main > .stripe-band{display:none}
+.menu a[aria-current="page"]{color:var(--pink)}
+.menu a[aria-current="page"]::after{transform:scaleX(1)}
 </style>
 <style>
 /* ---- password gate ---- */
@@ -322,6 +330,7 @@ html.lk-unlocked #lk-gate{display:none}
     <a class="brand" href="#home">L<span aria-hidden="true">&amp;</span>K<span class="sr-only">Lily and Kremer — home</span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
     <ul class="menu" id="nav-menu">
+      <li><a href="#home">Home</a></li>
       <li><a href="#details">The Wedding</a></li>
       <li><a href="#photos">Photos</a></li>
       <li><a href="#travel">Travel</a></li>
@@ -568,6 +577,38 @@ html.lk-unlocked #lk-gate{display:none}
       try{sessionStorage.setItem("lk_rsvp",JSON.stringify({name:val("rsvp-name"),attending:att?att.value:"",website:hp&&hp.value?hp.value:""}));}catch(err){}
       window.location.href="rsvp-details.html";
     });
+  }
+
+  /* ---- Tabbed pages: the top nav swaps sections (no long scroll) ---- */
+  var mainEl=document.getElementById("main");
+  if(mainEl){
+    var sections=[].slice.call(mainEl.querySelectorAll("section[id]"));
+    var navLinks=[].slice.call(document.querySelectorAll('.menu a[href^="#"]'));
+    var ids={}; sections.forEach(function(s){ids[s.id]=1;});
+    var DEFAULT_TAB="home";
+    var curId=function(){var h=(location.hash||"").replace(/^#/,"");return ids[h]?h:DEFAULT_TAB;};
+    var showTab=function(id,scroll){
+      if(!ids[id]) id=DEFAULT_TAB;
+      sections.forEach(function(s){
+        var on=s.id===id; s.classList.toggle("is-active",on);
+        if(on){var els=s.querySelectorAll(".reveal, .flora");for(var i=0;i<els.length;i++){els[i].classList.add("in");}}
+      });
+      navLinks.forEach(function(a){
+        if(a.getAttribute("href")==="#"+id){a.setAttribute("aria-current","page");}
+        else{a.removeAttribute("aria-current");}
+      });
+      if(scroll!==false){try{window.scrollTo({top:0,behavior:"instant"});}catch(e){window.scrollTo(0,0);}}
+    };
+    document.addEventListener("click",function(e){
+      var a=e.target.closest?e.target.closest('a[href^="#"]'):null;
+      if(!a) return;
+      var id=a.getAttribute("href").replace(/^#/,"");
+      if(!ids[id]) return;
+      e.preventDefault();
+      if(location.hash!=="#"+id){location.hash=id;}else{showTab(id);}
+    });
+    window.addEventListener("hashchange",function(){showTab(curId());});
+    showTab(curId(),false);
   }
 })();
 </script>
