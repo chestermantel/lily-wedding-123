@@ -191,6 +191,7 @@ main{position:relative;overflow-x:clip}
 .detail-note{margin-top:1.6rem;text-align:center;font-family:var(--serif);font-style:italic;color:var(--cream-dim)}
 
 /* ============ Photo collage ============ */
+.home-photos{position:relative;z-index:2}
 .collage{position:relative;margin-top:clamp(2.2rem,5vw,3.2rem);display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.9rem,2.5vw,1.8rem)}
 .collage::before{content:"";position:absolute;z-index:0;inset:-16px;background:repeating-linear-gradient(90deg,var(--rose) 0 11px,var(--pink-soft) 11px 22px);opacity:.5}
 .collage .photo{position:relative;z-index:1;width:min(74vw,250px)}
@@ -252,8 +253,8 @@ input[type=radio]{accent-color:var(--rose);width:1.05rem;height:1.05rem;cursor:p
 .foot .fdate{margin-top:.5rem;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-dim)}
 .foot .fmail{margin-top:.9rem;color:var(--cream-dim)}
 .foot .fmail a{color:var(--pink);text-decoration:underline;text-underline-offset:3px}
-.egg{display:inline-block;margin-top:1.6rem;font-size:1.1rem;color:rgba(242,232,213,.14);text-decoration:none;transition:color .3s ease}
-.egg:hover{color:rgba(242,232,213,.4)}
+.egg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:1rem;line-height:1;color:rgba(242,232,213,.16);text-decoration:none;transition:color .3s ease}
+.egg:hover,.egg:focus-visible{color:rgba(242,232,213,.5)}
 
 /* smaller screens: keep placed flowers featured but out of the text */
 @media(max-width:620px){
@@ -275,39 +276,8 @@ main > .stripe-band{display:none}
 .menu a[aria-current="page"]{color:var(--pink)}
 .menu a[aria-current="page"]::after{transform:scaleX(1)}
 </style>
-<style>
-/* ---- password gate ---- */
-#lk-gate{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:1.5rem;background:radial-gradient(120% 100% at 50% 40%,#3d1421,#280c14 60%,#1a0710);color:#f1e7ca;font-family:"Jost","Helvetica Neue",Arial,sans-serif;text-align:center}
-html.lk-unlocked #lk-gate{display:none}
-#lk-gate .g-card{width:min(92vw,360px)}
-#lk-gate .g-mono{font-family:"Pinyon Script","Cormorant Garamond",cursive;font-size:2.6rem;line-height:1;color:#e8bcc0;margin-bottom:.3rem}
-#lk-gate .g-eyebrow{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,231,202,.68);margin-bottom:1.6rem}
-#lk-gate .g-label{display:block;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,231,202,.68);margin-bottom:.55rem}
-#lk-gate input{width:100%;font-family:inherit;font-size:1.4rem;letter-spacing:.35em;text-align:center;color:#f1e7ca;background:transparent;border:0;border-bottom:1px solid rgba(242,231,202,.4);padding:.5rem .2rem;border-radius:0}
-#lk-gate input:focus{outline:none;border-color:#b34a4f;box-shadow:0 1px 0 0 #b34a4f}
-#lk-gate .g-btn{margin-top:1.5rem;font-family:inherit;font-size:.74rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#f1e7ca;background:#b34a4f;border:1px solid #b34a4f;padding:.85rem 2.2rem;cursor:pointer;transition:background-color .2s}
-#lk-gate .g-btn:hover{background:#8f3a41}
-#lk-gate .g-error{min-height:1.3em;margin-top:1rem;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.05rem;color:#e8bcc0;opacity:0;transition:opacity .2s}
-#lk-gate .g-error.show{opacity:1}
-@keyframes lk-shake{10%,90%{transform:translateX(-2px)}30%,70%{transform:translateX(4px)}50%{transform:translateX(-7px)}}
-#lk-gate .shake{animation:lk-shake .42s}
-@media(prefers-reduced-motion:reduce){#lk-gate .shake{animation:none}}
-</style>
-<script>try{if(localStorage.getItem("lk_gate"))document.documentElement.className+=" lk-unlocked";}catch(e){}</script>
 </head>
 <body>
-<div id="lk-gate" role="dialog" aria-modal="true" aria-label="Enter the password to view this site">
-  <form class="g-card" id="lk-gate-form" autocomplete="off" novalidate>
-    <p class="g-mono" aria-hidden="true">L&amp;K</p>
-    <p class="g-eyebrow">A private celebration</p>
-    <label class="g-label" for="lk-gate-input">Password</label>
-    <input id="lk-gate-input" name="pw" type="password" inputmode="numeric" autocomplete="off" aria-describedby="lk-gate-error">
-    <button class="g-btn" type="submit">Enter</button>
-    <p class="g-error" id="lk-gate-error" role="status" aria-live="polite"></p>
-    <noscript><p class="g-error show">Please enable JavaScript to enter.</p></noscript>
-  </form>
-</div>
-<script src="gate.js"></script>
 <script src="rsvp-config.js"></script>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -331,12 +301,12 @@ html.lk-unlocked #lk-gate{display:none}
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
     <ul class="menu" id="nav-menu">
       <li><a href="#home">Home</a></li>
-      <li><a href="#details">The Wedding</a></li>
-      <li><a href="#photos">Photos</a></li>
+      <li><a href="#schedule">Schedule</a></li>
       <li><a href="#travel">Travel</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a class="rsvp-link" href="#rsvp">RSVP</a></li>
     </ul>
+    <a class="egg" href="peepeepoopoo/" title="don't" aria-label="a little secret">❦</a>
   </nav>
 </header>
 
@@ -355,7 +325,7 @@ html.lk-unlocked #lk-gate{display:none}
         <div class="count" id="countdown" aria-label="Countdown to the wedding"></div>
         <div class="hero-cta">
           <a class="btn btn-rose" href="#rsvp">RSVP</a>
-          <a class="btn btn-ink" href="#details">The Details</a>
+          <a class="btn btn-ink" href="#schedule">The Details</a>
         </div>
       </div>
       <div class="hero-art reveal in" aria-hidden="false">
@@ -365,15 +335,23 @@ html.lk-unlocked #lk-gate{display:none}
         <figure class="photo p2"><img src="photos/bw-ring.jpg" alt="Lily and Kremer with the ring"></figure>
       </div>
     </div>
+    <div class="wrap home-photos">
+      <div class="collage">
+        <figure class="photo reveal in"><img src="photos/picnic-kiss.jpg" alt="Lily and Kremer"></figure>
+        <figure class="photo reveal in"><img src="photos/red-jacket.jpg" alt="Lily and Kremer"></figure>
+        <figure class="photo reveal in"><img src="photos/beach.jpg" alt="Lily and Kremer"></figure>
+        <figure class="photo reveal in"><img src="photos/bw-ring.jpg" alt="Lily and Kremer"></figure>
+      </div>
+    </div>
   </section>
 
   <div class="stripe-band" aria-hidden="true"></div>
 
-  <!-- The Wedding -->
-  <section class="sec on-burgundy" id="details">
+  <!-- Schedule -->
+  <section class="sec on-burgundy" id="schedule">
     <img class="flora" src="flowers/bouquet-full.png" alt="" style="--fr:-12deg;width:min(38vw,340px);left:-8%;top:-16%;transform:rotate(-12deg)">
     <div class="wrap" style="position:relative;z-index:2;text-align:center">
-      <span class="sec-eyebrow">The Wedding</span>
+      <span class="sec-eyebrow">The Schedule</span>
       <h2 class="sec-title">The <em>day</em></h2>
       <div class="orn"><i>❦</i></div>
       <div class="cards">
@@ -388,29 +366,9 @@ html.lk-unlocked #lk-gate{display:none}
           <p class="where">Dinner, drinks<br>&amp; dancing</p>
         </div>
       </div>
-      <p class="detail-note reveal">The full schedule will arrive with your invitation.</p>
+      <p class="detail-note reveal">A full timeline — ceremony, cocktails, dinner &amp; dancing — arrives with your invitation.</p>
     </div>
   </section>
-
-  <!-- Photos -->
-  <section class="sec on-pink" id="photos">
-    <img class="flora" src="flowers/spray-burgundy.png" alt="" style="--fr:12deg;width:min(32vw,280px);right:-6%;bottom:-12%;transform:rotate(12deg)">
-    <img class="flora hide-sm" src="flowers/green-thistle.png" alt="" style="--fr:-6deg;width:min(26vw,190px);left:-1%;top:-2%;transform:rotate(-6deg)">
-    <img class="flora hide-sm" src="flowers/green-sprig.png" alt="" style="--fr:8deg;width:min(15vw,105px);left:4%;bottom:-4%;transform:rotate(8deg)">
-    <div class="wrap" style="position:relative;z-index:2;text-align:center">
-      <span class="sec-eyebrow">Us</span>
-      <h2 class="sec-title" style="color:var(--burgundy)">A few of <em>ours</em></h2>
-      <div class="orn"><i>❦</i></div>
-      <div class="collage">
-        <figure class="photo reveal"><img src="photos/picnic-kiss.jpg" alt="Lily and Kremer"></figure>
-        <figure class="photo reveal"><img src="photos/red-jacket.jpg" alt="Lily and Kremer"></figure>
-        <figure class="photo reveal"><img src="photos/beach.jpg" alt="Lily and Kremer"></figure>
-        <figure class="photo reveal"><img src="photos/bw-ring.jpg" alt="Lily and Kremer"></figure>
-      </div>
-    </div>
-  </section>
-
-  <div class="stripe-band" aria-hidden="true"></div>
 
   <!-- Travel -->
   <section class="sec on-ivory" id="travel">
@@ -422,14 +380,14 @@ html.lk-unlocked #lk-gate{display:none}
       <div class="orn"><i>❦</i></div>
       <div class="travel">
         <div class="tcard reveal">
-          <h3>The Hotel</h3>
+          <h3>Hotel Room Block</h3>
           <p>Lago Mar Beach Resort &amp; Club.</p>
-          <p class="mini">A room block is in the works — details soon.</p>
+          <p class="mini">We're arranging a room block — booking details to come.</p>
         </div>
         <div class="tcard reveal">
           <h3>Getting Here</h3>
           <p>Fly into Fort Lauderdale–Hollywood (FLL).</p>
-          <p class="mini">About 15 minutes away.</p>
+          <p class="mini">About 15 minutes from the hotel.</p>
         </div>
         <div class="tcard reveal">
           <h3>While You're Here</h3>
@@ -440,6 +398,7 @@ html.lk-unlocked #lk-gate{display:none}
           </ul>
         </div>
       </div>
+      <p class="detail-note reveal" style="color:var(--ink-soft)">More logistics — transportation, parking &amp; timing — to come.</p>
     </div>
   </section>
 
@@ -486,9 +445,10 @@ html.lk-unlocked #lk-gate{display:none}
       <h2 class="sec-title">A few <em>questions</em></h2>
       <div class="orn"><i>❦</i></div>
       <div class="faq reveal" style="text-align:left">
-        <details><summary>What should I wear?</summary><p class="a">The dress code will be shared with your invitation — think moody garden romance.</p></details>
-        <details><summary>Can I bring a guest?</summary><p class="a">Your invitation will name exactly who's included. If you're unsure, just ask us.</p></details>
-        <details><summary>What's the weather like?</summary><p class="a">Warm — expect the mid-80s&nbsp;°F, with a chance of a brief afternoon shower.</p></details>
+        <details><summary>What should I wear?</summary><p class="a">Black-tie optional. We're still finalizing the dress code, so this may change — we'll confirm closer to the day.</p></details>
+        <details><summary>When should I RSVP by?</summary><p class="a">Kindly reply by <strong>August 14, 2027</strong> — five weeks before the wedding.</p></details>
+        <details><summary>How do I know if I have a plus-one?</summary><p class="a">Your invitation will specify exactly who's included in your party. Space is limited, so please only bring those named in your RSVP.</p></details>
+        <details><summary>What's the weather like?</summary><p class="a">Warm — expect the mid-80s&nbsp;°F. All events are indoors and air-conditioned, so you'll be comfortable throughout.</p></details>
         <details><summary>Is there a registry?</summary><p class="a">We're still putting it together — check back soon.</p></details>
         <details><summary>Another question?</summary><p class="a">Write to us any time at <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a>.</p></details>
       </div>
@@ -496,18 +456,6 @@ html.lk-unlocked #lk-gate{display:none}
   </section>
 
 </main>
-
-<div class="stripe-band" aria-hidden="true"></div>
-
-<footer class="foot">
-  <div class="wrap">
-    <div class="seal" aria-hidden="true">L<span style="font-size:.8em">&amp;</span>K</div>
-    <p class="crest">Lily <span class="amp">&amp;</span> Kremer</p>
-    <p class="fdate">September 18, 2027 · Fort Lauderdale</p>
-    <p class="fmail">Questions? <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
-    <a class="egg" href="peepeepoopoo/" title="don't" aria-label="a little secret">❦</a>
-  </div>
-</footer>
 
 <script>
 (function(){
