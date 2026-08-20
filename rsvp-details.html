@@ -93,8 +93,39 @@ fieldset{border:0}
   @keyframes rise{to{opacity:1;transform:none}}
 }
 </style>
+<style>
+/* ---- password gate ---- */
+#lk-gate{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:1.5rem;background:radial-gradient(120% 100% at 50% 40%,#3d1421,#280c14 60%,#1a0710);color:#f1e7ca;font-family:"Jost","Helvetica Neue",Arial,sans-serif;text-align:center}
+html.lk-unlocked #lk-gate{display:none}
+#lk-gate .g-card{width:min(92vw,360px)}
+#lk-gate .g-mono{font-family:"Pinyon Script","Cormorant Garamond",cursive;font-size:2.6rem;line-height:1;color:#e8bcc0;margin-bottom:.3rem}
+#lk-gate .g-eyebrow{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,231,202,.68);margin-bottom:1.6rem}
+#lk-gate .g-label{display:block;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,231,202,.68);margin-bottom:.55rem}
+#lk-gate input{width:100%;font-family:inherit;font-size:1.4rem;letter-spacing:.35em;text-align:center;color:#f1e7ca;background:transparent;border:0;border-bottom:1px solid rgba(242,231,202,.4);padding:.5rem .2rem;border-radius:0}
+#lk-gate input:focus{outline:none;border-color:#b34a4f;box-shadow:0 1px 0 0 #b34a4f}
+#lk-gate .g-btn{margin-top:1.5rem;font-family:inherit;font-size:.74rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#f1e7ca;background:#b34a4f;border:1px solid #b34a4f;padding:.85rem 2.2rem;cursor:pointer;transition:background-color .2s}
+#lk-gate .g-btn:hover{background:#8f3a41}
+#lk-gate .g-error{min-height:1.3em;margin-top:1rem;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.05rem;color:#e8bcc0;opacity:0;transition:opacity .2s}
+#lk-gate .g-error.show{opacity:1}
+@keyframes lk-shake{10%,90%{transform:translateX(-2px)}30%,70%{transform:translateX(4px)}50%{transform:translateX(-7px)}}
+#lk-gate .shake{animation:lk-shake .42s}
+@media(prefers-reduced-motion:reduce){#lk-gate .shake{animation:none}}
+</style>
+<script>try{if(localStorage.getItem("lk_gate"))document.documentElement.className+=" lk-unlocked";}catch(e){}</script>
 </head>
 <body>
+<div id="lk-gate" role="dialog" aria-modal="true" aria-label="Enter the password to view this site">
+  <form class="g-card" id="lk-gate-form" autocomplete="off" novalidate>
+    <p class="g-mono" aria-hidden="true">L&amp;K</p>
+    <p class="g-eyebrow">A private celebration</p>
+    <label class="g-label" for="lk-gate-input">Password</label>
+    <input id="lk-gate-input" name="pw" type="password" inputmode="numeric" autocomplete="off" aria-describedby="lk-gate-error">
+    <button class="g-btn" type="submit">Enter</button>
+    <p class="g-error" id="lk-gate-error" role="status" aria-live="polite"></p>
+    <noscript><p class="g-error show">Please enable JavaScript to enter.</p></noscript>
+  </form>
+</div>
+<script src="gate.js"></script>
 <script src="rsvp-config.js"></script>
 <a class="skip" href="#main">Skip to content</a>
 
