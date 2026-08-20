@@ -5,4 +5,4 @@
 // "system is being set up" notice to automatic background submission.
 //
 // See apps-script/SETUP.md for the click-by-click guide.
-window.RSVP_ENDPOINT = "";
+window.RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzWUQdf_aT_MNU1fI6Dfh3h5hR3qaZN9nvhQAyJZ3kTPT7kqvKWrV-YoLQjUEAkaFOgKA/exec";

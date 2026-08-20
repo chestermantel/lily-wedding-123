@@ -304,6 +304,7 @@ fieldset{border:0}
 
     fetch(endpoint, {
       method: "POST",
+      mode: "no-cors",
       body: new URLSearchParams({
         name: data.name,
         email: email,
