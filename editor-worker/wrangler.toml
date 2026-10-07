@@ -1,0 +1,27 @@
+# Cloudflare Worker — Lily & Kremer Developer Tools backend.
+# Deploy with:  cd editor-worker && npx wrangler deploy
+# (First set the three secrets — see SETUP.md.)
+
+name = "lk-editor"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+workers_dev = true          # gives you https://lk-editor.<your-subdomain>.workers.dev
+
+[vars]
+ALLOWED_ORIGIN = "https://lilyandkremer.com"
+GITHUB_REPO   = "chestermantel/lily-wedding-123"
+GITHUB_BRANCH = "main"
+MODEL         = "claude-sonnet-5-5"
+DAILY_LIMIT   = "100"
+
+# Secrets (NOT stored here — set once with `npx wrangler secret put <NAME>`):
+#   ANTHROPIC_API_KEY   your Anthropic API key
+#   GITHUB_TOKEN        fine-grained PAT, repo lily-wedding-123, Contents: Read and write
+#   EDIT_PASSWORD       the password Lily types to unlock Developer Tools
+
+# Optional — a KV namespace for the per-day edit limit. Create it with
+#   npx wrangler kv namespace create LIMITS
+# then paste the id below and redeploy.
+# [[kv_namespaces]]
+# binding = "LIMITS"
+# id = "paste-the-id-here"

@@ -1,8 +1,12 @@
-// RSVP endpoint configuration — shared by all four site options.
+// RSVP endpoint configuration.
 //
-// Paste the Google Apps Script "Web app" URL (ends in /exec) between the
-// quotes below, commit + push, and every RSVP details page switches from the
-// "system is being set up" notice to automatic background submission.
-//
-// See apps-script/SETUP.md for the click-by-click guide.
+// RSVP_LOOKUP_ENDPOINT — the new Zola-style household RSVP (guests find their
+//   invitation by name, respond for their whole party). This is what the live
+//   #rsvp tab on index.html uses. Deploy apps-script/rsvp-household.gs as a Web
+//   App (see apps-script/RSVP-SETUP.md), paste its /exec URL below, commit +
+//   push. While it's empty, the RSVP tab shows a friendly "opens soon" notice.
+window.RSVP_LOOKUP_ENDPOINT = "";
+
+// RSVP_ENDPOINT — the OLD single-form RSVP (name + attending → emails the
+//   couple). No longer wired into the main site; kept for reference only.
 window.RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzWUQdf_aT_MNU1fI6Dfh3h5hR3qaZN9nvhQAyJZ3kTPT7kqvKWrV-YoLQjUEAkaFOgKA/exec";
