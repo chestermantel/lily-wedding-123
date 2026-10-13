@@ -51,7 +51,7 @@ Paste that URL into **`editor-config.js`** (repo root):
 window.EDIT_ENDPOINT = "https://lk-editor.<your-subdomain>.workers.dev";
 ```
 
-Commit + push. Done — visit `https://lilyandkremer.com/#dev`, enter the
+Commit + push. Done — visit `https://kremerandlily.com/#dev`, enter the
 password, and the Developer Tools unlock.
 
 ---

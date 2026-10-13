@@ -3,7 +3,7 @@
 **This repo holds two separate deliverables. Know which one you're editing.**
 
 ## 1. Main wedding website — `index.html` (+ `rsvp-details.html`)
-The full site; its URL goes on the **formal invitation (early 2027)**. Live at **lilyandkremer.com**.
+The full site; its URL goes on the **formal invitation (early 2027)**. Live at **kremerandlily.com**. (Renamed from `lilyandkremer.com`, which now permanently 301-redirects here — see Deploy & verify. Contact email stays `lilyandkremer@gmail.com`.)
 
 - **Design (per Lily's instruction docs, this session):** clean & traditional —
   **cream backgrounds, burgundy accents**, no stripes, single photos (no collage).
@@ -34,7 +34,7 @@ The full site; its URL goes on the **formal invitation (early 2027)**. Live at *
   & wording. Dates/times/room-block/FAQ are final.
 - **Developer Tools (self-serve editor for Lily)** — a hidden AI editor baked into
   the main site so Lily can change it herself, no code. **Hidden from guests**;
-  unlock at `lilyandkremer.com/#dev` with a password. A floating ✎ launcher sits on
+  unlock at `kremerandlily.com/#dev` with a password. A floating ✎ launcher sits on
   every tab and a "Developer Tools" nav item opens the full view. Phases:
   - **Phase 1 (built, this session):** an AI **chat** — Lily describes a change, it
     edits `index.html` and commits straight to `main` (live in
@@ -73,14 +73,22 @@ invitation.
 
 ## Deploy & verify
 - **Hosting:** GitHub Pages — repo `chestermantel/lily-wedding-123`, branch `main`,
-  custom domain via `CNAME`. DNS is on Cloudflare but **DNS-only (grey cloud)**, so
-  GitHub serves the TLS cert and HTTPS is enforced (no Cloudflare SSL settings involved).
+  custom domain via `CNAME` = **kremerandlily.com**. DNS is on Cloudflare but
+  **DNS-only (grey cloud)** for the live site, so GitHub serves the TLS cert and HTTPS
+  is enforced (no Cloudflare SSL settings involved).
+- **Old domain redirect:** `lilyandkremer.com` (original name, printed on the
+  Save-the-Dates) is kept and **permanently 301-redirects to `kremerandlily.com`**
+  (path-preserving) via a Cloudflare Worker `redirect-worker` on routes
+  `lilyandkremer.com/*` + `www.lilyandkremer.com/*`; those two hostnames are **proxied
+  (orange)** so the Worker runs. `fantasyflops.lilyandkremer.com` stays DNS-only and is
+  untouched. Don't repoint the old apex back to GitHub Pages or the redirect breaks.
 - **Deploy = commit + push to `main`** (Pages rebuilds in ~30–60s).
   **Confirm the push with the user first** — they approve each one.
 - **Cloudflare API access:** a scoped token lives at `~/.config/cloudflare/claude.token`
   (chmod 600) — lets Claude manage DNS/Pages/Workers directly via
   `curl -H "Authorization: Bearer $(cat ~/.config/cloudflare/claude.token)"`. Only use it on
-  the user's request, never print the value. `lilyandkremer.com` zone id
+  the user's request, never print the value. Zone ids: **kremerandlily.com** (primary)
+  `a86e8b247bbb1aa37b79451b60919ea5`; **lilyandkremer.com** (redirect)
   `5ba99e4c19288c4f64b4b98d5d144c6c`. (Details in memory `cloudflare-api-token`.)
 - **Verify with headless Chrome, not the in-app browser pane** (its screenshots and
   scrolling misbehave in this environment):

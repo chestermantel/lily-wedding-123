@@ -48,10 +48,10 @@ Then open http://localhost:4173 — or just double-click any `index.html`.
 Hosted via GitHub Pages from the `main` branch of this repo. Push to `main` and the
 site updates in about a minute.
 
-### Custom domain: lilyandkremer.com
+### Custom domain: kremerandlily.com
 
 The `CNAME` file in the repo root tells GitHub Pages to serve the site at
-**lilyandkremer.com**. The domain is registered at Cloudflare, so the DNS records
+**kremerandlily.com**. The domain is registered at Cloudflare, so the DNS records
 below must be added in the Cloudflare dashboard (DNS → Records) for the domain to
 resolve. Set each record's proxy status to **DNS only** (grey cloud), not proxied —
 GitHub Pages issues its own HTTPS certificate and Cloudflare's orange-cloud proxy
@@ -70,5 +70,12 @@ interferes with that.
 | CNAME | `www` | `chestermantel.github.io` | DNS only |
 
 After the records propagate (minutes to a couple of hours), GitHub provisions a TLS
-certificate automatically and the site is live at `https://lilyandkremer.com`. The
-`www.lilyandkremer.com` CNAME lets that variant redirect to the apex too.
+certificate automatically and the site is live at `https://kremerandlily.com`. The
+`www.kremerandlily.com` CNAME lets that variant redirect to the apex too.
+
+**Old domain:** `lilyandkremer.com` (the site's original name, printed on the
+Save-the-Dates) is kept and **permanently 301-redirects to `kremerandlily.com`**,
+path-preserving, via a small Cloudflare Worker (`redirect-worker`) on routes
+`lilyandkremer.com/*` and `www.lilyandkremer.com/*`. Its apex/www DNS is proxied
+(orange) so the Worker can run; `fantasyflops.lilyandkremer.com` stays DNS-only and
+is unaffected. Email at `lilyandkremer@gmail.com` is unchanged.

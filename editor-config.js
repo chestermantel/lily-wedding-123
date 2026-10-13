@@ -4,6 +4,6 @@
 // Developer Tools will show a "backend not connected yet" notice. Once deployed,
 // paste the Worker URL below (ends in .workers.dev), commit + push, and the
 // tools go live. The URL is NOT a secret — all the real secrets live in the
-// Worker. Unlock the tools by visiting lilyandkremer.com/#dev and entering the
+// Worker. Unlock the tools by visiting kremerandlily.com/#dev and entering the
 // password set during setup.
 window.EDIT_ENDPOINT = "";

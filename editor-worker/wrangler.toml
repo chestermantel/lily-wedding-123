@@ -8,7 +8,7 @@ compatibility_date = "2024-11-01"
 workers_dev = true          # gives you https://lk-editor.<your-subdomain>.workers.dev
 
 [vars]
-ALLOWED_ORIGIN = "https://lilyandkremer.com"
+ALLOWED_ORIGIN = "https://kremerandlily.com"
 GITHUB_REPO   = "chestermantel/lily-wedding-123"
 GITHUB_BRANCH = "main"
 MODEL         = "claude-sonnet-5-5"
