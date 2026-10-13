@@ -74,8 +74,10 @@ certificate automatically and the site is live at `https://kremerandlily.com`. T
 `www.kremerandlily.com` CNAME lets that variant redirect to the apex too.
 
 **Old domain:** `lilyandkremer.com` (the site's original name, printed on the
-Save-the-Dates) is kept and **permanently 301-redirects to `kremerandlily.com`**,
-path-preserving, via a small Cloudflare Worker (`redirect-worker`) on routes
-`lilyandkremer.com/*` and `www.lilyandkremer.com/*`. Its apex/www DNS is proxied
-(orange) so the Worker can run; `fantasyflops.lilyandkremer.com` stays DNS-only and
-is unaffected. Email at `lilyandkremer@gmail.com` is unchanged.
+Save-the-Dates) is kept and **redirects to `kremerandlily.com`**, path-preserving.
+It's served by a separate one-file GitHub Pages repo, `chestermantel/lilyandkremer-redirect`
+(whose `CNAME` claims `lilyandkremer.com`); its `index.html` / `404.html` bounce every
+request to the same path on `kremerandlily.com` (client-side — fine for a noindex site).
+The old apex A/AAAA + `www` DNS stay on Cloudflare **DNS-only (grey cloud)** pointing at
+GitHub Pages, unchanged. `fantasyflops.lilyandkremer.com` is a separate site and is
+unaffected. Email at `lilyandkremer@gmail.com` is unchanged.

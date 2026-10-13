@@ -77,11 +77,13 @@ invitation.
   **DNS-only (grey cloud)** for the live site, so GitHub serves the TLS cert and HTTPS
   is enforced (no Cloudflare SSL settings involved).
 - **Old domain redirect:** `lilyandkremer.com` (original name, printed on the
-  Save-the-Dates) is kept and **permanently 301-redirects to `kremerandlily.com`**
-  (path-preserving) via a Cloudflare Worker `redirect-worker` on routes
-  `lilyandkremer.com/*` + `www.lilyandkremer.com/*`; those two hostnames are **proxied
-  (orange)** so the Worker runs. `fantasyflops.lilyandkremer.com` stays DNS-only and is
-  untouched. Don't repoint the old apex back to GitHub Pages or the redirect breaks.
+  Save-the-Dates) is kept and **redirects to `kremerandlily.com`** (path-preserving),
+  served by a **separate one-file repo** `chestermantel/lilyandkremer-redirect` on
+  GitHub Pages — its `CNAME` claims `lilyandkremer.com` and its `index.html`/`404.html`
+  bounce every path to `kremerandlily.com` client-side (fine for a noindex site). The old
+  apex A/AAAA + `www` DNS stay **DNS-only (grey cloud)** pointing at GitHub Pages — don't
+  proxy them. `fantasyflops.lilyandkremer.com` is a separate site, left untouched. (The
+  scoped Cloudflare token can't bind Worker routes, so a CF-Worker 301 wasn't an option.)
 - **Deploy = commit + push to `main`** (Pages rebuilds in ~30–60s).
   **Confirm the push with the user first** — they approve each one.
 - **Cloudflare API access:** a scoped token lives at `~/.config/cloudflare/claude.token`
