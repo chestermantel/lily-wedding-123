@@ -1,4 +1,4 @@
-# Lily & Kremer — Wedding Site
+# Kremer & Lily — Wedding Site
 
 **This repo holds two separate deliverables. Know which one you're editing.**
 
@@ -67,7 +67,7 @@ invitation.
   This lookup belongs on the Save the Date, **not** the main site.
 
 ## Anchor facts
-- Couple: **Lily** (one L) & **Kremer** (pronounced "Kramer").
+- Couple: **Kremer** (pronounced "Kramer") & **Lily** (one L). Write their names in this order (Kremer first) wherever both appear.
 - **September 18, 2027**, Lago Mar Beach Resort & Club, **Fort Lauderdale, FL**.
 - Contact: lilyandkremer@gmail.com.
 

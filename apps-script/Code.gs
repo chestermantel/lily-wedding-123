@@ -1,5 +1,5 @@
 /**
- * Lily & Kremer — Wedding RSVP backend
+ * Kremer & Lily — Wedding RSVP backend
  * ------------------------------------
  * This script lives INSIDE a Google Sheet (Extensions → Apps Script).
  * When the wedding website submits an RSVP, this script:

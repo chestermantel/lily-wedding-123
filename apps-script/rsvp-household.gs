@@ -1,5 +1,5 @@
 /* ============================================================================
- * Lily & Kremer — Zola-style household RSVP backend (Google Apps Script)
+ * Kremer & Lily — Zola-style household RSVP backend (Google Apps Script)
  * ----------------------------------------------------------------------------
  * Bind/point this at the master guest sheet and deploy as a Web App
  * ("Execute as: Me", "Who has access: Anyone"). The website's #rsvp tab POSTs

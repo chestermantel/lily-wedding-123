@@ -1,4 +1,4 @@
-# Lily & Kremer — Wedding Website (three options)
+# Kremer & Lily — Wedding Website (three options)
 
 Three candidate designs for the wedding website, all with the same content so you can
 compare purely on vibe. The root page (`index.html`) is a chooser that links to all three.

@@ -1,5 +1,5 @@
 /* ============================================================================
- * Lily & Kremer — Developer Tools backend (Cloudflare Worker)
+ * Kremer & Lily — Developer Tools backend (Cloudflare Worker)
  * ----------------------------------------------------------------------------
  * This is the ONLY place that holds secrets. The website (a static GitHub
  * Pages site) can't keep an API key or a GitHub token — anyone could View
@@ -197,10 +197,10 @@ const APPLY_TOOL = {
 
 function systemPrompt(filesBlock) {
   const rules =
-    "You are the built-in editor for Lily & Kremer's wedding website. Lily (the " +
+    "You are the built-in editor for Kremer & Lily's wedding website. Lily (the " +
     "bride, not a developer) chats with you and you make real edits to the site's " +
     "code, which go live within a minute.\n\n" +
-    "THE COUPLE: Lily (one L) & Kremer (said \"Kramer\"). The wedding is " +
+    "THE COUPLE: Kremer (said \"Kramer\") & Lily (one L). The wedding is " +
     "September 18, 2027, at Lago Mar Beach Resort & Club, Fort Lauderdale, Florida. " +
     "Contact lilyandkremer@gmail.com. Never change these facts unless Lily " +
     "explicitly asks.\n\n" +

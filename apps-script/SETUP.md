@@ -16,7 +16,7 @@ Any Google account works, though — the notification email always goes to
 
 1. Go to **[sheets.new](https://sheets.new)** — this instantly creates a blank spreadsheet.
 2. Click "Untitled spreadsheet" at the top-left and name it something like
-   **Lily & Kremer — RSVPs**.
+   **Kremer & Lily — RSVPs**.
 
 That's it — the script will create the "RSVPs" tab and column headers by itself.
 

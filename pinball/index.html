@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://lilyandkremer.com/pinball/">
-<title>Lily &amp; Kremer — Save the Date</title>
-<meta name="description" content="Lily &amp; Kremer are getting married — September 18, 2027, Fort Lauderdale. Play the save-the-date pinball machine.">
+<title>Kremer &amp; Lily — Save the Date</title>
+<meta name="description" content="Kremer &amp; Lily are getting married — September 18, 2027, Fort Lauderdale. Play the save-the-date pinball machine.">
 <meta name="theme-color" content="#f1e7ca">
-<meta property="og:title" content="Lily &amp; Kremer — Save the Date">
+<meta property="og:title" content="Kremer &amp; Lily — Save the Date">
 <meta property="og:description" content="We're getting married! Play our save-the-date pinball machine — September 18, 2027 · Fort Lauderdale, Florida.">
 <meta property="og:image" content="https://lilyandkremer.com/photos/bw-ring.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600;700&family=Pinyon+Script&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   LILY & KREMER — save-the-date pinball.
+   KREMER & LILY — save-the-date pinball.
    Ivory wedding page · burgundy machine · pink & chartreuse
    accents. The machine is the centred hero; the real wedding
    details live in the readable side panels.
@@ -191,7 +191,7 @@ footer .fine{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;marg
 
   <header class="page-head">
     <p class="ph-eyebrow">You're invited &middot; a love story</p>
-    <h1 class="ph-names">Lily <span class="amp">&amp;</span> Kremer</h1>
+    <h1 class="ph-names">Kremer <span class="amp">&amp;</span> Lily</h1>
     <p class="ph-sub">are getting married &middot; September 18, 2027 &middot; Fort Lauderdale</p>
     <div class="ph-rule"><i>❦</i></div>
   </header>
@@ -226,10 +226,10 @@ footer .fine{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;marg
               <img class="bg-flower r"  src="../flowers/bouquet-full.png" alt="">
               <div class="bg-inner">
                 <p class="bg-eyebrow">A love story &middot; est. 2027</p>
-                <h2 class="bg-title">Lily <span class="amp">&amp;</span> Kremer</h2>
+                <h2 class="bg-title">Kremer <span class="amp">&amp;</span> Lily</h2>
                 <p class="bg-sub">SEPTEMBER 18, 2027</p>
               </div>
-              <div class="cameo"><div class="frame"></div><div class="pic"><img src="../photos/bw-ring.jpg" alt="Lily and Kremer"></div></div>
+              <div class="cameo"><div class="frame"></div><div class="pic"><img src="../photos/bw-ring.jpg" alt="Kremer and Lily"></div></div>
               <div class="dmd">
                 <div class="dmd-row"><span class="dmd-score" id="dmdScore">0</span><span class="dmd-ball" id="dmdBall">BALL&nbsp;1</span></div>
                 <div class="dmd-marquee-wrap"><span class="dmd-marquee" id="dmdMarquee">SAVE THE DATE &nbsp;•&nbsp; SEPTEMBER 18 2027 &nbsp;•&nbsp; FORT LAUDERDALE FL &nbsp;•&nbsp; PRESS START TO PLAY &nbsp;•&nbsp; RSVP AT LILYANDKREMER.COM &nbsp;•&nbsp;</span></div>
@@ -239,10 +239,10 @@ footer .fine{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;marg
           <div class="hinge"><span class="speaker"></span><span class="speaker"></span></div>
           <div class="cabinet">
             <div class="pf-frame"><div class="pf-stage">
-              <canvas id="playfield" width="1000" height="1640" aria-label="Lily and Kremer pinball playfield"></canvas>
+              <canvas id="playfield" width="1000" height="1640" aria-label="Kremer and Lily pinball playfield"></canvas>
               <div class="glass"></div>
               <div class="pf-overlay" id="overlay"><div class="ov-card">
-                <p class="ov-eyebrow">Lily &amp; Kremer</p>
+                <p class="ov-eyebrow">Kremer &amp; Lily</p>
                 <p class="ov-title">Press Start</p>
                 <p class="ov-text">Pull the plunger &amp; play<br>our little love story</p>
                 <p class="ov-blink" id="ovBlink">Press Start</p>
@@ -296,7 +296,7 @@ footer .fine{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;marg
   </div>
 
   <footer>
-    <p class="crest">Lily &amp; Kremer</p>
+    <p class="crest">Kremer &amp; Lily</p>
     <p class="fmail">Questions? <a href="mailto:lilyandkremer@gmail.com">lilyandkremer@gmail.com</a></p>
     <p class="fine">September 18, 2027 · Fort Lauderdale, Florida</p>
   </footer>
@@ -305,7 +305,7 @@ footer .fine{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;marg
 <script>
 "use strict";
 /* =====================================================================
-   LILY & KREMER PINBALL — Who Dunnit layout, ivory reskin.
+   KREMER & LILY PINBALL — Who Dunnit layout, ivory reskin.
    ===================================================================== */
 const CW=500, CH=820;
 const cvs=document.getElementById('playfield');
@@ -470,7 +470,7 @@ function centralIsland(){const i=PF.island;ctx.save();rr(i.x-6,i.y-6,i.w+12,i.h+
   insert(232,362,150,15,'♥  MATCH TO WIN THE HONEYMOON  ♥',C.gold,true);}
 function drawApron(){ctx.save();let g=ctx.createLinearGradient(0,748,0,CH);g.addColorStop(0,'#d8ceb8');g.addColorStop(.5,'#b6a888');g.addColorStop(1,'#8a7c5e');
   ctx.beginPath();ctx.moveTo(0,CH);ctx.lineTo(0,790);ctx.lineTo(150,790);ctx.quadraticCurveTo(232,742,314,790);ctx.lineTo(CW,790);ctx.lineTo(CW,CH);ctx.closePath();ctx.fillStyle=g;ctx.fill();ctx.lineWidth=1.5;ctx.strokeStyle='rgba(255,255,255,.5)';ctx.stroke();
-  ctx.textAlign='center';ctx.fillStyle=C.burgundy;ctx.font='700 15px Pinyon Script, cursive';ctx.fillText('Lily & Kremer',232,802);
+  ctx.textAlign='center';ctx.fillStyle=C.burgundy;ctx.font='700 15px Pinyon Script, cursive';ctx.fillText('Kremer & Lily',232,802);
   ctx.fillStyle=C.roseDeep;ctx.font='700 7px Jost, sans-serif';ctx.fillText('A  L O V E  S T O R Y',232,814);ctx.restore();}
 
 function render(){
@@ -540,8 +540,8 @@ function gameOver(){S.phase='over';S.b={x:PF.laneX,y:790,vx:0,vy:0};showGameOver
 const overlay=document.getElementById('overlay');
 function hideOverlay(){overlay.setAttribute('hidden','');}
 function setOverlay(e,t,x,bl){overlay.querySelector('.ov-eyebrow').innerHTML=e;overlay.querySelector('.ov-title').textContent=t;overlay.querySelector('.ov-text').innerHTML=x;overlay.querySelector('#ovBlink').textContent=bl;overlay.removeAttribute('hidden');}
-function showGameOver(){setOverlay('Lily &amp; Kremer','Thanks for playing','Final score '+S.score.toLocaleString()+'<br>See you September 18, 2027','Press Start to play again');}
-function showInfo(){setOverlay('Lily &amp; Kremer · a love story','Save the Date','September 18, 2027<br>Fort Lauderdale, Florida','Press Start');}
+function showGameOver(){setOverlay('Kremer &amp; Lily','Thanks for playing','Final score '+S.score.toLocaleString()+'<br>See you September 18, 2027','Press Start to play again');}
+function showInfo(){setOverlay('Kremer &amp; Lily · a love story','Save the Date','September 18, 2027<br>Fort Lauderdale, Florida','Press Start');}
 function decay(){for(const k in S.flash){if(S.flash[k]>0)S.flash[k]--;}if(S.toastT>0)S.toastT--;S.wheelA+=S.wheelV;S.wheelV*=0.96;if(S.phase==='attract'&&S.wheelV<0.006)S.wheelV=0.006;}
 let acc=0,last=0;
 function frame(t){if(!last)last=t;let dt=(t-last)/16.6667;last=t;if(dt>3)dt=3;acc+=dt;while(acc>=1){stepFlippers();if(S.phase==='ready')stepPlunger();if(S.phase==='play')stepBall();decay();acc--;}render();requestAnimationFrame(frame);}

@@ -1,4 +1,4 @@
-# Cloudflare Worker — Lily & Kremer Developer Tools backend.
+# Cloudflare Worker — Kremer & Lily Developer Tools backend.
 # Deploy with:  cd editor-worker && npx wrangler deploy
 # (First set the three secrets — see SETUP.md.)
 
