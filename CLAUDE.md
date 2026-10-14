@@ -8,12 +8,19 @@ The full site; its URL goes on the **formal invitation (early 2027)**. Live at *
 - **Design (per Lily's instruction docs, this session):** clean & traditional —
   **cream backgrounds, burgundy accents**, no stripes, single photos (no collage).
   Fonts: Cormorant Garamond (serif), Pinyon Script (names), Jost (sans).
-- **Tabbed single-page app** — the top nav swaps sections in place, hash-routed; no
-  long scroll. Tabs **in nav order**: **Home** (hero + single photo), **Our Story**
-  (`#story`, paragraph + 5-photo row), **RSVP** (`#rsvp`), **Details** (`#details`,
-  ceremony/reception), **Travel** (`#travel`, room block + logistics), **FAQ**
-  (`#faq`), **Gallery** (`#gallery`, photo grid), **Registry** (`#registry`).
-  The tab controller + tab CSS live near the bottom of `index.html`.
+- **Single continuous scroll (per Lily's 10/13 feedback):** one long page; the top nav
+  **smooth-scrolls** to each section and the URL stays clean (no `#hash` shown — the nav
+  controller `preventDefault`s and scrolls; a scrollspy underlines the current section).
+  There is **no flower intro cover** anymore (removed 10/13). Sections **in nav / scroll
+  order**: **Home** (`#home`, names + one prominent photo + date + "check back" note),
+  **Details** (`#details`), **Travel** (`#travel`, Hotel + Airport), **FAQ** (`#faq`),
+  **Gallery** (`#gallery`), **Registry** (`#registry`), **RSVP** (`#rsvp`, last). RSVP is
+  placed last **via CSS `order`** on `main > #rsvp` (its markup still sits earlier in the
+  DOM, so its ids/JS are unchanged). **Our Story was removed** for now (may return later).
+  The scroll/nav controller lives near the bottom of `index.html`. All copy is final per the
+  10/13 doc (RSVP deadline **July 31, 2027**; dress code shortened to "Black-tie optional").
+  Photos are **elegant placeholders** — Lily hasn't chosen the real ones yet, so none are
+  placed.
 - **Public** — the password gate was removed. The site is `noindex` (won't show in search).
 - **RSVP — Zola-style household lookup (this session):** the `#rsvp` tab is a multi-step
   wizard **in `index.html`** (find invitation by first+last name → respond per household
