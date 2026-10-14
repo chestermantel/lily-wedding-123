@@ -5,9 +5,16 @@
 ## 1. Main wedding website — `index.html` (+ `rsvp-details.html`)
 The full site; its URL goes on the **formal invitation (early 2027)**. Live at **kremerandlily.com**. (Renamed from `lilyandkremer.com`, which now permanently 301-redirects here — see Deploy & verify. Contact email stays `lilyandkremer@gmail.com`.)
 
-- **Design (per Lily's instruction docs, this session):** clean & traditional —
-  **cream backgrounds, burgundy accents**, no stripes, single photos (no collage).
-  Fonts: Cormorant Garamond (serif), Pinyon Script (names), Jost (sans).
+- **Design — "The Engraved Suite"** (chosen by Chester, promoted from the preview on
+  2026-10-13): the page is set like a fine engraved invitation. **Cotton-paper ivory**
+  background (`--page #f5edda`), **oxblood ink** (`--burgundy #45141f`), and **one antique-
+  gilt hairline** as the only accent (`--gilt #a4823f`). A circular **crest monogram**
+  (`.crest`, "K&L") is the brand mark; the Home hero is the invitation itself (crest →
+  names → gilt-matted photo → "Please join us…" → date → gilt diamond rule → venue → note).
+  Section headers use `.sec-head` + `.sec-title` + a gilt `.rule`. Still cream+burgundy
+  family, just the refined version. Fonts: Cormorant Garamond (serif/body), Pinyon Script
+  (names), Jost (small functional caps). **The earlier "clean traditional" cream/burgundy
+  look is in git history** (pre-promotion commits) if we ever want it back.
 - **Tabbed multi-page app with clean URLs (per Lily's 10/13 feedback, then Chester's call
   to keep tabs not a long scroll):** the top nav **swaps one section in place** (no long
   scroll); only `.is-active` shows. The controller writes **no `#hash`**, so the URL stays
