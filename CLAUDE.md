@@ -8,19 +8,21 @@ The full site; its URL goes on the **formal invitation (early 2027)**. Live at *
 - **Design (per Lily's instruction docs, this session):** clean & traditional —
   **cream backgrounds, burgundy accents**, no stripes, single photos (no collage).
   Fonts: Cormorant Garamond (serif), Pinyon Script (names), Jost (sans).
-- **Single continuous scroll (per Lily's 10/13 feedback):** one long page; the top nav
-  **smooth-scrolls** to each section and the URL stays clean (no `#hash` shown — the nav
-  controller `preventDefault`s and scrolls; a scrollspy underlines the current section).
-  There is **no flower intro cover** anymore (removed 10/13). Sections **in nav / scroll
-  order**: **Home** (`#home`, names + one prominent photo + date + "check back" note),
-  **Details** (`#details`), **Travel** (`#travel`, Hotel + Airport), **FAQ** (`#faq`),
-  **Gallery** (`#gallery`), **Registry** (`#registry`), **RSVP** (`#rsvp`, last). RSVP is
-  placed last **via CSS `order`** on `main > #rsvp` (its markup still sits earlier in the
-  DOM, so its ids/JS are unchanged). **Our Story was removed** for now (may return later).
-  The scroll/nav controller lives near the bottom of `index.html`. All copy is final per the
+- **Tabbed multi-page app with clean URLs (per Lily's 10/13 feedback, then Chester's call
+  to keep tabs not a long scroll):** the top nav **swaps one section in place** (no long
+  scroll); only `.is-active` shows. The controller writes **no `#hash`**, so the URL stays
+  clean (`kremerandlily.com`, not `/#faq`) — Lily disliked the visible hashes. An incoming
+  `#section` (old bookmark) opens that tab once, then strips the hash. There is **no flower
+  intro cover** anymore (removed 10/13). Tabs **in nav order**: **Home** (`#home`, names +
+  one prominent photo + date + "check back" note), **Details** (`#details`), **Travel**
+  (`#travel`, Hotel + Airport), **FAQ** (`#faq`), **Gallery** (`#gallery`), **Registry**
+  (`#registry`), **RSVP** (`#rsvp`, last). **Our Story was removed** for now (may return
+  later). The tab controller lives near the bottom of `index.html`. Copy is final per the
   10/13 doc (RSVP deadline **July 31, 2027**; dress code shortened to "Black-tie optional").
-  Photos are **elegant placeholders** — Lily hasn't chosen the real ones yet, so none are
-  placed.
+- **Photos (added this session):** Lily's engagement photos are in `photos/` — hero =
+  `hero-river.jpg`; Gallery = `portrait/rose-kiss/ring/garden-gaze/laughing/lift/pub/pier/
+  kiss-red/pool-table.jpg` (a curated, non-chronological mix of 10). The full album (22
+  shots) was downloaded; swaps are easy. Registry link/wording is still pending.
 - **Public** — the password gate was removed. The site is `noindex` (won't show in search).
 - **RSVP — Zola-style household lookup (this session):** the `#rsvp` tab is a multi-step
   wizard **in `index.html`** (find invitation by first+last name → respond per household
@@ -36,9 +38,8 @@ The full site; its URL goes on the **formal invitation (early 2027)**. Live at *
   `?action=diagnose` to confirm the mapping before relying on it. **Not yet deployed.**
   (The old single-form RSVP via `rsvp-details.html` + `Code.gs` is retired but kept in
   the repo for reference.)
-- **Still pending from Lily** (placeholders in place, marked with HTML comments): final
-  homepage photo, the Our Story paragraph + its 5 photos, Gallery photos, Registry link
-  & wording. Dates/times/room-block/FAQ are final.
+- **Still pending from Lily:** only the **Registry link & wording** (placeholder card in
+  place). Homepage + gallery photos are now in; Our Story is removed; dates/times/FAQ final.
 - **Developer Tools (self-serve editor for Lily)** — a hidden AI editor baked into
   the main site so Lily can change it herself, no code. **Hidden from guests**;
   unlock at `kremerandlily.com/#dev` with a password. A floating ✎ launcher sits on

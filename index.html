@@ -223,16 +223,15 @@ input[type=radio]{accent-color:var(--burgundy);width:1.05rem;height:1.05rem;curs
 .rreview-item .meta{font-size:.95rem;color:var(--ink-soft)}
 .hp-wrap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
-/* ============ motion + single-scroll page ============ */
+/* ============ motion + tabbed pages ============ */
 @media(prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
   .reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
 }
 main{flex:1 0 auto;display:flex;flex-direction:column}
-main > section{order:2;border-top:1px solid var(--line)}
-main > #home{order:1;border-top:0}
-main > #rsvp{order:3}
+main > section{display:none}
+main > section.is-active{display:flex;flex-direction:column;justify-content:center;flex:1 0 auto}
 </style>
 </head>
 <body>
@@ -264,8 +263,7 @@ main > #rsvp{order:3}
   <section class="hero" id="home">
     <div class="wrap">
       <h1 class="hero-names reveal in"><span>Kremer</span> <span class="amp">&amp;</span> <span>Lily</span></h1>
-      <!-- NOTE: final homepage photo & scans pending from Lily — elegant placeholder until then -->
-      <figure class="hero-photo photo-ph reveal in" aria-label="Photo coming soon"><span class="ph-label">Photo coming soon</span></figure>
+      <figure class="hero-photo reveal in"><img src="photos/hero-river.jpg" alt="Kremer and Lily"></figure>
       <p class="hero-invite reveal in">Please join us for our wedding celebration on</p>
       <p class="hero-date reveal in">September 18, 2027</p>
       <p class="hero-place reveal in">Fort Lauderdale, Florida</p>
@@ -391,15 +389,18 @@ main > #rsvp{order:3}
     <div class="wrap" style="text-align:center">
       <h2 class="sec-title">Gallery</h2>
       <div class="sec-rule" aria-hidden="true"></div>
-      <p class="lead reveal">A gallery of our favorite moments together is on its way &mdash; check back soon.</p>
-      <!-- NOTE: gallery photos pending from Lily; elegant placeholders until then -->
+      <p class="lead reveal">A few of our favorite moments together.</p>
       <div class="gal-grid reveal">
-        <figure class="photo-ph"><span class="ph-label">Photo</span></figure>
-        <figure class="photo-ph"><span class="ph-label">Photo</span></figure>
-        <figure class="photo-ph"><span class="ph-label">Photo</span></figure>
-        <figure class="photo-ph"><span class="ph-label">Photo</span></figure>
-        <figure class="photo-ph"><span class="ph-label">Photo</span></figure>
-        <figure class="photo-ph"><span class="ph-label">Photo</span></figure>
+        <figure><img src="photos/portrait.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/rose-kiss.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/ring.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/garden-gaze.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/laughing.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/lift.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/pub.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/pier.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/kiss-red.jpg" alt="Kremer and Lily"></figure>
+        <figure><img src="photos/pool-table.jpg" alt="Kremer and Lily"></figure>
       </div>
     </div>
   </section>
@@ -441,17 +442,25 @@ main > #rsvp{order:3}
     reveals.forEach(function(el){io.observe(el);});
   } else { reveals.forEach(function(el){el.classList.add("in");}); }
 
-  /* ---- Single-scroll nav: smooth-scroll to a section, keep the URL clean ---- */
+  /* ---- Multi-page tabs: the top nav swaps sections in place (no long scroll);
+         the URL stays clean (no #hash written) ---- */
   var mainEl=document.getElementById("main");
   if(mainEl){
     var sections=[].slice.call(mainEl.querySelectorAll("section[id]"));
     var ids={}; sections.forEach(function(s){ids[s.id]=1;});
     var navLinks=[].slice.call(document.querySelectorAll('.menu a[href^="#"], .brand[href^="#"]'));
-    var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-    var goTo=function(id){
-      var el=document.getElementById(id); if(!el) return;
-      if(id==="home"){window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});}
-      else{el.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});}
+    var DEFAULT_TAB="home";
+    var showTab=function(id,scroll){
+      if(!ids[id]) id=DEFAULT_TAB;
+      sections.forEach(function(s){
+        var on=s.id===id; s.classList.toggle("is-active",on);
+        if(on){var els=s.querySelectorAll(".reveal");for(var i=0;i<els.length;i++){els[i].classList.add("in");}}
+      });
+      navLinks.forEach(function(a){
+        if(a.getAttribute("href")==="#"+id){a.setAttribute("aria-current","page");}
+        else{a.removeAttribute("aria-current");}
+      });
+      if(scroll!==false){try{window.scrollTo({top:0,behavior:"instant"});}catch(e){window.scrollTo(0,0);}}
     };
     document.addEventListener("click",function(e){
       var a=e.target.closest?e.target.closest('a[href^="#"]'):null;
@@ -459,25 +468,15 @@ main > #rsvp{order:3}
       var id=a.getAttribute("href").replace(/^#/,"");
       if(!ids[id]) return;               /* leave #dev and other anchors alone */
       e.preventDefault();
-      goTo(id);
+      showTab(id);                        /* no hash written → URL stays clean */
     });
-    /* scrollspy — mark the section you're reading in the nav */
-    if("IntersectionObserver" in window){
-      var byId={}; navLinks.forEach(function(a){byId[a.getAttribute("href").replace(/^#/,"")]=a;});
-      var spy=new IntersectionObserver(function(es){
-        es.forEach(function(e){
-          if(!e.isIntersecting) return;
-          navLinks.forEach(function(a){a.removeAttribute("aria-current");});
-          var a=byId[e.target.id]; if(a) a.setAttribute("aria-current","page");
-        });
-      },{rootMargin:"-45% 0px -50% 0px"});
-      sections.forEach(function(s){spy.observe(s);});
-    }
-    /* old #section links / bookmarks: jump there once, then clean the URL */
+    /* an incoming #section (old link/bookmark): open that tab, then clean the URL */
     var h=(location.hash||"").replace(/^#/,"");
     if(h && ids[h]){
       try{window.history.replaceState(null,"",location.pathname+location.search);}catch(e){}
-      setTimeout(function(){goTo(h);},60);
+      showTab(h,false);
+    } else {
+      showTab(DEFAULT_TAB,false);
     }
   }
 })();
